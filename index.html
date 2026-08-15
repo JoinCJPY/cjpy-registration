@@ -101,10 +101,20 @@ a:hover{color:var(--navy-700)}
   border-radius:18px 110px 18px 18px;
   -webkit-mask-image:linear-gradient(to bottom,#000 84%,rgba(0,0,0,.45) 95%,transparent 100%);
   mask-image:linear-gradient(to bottom,#000 84%,rgba(0,0,0,.45) 95%,transparent 100%)}
-.datepill{position:absolute;left:12px;bottom:-2px;display:inline-flex;align-items:center;gap:7px;
+.datepill{position:absolute;left:12px;bottom:-2px;display:inline-flex;align-items:center;gap:0;
   background:#fff;border-radius:99px;padding:9px 15px;font-size:12.5px;font-weight:700;
   color:var(--navy);box-shadow:0 8px 24px rgba(13,43,78,.16),0 0 0 1px var(--color-divider)}
-.datepill::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--amber)}
+.datepill .dp-k{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--t-55);margin-right:8px}
+.datepill .dp-d{font-weight:700}
+.datepill .bird{width:24px;height:16px;flex:none;display:block;margin-left:11px;color:var(--navy);
+  transform-origin:50% 80%;animation:birdGlide 1.9s ease-in-out infinite}
+.datepill .bird .w{transform-origin:52% 92%;animation:birdFlap 1.9s ease-in-out infinite}
+@keyframes birdGlide{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+@keyframes birdFlap{0%,100%{transform:scaleY(1) scaleX(1)}
+  38%{transform:scaleY(.5) scaleX(1.06)}
+  62%{transform:scaleY(1.12) scaleX(.97)}
+  82%{transform:scaleY(.92) scaleX(1.02)}}
 .stack{display:flex;flex-direction:column;gap:var(--space-3)}
 .stack-2{display:flex;flex-direction:column;gap:var(--space-2)}
 .muted{color:var(--t-62)}
@@ -440,7 +450,17 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
 
       <img src="./hero.jpg" alt="CJpy Cohort students working together at a laptop">
 
-      <span class="datepill">Starts {{ startDate }}</span>
+      <span class="datepill"><span class="dp-k">Starts</span><span class="dp-d">{{ startDate }}</span>
+        <svg class="bird" viewBox="0 0 104 68" fill="currentColor" aria-hidden="true">
+          <g class="w">
+            <path d="M45.2 38.4C32.8 34.6 18.8 24.4 4.4 4.8c2.8 12.4 12.4 26.2 25.2 33.2-5.4-.4-10.4-2-14.8-4.6 7.2 9.2 17.8 14.6 29.6 15.2z"/>
+            <path d="M59.6 36.8c14-4.4 28.8-15.4 40-33.6-1.6 13.2-10.8 28.4-24.4 36.4 6-.2 11.6-2 16.6-5-8 10.2-19.8 16-33 16.4z"/>
+          </g>
+          <path d="M44.8 37.2c4.6-5.2 10.8-7.2 16.8-5.2 6.6 2.2 9.2 8.2 6.8 13.4 4.6-1 8.8-3 12.4-5.8-3.2 6.8-9.2 11.8-16.6 14 3.2 1 6.4 1.2 9.6.6-6.6 4.6-14.8 6-22.6 3.6 2.6-2.2 4.4-4.8 5.4-7.8-6.2-.8-11-4-13.8-9.2z"/>
+          <path fill="#fff" d="M45.6 37.6c2.8-3.6 6.6-5.4 10.8-5.4-2.8 2.2-4.4 4.8-4.6 7.8-2.4-.4-4.6-1.2-6.2-2.4z"/>
+          <circle cx="52.6" cy="35.6" r="1.5"/>
+        </svg>
+      </span>
 
     </div>
 
@@ -558,7 +578,12 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
 
       <div class="byline">
 
-        <div class="avatar" aria-hidden="true">{{ spotlight.initials }}</div>
+        <sc-if value="{{ spotlight.hasImage }}">
+          <img src="{{ spotlight.image }}" alt="{{ spotlight.name }}" class="avatar" style="object-fit:cover">
+        </sc-if>
+        <sc-if value="{{ spotlight.noImage }}">
+          <div class="avatar" aria-hidden="true">{{ spotlight.initials }}</div>
+        </sc-if>
 
         <div>
 
@@ -1067,6 +1092,8 @@ class Component extends DCLogic {
 
       name: 'Anokye Theopneustos Nkum', role: 'Doctor of Optometry', initials: 'AN',
 
+      image: './testimonial-adjoa.jpg',
+
       stars: '★★★★★', rating: '5'
 
     },
@@ -1076,8 +1103,6 @@ class Component extends DCLogic {
       { quote: 'For someone who had no python experience, this course has been very helpful. The teaching and activities given made the learning experience very effective.',
 
         name: 'Adjoa Kwansema Eshun', role: 'Biomedical Engineering, Year 1', initials: 'AE',
-
-        image: './testimonial-adjoa.jpg',
 
         stars: '★★★★', rating: '4' }
 
@@ -1644,7 +1669,7 @@ class Component extends DCLogic {
 
       personas: C.personas,
 
-      spotlight: C.spotlight,
+      spotlight: { ...C.spotlight, hasImage: !!C.spotlight.image, noImage: !C.spotlight.image },
 
       testimonials: C.testimonials.map(t => ({ ...t, hasImage: !!t.image, noImage: !t.image })),
 
