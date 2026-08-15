@@ -838,9 +838,9 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
     <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:var(--space-4)">
       <div>
         <h2 class="h-sec" style="margin:0 0 4px">Frequently Asked Questions</h2>
-        <p class="lede" style="margin:0">Everything you need to know about the CJpy Python bootcamp.</p>
+        <p class="lede" style="margin:0">Key answers below — or open the full 15-question guide.</p>
       </div>
-      <button type="button" class="btn btn-secondary btn-sm" onclick="window.openModal('faqModal')">Open Full FAQ Popup <span class="ar">↗</span></button>
+      <button type="button" class="btn btn-secondary btn-sm" onClick="{{ openFaqModal }}">Open Full FAQ (15 Q&amp;As) <span class="ar">↗</span></button>
     </div>
 
     <div class="faq-list">
@@ -867,6 +867,10 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
 
       </sc-for>
 
+    </div>
+
+    <div style="margin-top:var(--space-4)">
+      <button type="button" class="btn btn-secondary btn-block btn-lg" onClick="{{ openFaqModal }}">View All 15 Questions &amp; Answers <span class="ar">↗</span></button>
     </div>
 
   </section>
@@ -1090,11 +1094,11 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
     <div style="margin-bottom:8px">Empowering Ghanaian students and young professionals to write clean code, build real software, and lead in tech.</div>
 
     <ul class="foot-links">
-      <li><button type="button" class="foot-btn" onclick="window.openModal('aboutModal')">About CJpy</button></li>
-      <li><button type="button" class="foot-btn" onclick="window.openModal('faqModal')">FAQ</button></li>
-      <li><button type="button" class="foot-btn" onclick="window.openModal('termsModal')">Terms of Service</button></li>
-      <li><button type="button" class="foot-btn" onclick="window.openModal('privacyModal')">Privacy Policy</button></li>
-      <li><button type="button" class="foot-btn" onclick="window.openModal('refundModal')">Refund &amp; Cancellation Policy</button></li>
+      <li><button type="button" class="foot-btn" onClick="{{ openAboutModal }}">About CJpy</button></li>
+      <li><button type="button" class="foot-btn" onClick="{{ openFaqModal }}">FAQ</button></li>
+      <li><button type="button" class="foot-btn" onClick="{{ openTermsModal }}">Terms of Service</button></li>
+      <li><button type="button" class="foot-btn" onClick="{{ openPrivacyModal }}">Privacy Policy</button></li>
+      <li><button type="button" class="foot-btn" onClick="{{ openRefundModal }}">Refund &amp; Cancellation Policy</button></li>
     </ul>
 
     <div style="margin-top:10px;font-size:11.5px;color:var(--t-55)">
@@ -1745,7 +1749,7 @@ class Component extends DCLogic {
 
     }));
 
-    const faqs = C.faqs.map((f, i) => ({
+    const faqs = C.faqs.slice(0, 6).map((f, i) => ({
 
       ...f,
 
@@ -1865,7 +1869,17 @@ class Component extends DCLogic {
 
       handleProfile: (e) => this.handleProfile(e),
 
-      goBack: () => this.goBack()
+      goBack: () => this.goBack(),
+
+      openFaqModal: () => window.openModal('faqModal'),
+
+      openAboutModal: () => window.openModal('aboutModal'),
+
+      openTermsModal: () => window.openModal('termsModal'),
+
+      openPrivacyModal: () => window.openModal('privacyModal'),
+
+      openRefundModal: () => window.openModal('refundModal')
 
     };
 
