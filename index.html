@@ -369,6 +369,25 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
   .facts{grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:var(--space-4)}
   .input{font-size:16px}
   .btn-lg{width:100%}
+  /* Bring FAQ after Register section on mobile & tablets */
+  .body{display:flex;flex-direction:column}
+  .flow{display:contents}
+  .sec-hero{order:1}
+  .hr-1{order:2}
+  .sec-who{order:3}
+  .hr-2{order:4}
+  .sec-testimonials{order:5}
+  .hr-3{order:6}
+  .sec-curriculum{order:7}
+  .hr-4{order:8}
+  .sec-outcomes{order:9}
+  .hr-5{order:10}
+  .sec-facts{order:11}
+  .hr-6{order:12}
+  .sec-pricing{order:13}
+  .hr-7{order:14}
+  .reg{order:15}
+  .sec-faq{order:16}
 }
 @media (min-width:600px) and (max-width:899px){
   .shell{max-width:640px}
@@ -483,7 +502,7 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
 
   <!-- ═══ HERO ══════════════════════════════════════════════════════ -->
 
-  <section class="sec">
+  <section class="sec sec-hero">
 
     <h1 class="hero-h1"><span class="hero-line"><span>Learn today.</span></span><span class="hero-line"><span>Build tomorrow.</span></span><span class="hero-line"><span>Lead forever.</span></span></h1>
 
@@ -513,11 +532,11 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
 
   </section>
 
-    <hr class="hr">
+    <hr class="hr hr-1">
 
 <!-- ═══ WHO IT'S FOR ══════════════════════════════════════════════ -->
 
-  <section class="sec">
+  <section class="sec sec-who">
 
     <p class="kicker">Who it's for</p>
 
@@ -551,11 +570,11 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
 
   </section>
 
-  <hr class="hr">
+  <hr class="hr hr-2">
 
 <!-- ═══ TESTIMONIALS ══════════════════════════════════════════════ -->
 
-  <section class="sec">
+  <section class="sec sec-testimonials">
 
     <p class="kicker">From Cohort 01 &bull; 65+ grads</p>
 
@@ -629,11 +648,11 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
 
   </section>
 
-  <hr class="hr">
+  <hr class="hr hr-3">
 
 <!-- ═══ CURRICULUM ════════════════════════════════════════════════ -->
 
-  <section class="sec">
+  <section class="sec sec-curriculum">
 
     <h2 class="h-sec">Study Roadmap</h2>
 
@@ -659,11 +678,11 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
 
   </section>
 
-  <hr class="hr">
+  <hr class="hr hr-4">
 
 <!-- ═══ OUTCOMES ══════════════════════════════════════════════════ -->
 
-  <section class="sec">
+  <section class="sec sec-outcomes">
 
     <p class="kicker">Why this cohort</p>
 
@@ -699,11 +718,11 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
 
   </section>
 
-  <hr class="hr">
+  <hr class="hr hr-5">
 
 <!-- ═══ COHORT FACTS ══════════════════════════════════════════════ -->
 
-  <section class="sec">
+  <section class="sec sec-facts">
 
     <p class="kicker">Cohort details</p>
 
@@ -755,11 +774,11 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
 
   </section>
 
-  <hr class="hr">
+  <hr class="hr hr-6">
 
 <!-- ═══ PRICING ═══════════════════════════════════════════════════ -->
 
-  <section class="sec">
+  <section class="sec sec-pricing">
 
     <p class="kicker">What it costs</p>
 
@@ -808,11 +827,11 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
 
 
 
-  <hr class="hr">
+  <hr class="hr hr-7">
 
   <!-- ═ ═ ═  FAQ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═  -->
 
-  <section class="sec" id="faq" style="scroll-margin-top:64px">
+  <section class="sec sec-faq" id="faq" style="scroll-margin-top:64px">
 
     <p class="kicker">Got questions?</p>
 
