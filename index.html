@@ -422,6 +422,40 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
   .cards-2{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3)}
 }
 
+
+/* ── FAQ Accordion ── */
+.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:var(--space-4)}
+.faq-item{border:1px solid var(--color-divider);border-radius:var(--radius-md);background:var(--color-surface);overflow:hidden;transition:border-color .18s ease,box-shadow .18s ease}
+.faq-item:hover{border-color:rgba(13,43,78,.25)}
+.faq-item.is-open{border-color:var(--navy);box-shadow:0 4px 16px rgba(13,43,78,.06)}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;background:none;border:0;text-align:left;font-family:inherit;font-size:14.5px;font-weight:600;color:var(--navy);cursor:pointer}
+.faq-q:focus-visible{outline:2px solid var(--navy);outline-offset:-2px}
+.faq-icon{width:20px;height:20px;flex:none;transition:transform .24s cubic-bezier(.16,1,.3,1);color:var(--t-62)}
+.faq-item.is-open .faq-icon{transform:rotate(180deg);color:var(--navy)}
+.faq-a{display:none;padding:0 18px 16px;font-size:13.5px;line-height:1.65;color:var(--t-72)}
+.faq-item.is-open .faq-a{display:block}
+
+/* ── Modals & Popups (Paystack Compliance) ── */
+.cj-modal-overlay{position:fixed;inset:0;background:rgba(13,43,78,.58);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);z-index:999;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .2s ease}
+.cj-modal-overlay.is-active{opacity:1;pointer-events:auto}
+.cj-modal{background:#fff;border-radius:18px;max-width:680px;width:100%;max-height:86vh;display:flex;flex-direction:column;box-shadow:0 24px 64px rgba(13,43,78,.24);overflow:hidden;transform:translateY(16px) scale(.98);transition:transform .24s cubic-bezier(.16,1,.3,1)}
+.cj-modal-overlay.is-active .cj-modal{transform:translateY(0) scale(1)}
+.cj-modal-head{padding:18px 22px;border-bottom:1px solid var(--color-divider);display:flex;align-items:center;justify-content:space-between;gap:12px}
+.cj-modal-title{font-family:var(--font-heading);font-size:18px;font-weight:700;color:var(--navy);margin:0}
+.cj-modal-close{width:32px;height:32px;border-radius:50%;background:var(--color-ground);border:0;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;line-height:1;color:var(--t-72);transition:background .15s,color .15s}
+.cj-modal-close:hover{background:var(--color-divider);color:var(--navy)}
+.cj-modal-body{padding:22px;overflow-y:auto;font-size:13.5px;line-height:1.65;color:var(--t-72)}
+.cj-modal-body h4{font-size:15px;color:var(--navy);margin:18px 0 6px}
+.cj-modal-body h4:first-child{margin-top:0}
+.cj-modal-body p{margin:0 0 12px}
+.cj-modal-body ul{margin:0 0 12px;padding-left:20px}
+.cj-modal-body li{margin-bottom:6px}
+
+/* ── Footer compliance links ── */
+.foot-links{display:flex;flex-wrap:wrap;gap:16px;margin:14px 0 10px;padding:0;list-style:none}
+.foot-btn{background:none;border:0;padding:0;font:inherit;font-size:12.5px;color:var(--t-72);text-decoration:underline;text-underline-offset:3px;cursor:pointer;transition:color .15s}
+.foot-btn:hover{color:var(--navy)}
+
 </style>
 
 </helmet>
@@ -976,17 +1010,77 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
 
   </section>
 
+
+  <hr class="hr">
+
+  <!-- ═ ═ ═  FAQ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═  -->
+
+  <section class="sec" id="faq" style="scroll-margin-top:64px">
+
+    <p class="kicker">Got questions?</p>
+
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:var(--space-4)">
+      <div>
+        <h2 class="h-sec" style="margin:0 0 4px">Frequently Asked Questions</h2>
+        <p class="lede" style="margin:0">Everything you need to know about the CJpy Python bootcamp.</p>
+      </div>
+      <button type="button" class="btn btn-secondary btn-sm" onclick="window.openModal('faqModal')">Open Full FAQ Popup <span class="ar">↗</span></button>
+    </div>
+
+    <div class="faq-list">
+
+      <sc-for list="{{ faqs }}" as="f">
+
+        <div class="faq-item {{ f.openClass }}">
+
+          <button type="button" class="faq-q" onClick="{{ f.onToggle }}" aria-expanded="{{ f.expanded }}">
+
+            <span>{{ f.q }}</span>
+
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+
+          </button>
+
+          <sc-if value="{{ f.open }}">
+            <div class="faq-a" style="display:block">
+              <p style="margin:0">{{ f.a }}</p>
+            </div>
+          </sc-if>
+
+        </div>
+
+      </sc-for>
+
+    </div>
+
+  </section>
+
   </main>
 
   <!-- ═══ FOOTER ════════════════════════════════════════════════════ -->
 
-  <footer class="foot">
+    <footer class="foot">
 
     <hr class="hr">
 
-    <div style="margin-bottom:4px">CJpy Cohort 02 &middot; Python bootcamp &middot; 30 days &middot; Live online</div>
+    <div style="margin-bottom:6px"><b>CJpy Python Bootcamp</b> &middot; Cohort 02 &middot; 30 days &middot; Live online</div>
+    <div style="margin-bottom:8px">Empowering Ghanaian students and young professionals to write clean code, build real software, and lead in tech.</div>
 
-    <div>Questions? WhatsApp <a href="{{ whatsappLink }}" target="_blank" rel="noopener noreferrer">{{ whatsapp }}</a> &mdash; we reply the same day.</div>
+    <ul class="foot-links">
+      <li><button type="button" class="foot-btn" onclick="window.openModal('aboutModal')">About CJpy</button></li>
+      <li><button type="button" class="foot-btn" onclick="window.openModal('faqModal')">FAQ</button></li>
+      <li><button type="button" class="foot-btn" onclick="window.openModal('termsModal')">Terms of Service</button></li>
+      <li><button type="button" class="foot-btn" onclick="window.openModal('privacyModal')">Privacy Policy</button></li>
+      <li><button type="button" class="foot-btn" onclick="window.openModal('refundModal')">Refund &amp; Cancellation Policy</button></li>
+    </ul>
+
+    <div style="margin-top:10px;font-size:11.5px;color:var(--t-55)">
+      Questions? WhatsApp <a href="{{ whatsappLink }}" target="_blank" rel="noopener noreferrer">{{ whatsapp }}</a> &middot; Email: <a href="mailto:joincjpy@gmail.com">joincjpy@gmail.com</a> &middot; Accra &amp; Kumasi, Ghana &mdash; we reply the same day.
+    </div>
+
+    <div style="margin-top:8px;font-size:11px;color:var(--t-40)">
+      &copy; 2026 CJpy. All rights reserved. Payments securely processed by Paystack.
+    </div>
 
   </footer>
 
@@ -1148,36 +1242,37 @@ class Component extends DCLogic {
 
     sources: ['A friend', 'WhatsApp', 'Instagram', 'X / Twitter', 'My school', 'Somewhere else'],
 
-    faqs: [                                        /* TODO: confirm every answer */
-
-      { q: 'Do I need to know any code already?',
-
-        a: 'No. Cohort 02 starts from "what is a variable". Everyone in the cohort starts on the same day from the same place, and the first week assumes nothing.' },
-
-      { q: 'What do I need to have?',
-
-        a: 'A laptop from roughly the last eight years — Windows, Mac or Linux, 4GB of RAM is plenty — and an internet connection steady enough for a video call. We install Python together in session one, so do not worry about setting anything up beforehand.' },
-
-      { q: 'What if I miss a session?',
-
-        a: 'Every live session is recorded and posted within 24 hours, and the exercises stay open. If you fall behind, the week-two check-in exists exactly to catch that.' },
-
-      { q: 'How much time will this take each week?',
-
-        a: 'Around six hours: two live sessions of about 90 minutes, plus two to three hours of practice you can spread however suits you.' },
-
-      { q: 'Can I pay in instalments?',
-
-        a: 'Yes. Half reserves your seat and the rest is due before week two begins. Choose the split at payment, or message us on WhatsApp and we will set it up with you.' },
-
-      { q: 'What if it turns out not to be for me?',
-
-        a: 'Sit through the first week. If it is not what you wanted, message us before session three and we refund you in full, no explanation needed.' },
-
-      { q: 'What happens after the 30 days?',
-
-        a: 'You leave with your capstone, the recordings, and the cohort group — which stays active. We also point you at the next thing to learn based on what you built.' }
-
+        faqs: [
+      { q: 'What is CJpy?',
+        a: 'A cohort-based Python programming bootcamp for Ghanaian SHS students, uni students, and young professionals trying to break into tech. Python only — no C, no distractions. Learn. Build. Lead.' },
+      { q: 'When does it run?',
+        a: 'Monday, Wednesday, Friday. 3 sessions a week for 30 days. Each session is 120–150 minutes. This is not a weekend crash course — it is a commitment, and that is the point.' },
+      { q: 'Where do sessions happen?',
+        a: 'Live on Zoom. All the info sharing, resources, and mentor conversations happen in our dedicated WhatsApp community — so even outside class, you are never stuck.' },
+      { q: 'What do I need to join?',
+        a: 'Just a laptop and internet. If you do not already have a code editor, install VS Code beforehand — it is free and it is what we will be using.' },
+      { q: 'How big are the classes?',
+        a: 'Max 20 students per class, split into breakout rooms. Small enough that tutors actually know your name.' },
+      { q: 'How much does it cost?',
+        a: 'GH₵ 300 for the full 30 days.' },
+      { q: 'Do I need any coding experience?',
+        a: 'No. If you can use WhatsApp, you can start this.' },
+      { q: "Who's teaching?",
+        a: "EE students who have actually built and debugged real things — not just people reading slides at you." },
+      { q: 'What if I fall behind or miss a session?',
+        a: 'Every session is recorded, so you do not lose the day. And your mentor is one WhatsApp message away — they will actually talk you through what you missed, not just point you to a link.' },
+      { q: 'Is there a refund policy?',
+        a: 'No refunds. Not because we do not care — because we do. The moment there is an exit door, people take it the first time it gets hard, and that is exactly the week they needed to push through. We built this program for people who are in. If you are not ready to show up 3 times a week for a month, wait for a cohort when you are — we would rather have you fully committed later than half-in now.' },
+      { q: 'Do people actually recommend this after finishing?',
+        a: 'Yes. The large majority of Cohort 1 students said they had already recommended CJpy to someone else, or would. Nobody told us to say that — that is what they told us when we asked.' },
+      { q: 'Will I get a certificate?',
+        a: 'Yes, on completion.' },
+      { q: 'Is this just theory or do I actually build things?',
+        a: 'You build. That is the "Build" in Learn. Build. Lead. Lectures without shipped code do not get anyone hired.' },
+      { q: 'I am not a "tech person," is this still for me?',
+        a: 'Most of Cohort 1 was not either. That is the whole reason CJpy exists.' },
+      { q: 'How do I sign up?',
+        a: 'WhatsApp us or head to joincjpy.com. Cohort 2 starts September 10.' }
     ]
 
   };
@@ -1633,6 +1728,8 @@ class Component extends DCLogic {
 
       open: s.openFaq === i,
 
+      openClass: s.openFaq === i ? 'is-open' : '',
+
       expanded: s.openFaq === i ? 'true' : 'false',
 
       onToggle: () => this.toggleFaq(i)
@@ -1753,6 +1850,203 @@ class Component extends DCLogic {
 
 }
 
+</script>
+
+
+<!-- ══════════════════ COMPLIANCE & INFO MODALS (PAYSTACK COMPLIANT) ══════════════════ -->
+
+<!-- About Modal -->
+<div id="aboutModal" class="cj-modal-overlay" onclick="if(event.target===this)window.closeModal('aboutModal')">
+  <div class="cj-modal">
+    <div class="cj-modal-head">
+      <h3 class="cj-modal-title">About CJpy</h3>
+      <button type="button" class="cj-modal-close" onclick="window.closeModal('aboutModal')" aria-label="Close modal">&times;</button>
+    </div>
+    <div class="cj-modal-body">
+      <h4>Our Mission</h4>
+      <p>CJpy is an intensive, cohort-based Python programming bootcamp designed specifically for Ghanaian high school (SHS) graduates, university students, and young professionals breaking into software engineering and technology.</p>
+      
+      <h4>How We Teach</h4>
+      <p>We focus 100% on Python with a project-driven curriculum. No outdated languages or passive lectures — from day one, students install VS Code, write code live, build working automation scripts and software tools, and graduate with projects they can showcase on GitHub.</p>
+
+      <h4>Who Leads the Sessions</h4>
+      <p>All sessions are taught and mentored by Electrical Engineering and Computer Science students and practitioners who actively build, ship, and debug software in Ghana. Each cohort is capped at 20 students per breakout class to ensure personalized attention.</p>
+
+      <h4>Contact &amp; Operations</h4>
+      <ul>
+        <li><strong>Location:</strong> Accra &amp; Kumasi, Ghana</li>
+        <li><strong>Email:</strong> <a href="mailto:joincjpy@gmail.com">joincjpy@gmail.com</a></li>
+        <li><strong>WhatsApp / Phone:</strong> +233 50 932 9059</li>
+        <li><strong>Website:</strong> <a href="https://joincjpy.com">joincjpy.com</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ Modal -->
+<div id="faqModal" class="cj-modal-overlay" onclick="if(event.target===this)window.closeModal('faqModal')">
+  <div class="cj-modal">
+    <div class="cj-modal-head">
+      <h3 class="cj-modal-title">Frequently Asked Questions</h3>
+      <button type="button" class="cj-modal-close" onclick="window.closeModal('faqModal')" aria-label="Close modal">&times;</button>
+    </div>
+    <div class="cj-modal-body">
+      <h4>1. What is CJpy?</h4>
+      <p>A cohort-based Python programming bootcamp for Ghanaian SHS students, uni students, and young professionals trying to break into tech. Python only — no C, no distractions. Learn. Build. Lead.</p>
+
+      <h4>2. When does it run?</h4>
+      <p>Monday, Wednesday, Friday. 3 sessions a week for 30 days. Each session is 120–150 minutes. This isn't a weekend crash course — it's a commitment, and that's the point.</p>
+
+      <h4>3. Where do sessions happen?</h4>
+      <p>Live on Zoom. All the info sharing, resources, and mentor conversations happen in our dedicated WhatsApp community — so even outside class, you're never stuck.</p>
+
+      <h4>4. What do I need to join?</h4>
+      <p>Just a laptop and internet. If you don't already have a code editor, install VS Code beforehand — it's free and it's what we'll be using.</p>
+
+      <h4>5. How big are the classes?</h4>
+      <p>Max 20 students per class, split into breakout rooms. Small enough that tutors actually know your name.</p>
+
+      <h4>6. How much does it cost?</h4>
+      <p>GH₵ 300 for the full 30 days.</p>
+
+      <h4>7. Do I need any coding experience?</h4>
+      <p>No. If you can use WhatsApp, you can start this.</p>
+
+      <h4>8. Who's teaching?</h4>
+      <p>EE students who've actually built and debugged real things — not just people reading slides at you.</p>
+
+      <h4>9. What if I fall behind or miss a session?</h4>
+      <p>Every session is recorded, so you don't lose the day. And your mentor is one WhatsApp message away — they'll actually talk you through what you missed, not just point you to a link.</p>
+
+      <h4>10. Is there a refund policy?</h4>
+      <p>No refunds. Not because we don't care — because we do. The moment there's an exit door, people take it the first time it gets hard, and that's exactly the week they needed to push through. We built this program for people who are in. If you're not ready to show up 3 times a week for a month, wait for a cohort when you are — we'd rather have you fully committed later than half-in now.</p>
+
+      <h4>11. Do people actually recommend this after finishing?</h4>
+      <p>Yes. The large majority of Cohort 1 students said they'd already recommended CJpy to someone else, or would. Nobody told us to say that — that's what they told us when we asked.</p>
+
+      <h4>12. Will I get a certificate?</h4>
+      <p>Yes, on completion.</p>
+
+      <h4>13. Is this just theory or do I actually build things?</h4>
+      <p>You build. That's the "Build" in Learn. Build. Lead. Lectures without shipped code don't get anyone hired.</p>
+
+      <h4>14. I'm not a "tech person," is this still for me?</h4>
+      <p>Most of Cohort 1 wasn't either. That's the whole reason CJpy exists.</p>
+
+      <h4>15. How do I sign up?</h4>
+      <p>WhatsApp us or head to <a href="https://joincjpy.com">joincjpy.com</a>. Cohort 2 starts September 10.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Terms of Service Modal -->
+<div id="termsModal" class="cj-modal-overlay" onclick="if(event.target===this)window.closeModal('termsModal')">
+  <div class="cj-modal">
+    <div class="cj-modal-head">
+      <h3 class="cj-modal-title">Terms of Service</h3>
+      <button type="button" class="cj-modal-close" onclick="window.closeModal('termsModal')" aria-label="Close modal">&times;</button>
+    </div>
+    <div class="cj-modal-body">
+      <h4>1. Agreement to Terms</h4>
+      <p>By accessing or registering for any program on joincjpy.com, you agree to be bound by these Terms of Service and all applicable laws and regulations in Ghana.</p>
+
+      <h4>2. Program Description &amp; Access</h4>
+      <p>CJpy provides a 30-day live online Python bootcamp comprising 3 live sessions per week (120–150 minutes each), access to session recordings, downloadable starter code, and access to a dedicated WhatsApp cohort community and mentorship support.</p>
+
+      <h4>3. Tuition &amp; Payment</h4>
+      <p>Registration requires a one-time tuition payment of GH₵ 300 processed securely through Paystack. Payment confirms and locks your seat in the specified cohort.</p>
+
+      <h4>4. Student Conduct &amp; Community Rules</h4>
+      <p>Students agree to maintain respectful, collaborative behavior in live Zoom sessions and WhatsApp groups. CJpy reserves the right to remove any participant who engages in harassment, unauthorized commercial promotion, or copyright violation of cohort materials without refund.</p>
+
+      <h4>5. Intellectual Property</h4>
+      <p>All course curricula, lesson guides, and recorded video sessions remain the exclusive intellectual property of CJpy. All software code and projects independently written by students remain the property of the students.</p>
+
+      <h4>6. Governing Law</h4>
+      <p>These Terms shall be governed and construed in accordance with the laws of the Republic of Ghana.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Privacy Policy Modal -->
+<div id="privacyModal" class="cj-modal-overlay" onclick="if(event.target===this)window.closeModal('privacyModal')">
+  <div class="cj-modal">
+    <div class="cj-modal-head">
+      <h3 class="cj-modal-title">Privacy Policy</h3>
+      <button type="button" class="cj-modal-close" onclick="window.closeModal('privacyModal')" aria-label="Close modal">&times;</button>
+    </div>
+    <div class="cj-modal-body">
+      <h4>1. Information We Collect</h4>
+      <p>When you register for CJpy, we collect personal information you provide, including your full name, email address, phone/WhatsApp number, educational institution/level, and learning goals.</p>
+
+      <h4>2. How We Use Your Information</h4>
+      <p>We use your details strictly to:</p>
+      <ul>
+        <li>Assign your seat and manage your cohort registration.</li>
+        <li>Send you Zoom meeting links, calendar invites, and class materials.</li>
+        <li>Add you to the official Cohort WhatsApp group for announcements and mentor help.</li>
+        <li>Issue your Certificate of Completion upon finishing the program.</li>
+      </ul>
+
+      <h4>3. Payment Information Security</h4>
+      <p>All financial transactions are processed securely by <strong>Paystack</strong> (licensed payment service provider). CJpy does not store, process, or have access to your mobile money PINs, bank accounts, or credit card numbers.</p>
+
+      <h4>4. Data Protection &amp; Third Parties</h4>
+      <p>We do not sell, rent, or trade your personal data to third parties. We take appropriate technical precautions to protect your information against unauthorized access.</p>
+
+      <h4>5. Contact Us</h4>
+      <p>If you have questions about our privacy practices, contact us at <a href="mailto:joincjpy@gmail.com">joincjpy@gmail.com</a>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Refund Policy Modal -->
+<div id="refundModal" class="cj-modal-overlay" onclick="if(event.target===this)window.closeModal('refundModal')">
+  <div class="cj-modal">
+    <div class="cj-modal-head">
+      <h3 class="cj-modal-title">Refund &amp; Cancellation Policy</h3>
+      <button type="button" class="cj-modal-close" onclick="window.closeModal('refundModal')" aria-label="Close modal">&times;</button>
+    </div>
+    <div class="cj-modal-body">
+      <h4>1. Commitment-First Policy (No Refunds)</h4>
+      <p>CJpy operates on a strict <strong>No Refunds</strong> policy once enrolled. Because our cohorts have limited seats (max 20 per group) and our curriculum is built around deep mutual commitment, reserving a seat blocks that place from another applicant.</p>
+
+      <h4>2. Why We Have This Policy</h4>
+      <p>The moment an exit door exists, learners are tempted to withdraw at the first challenging coding concept — which is precisely the week where breakthroughs happen. We built CJpy for students who are ready to commit.</p>
+
+      <h4>3. Missing a Session</h4>
+      <p>If you cannot attend a live session, you will not fall behind. Every session is recorded and made available within 24 hours, and our mentors provide direct 1-on-1 assistance via WhatsApp.</p>
+
+      <h4>4. Emergency Cohort Transfers</h4>
+      <p>If documented medical or unavoidable circumstances prevent you from participating before Cohort 02 commences, you may request a one-time transfer to the next scheduled cohort by emailing <a href="mailto:joincjpy@gmail.com">joincjpy@gmail.com</a> at least 48 hours prior to start date.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.openModal = function(id) {
+    var el = document.getElementById(id);
+    if (el) {
+      el.classList.add('is-active');
+      document.body.style.overflow = 'hidden';
+    }
+  };
+  window.closeModal = function(id) {
+    var el = document.getElementById(id);
+    if (el) {
+      el.classList.remove('is-active');
+      document.body.style.overflow = '';
+    }
+  };
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      var openModals = document.querySelectorAll('.cj-modal-overlay.is-active');
+      openModals.forEach(function(m) {
+        m.classList.remove('is-active');
+      });
+      document.body.style.overflow = '';
+    }
+  });
 </script>
 
 </body>
