@@ -97,7 +97,10 @@ a:hover{color:var(--navy-700)}
   border-left:2px solid var(--amber);border-bottom:2px solid var(--amber);
   border-radius:0 0 0 22px;opacity:.55}
 .hero-panel img{width:100%;height:auto;aspect-ratio:1080/645;object-fit:cover;
-  display:block;border-radius:18px 36px 18px 18px}
+  object-position:50% 42%;display:block;
+  border-radius:18px 110px 18px 18px;
+  -webkit-mask-image:linear-gradient(to bottom,#000 84%,rgba(0,0,0,.45) 95%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 84%,rgba(0,0,0,.45) 95%,transparent 100%)}
 .datepill{position:absolute;left:12px;bottom:-2px;display:inline-flex;align-items:center;gap:0;
   background:#fff;border-radius:99px;padding:9px 15px;font-size:12.5px;font-weight:700;
   color:var(--navy);box-shadow:0 8px 24px rgba(13,43,78,.16),0 0 0 1px var(--color-divider)}
@@ -393,8 +396,7 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
   .hero-h1{font-size:clamp(32px, 3.2vw, 42px);max-width:16ch;margin-bottom:var(--space-2);line-height:1.02}
   .hero-sub{font-size:14px;line-height:1.55;margin-bottom:var(--space-4);max-width:48ch}
   .hero-panel{margin:0 0 var(--space-4);margin-right:-16px}
-  .hero-panel img{width:100%;height:auto;aspect-ratio:1080/645;object-fit:cover;
-    max-height:none;-webkit-mask-image:none;mask-image:none;border-radius:18px 36px 18px 18px}
+  .hero-panel img{max-height:none}
   .facts{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
 }
 @media (min-width:1500px){
