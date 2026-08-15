@@ -804,7 +804,55 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
 
   </section>
 
-  </div><!-- /.flow -->
+
+
+
+  <hr class="hr">
+
+  <!-- ═ ═ ═  FAQ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═  -->
+
+  <section class="sec" id="faq" style="scroll-margin-top:64px">
+
+    <p class="kicker">Got questions?</p>
+
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:var(--space-4)">
+      <div>
+        <h2 class="h-sec" style="margin:0 0 4px">Frequently Asked Questions</h2>
+        <p class="lede" style="margin:0">Everything you need to know about the CJpy Python bootcamp.</p>
+      </div>
+      <button type="button" class="btn btn-secondary btn-sm" onclick="window.openModal('faqModal')">Open Full FAQ Popup <span class="ar">↗</span></button>
+    </div>
+
+    <div class="faq-list">
+
+      <sc-for list="{{ faqs }}" as="f">
+
+        <div class="faq-item {{ f.openClass }}">
+
+          <button type="button" class="faq-q" onClick="{{ f.onToggle }}" aria-expanded="{{ f.expanded }}">
+
+            <span>{{ f.q }}</span>
+
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+
+          </button>
+
+          <sc-if value="{{ f.open }}">
+            <div class="faq-a" style="display:block">
+              <p style="margin:0">{{ f.a }}</p>
+            </div>
+          </sc-if>
+
+        </div>
+
+      </sc-for>
+
+    </div>
+
+  </section>
+
+  
+    </div><!-- /.flow -->
 
   <!-- ═══ REGISTER ══════════════════════════════════════════════════ -->
 
@@ -1010,52 +1058,7 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
 
   </section>
 
-
-  <hr class="hr">
-
-  <!-- ═ ═ ═  FAQ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═  -->
-
-  <section class="sec" id="faq" style="scroll-margin-top:64px">
-
-    <p class="kicker">Got questions?</p>
-
-    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:var(--space-4)">
-      <div>
-        <h2 class="h-sec" style="margin:0 0 4px">Frequently Asked Questions</h2>
-        <p class="lede" style="margin:0">Everything you need to know about the CJpy Python bootcamp.</p>
-      </div>
-      <button type="button" class="btn btn-secondary btn-sm" onclick="window.openModal('faqModal')">Open Full FAQ Popup <span class="ar">↗</span></button>
-    </div>
-
-    <div class="faq-list">
-
-      <sc-for list="{{ faqs }}" as="f">
-
-        <div class="faq-item {{ f.openClass }}">
-
-          <button type="button" class="faq-q" onClick="{{ f.onToggle }}" aria-expanded="{{ f.expanded }}">
-
-            <span>{{ f.q }}</span>
-
-            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-
-          </button>
-
-          <sc-if value="{{ f.open }}">
-            <div class="faq-a" style="display:block">
-              <p style="margin:0">{{ f.a }}</p>
-            </div>
-          </sc-if>
-
-        </div>
-
-      </sc-for>
-
-    </div>
-
-  </section>
-
-  </main>
+</main>
 
   <!-- ═══ FOOTER ════════════════════════════════════════════════════ -->
 
