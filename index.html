@@ -518,36 +518,6 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
 
   <hr class="hr">
 
-<!-- ═══ CURRICULUM ════════════════════════════════════════════════ -->
-
-  <section class="sec">
-
-    <h2 class="h-sec">Study Roadmap</h2>
-
-    <div class="stack">
-
-      <sc-for list="{{ curriculum }}" as="week" hint-placeholder-count="4">
-
-        <div class="row">
-
-          <div>
-
-            <div class="row-title">{{ week.title }}</div>
-
-            <div class="row-desc">{{ week.desc }}</div>
-
-          </div>
-
-        </div>
-
-      </sc-for>
-
-    </div>
-
-  </section>
-
-  <hr class="hr">
-
 <!-- ═══ TESTIMONIALS ══════════════════════════════════════════════ -->
 
   <section class="sec">
@@ -613,6 +583,36 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
               <div class="by-r">{{ t.role }}</div>
 
             </div>
+
+          </div>
+
+        </div>
+
+      </sc-for>
+
+    </div>
+
+  </section>
+
+  <hr class="hr">
+
+<!-- ═══ CURRICULUM ════════════════════════════════════════════════ -->
+
+  <section class="sec">
+
+    <h2 class="h-sec">Study Roadmap</h2>
+
+    <div class="stack">
+
+      <sc-for list="{{ curriculum }}" as="week" hint-placeholder-count="4">
+
+        <div class="row">
+
+          <div>
+
+            <div class="row-title">{{ week.title }}</div>
+
+            <div class="row-desc">{{ week.desc }}</div>
 
           </div>
 
@@ -692,7 +692,7 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
 
         <div class="fact-v">30 days</div>
 
-        <div class="fact-n">4 weeks, 2 live sessions a week</div>
+        <div class="fact-n">4 weeks, 3 live sessions a week</div>
 
       </div>
 
