@@ -8,7 +8,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
-<meta name="build-version" content="2026.08.16.3">
+<meta name="build-version" content="2026.08.16.4">
 <style>.cj-modal-overlay{display:none}</style>
 <script src="./support.js"></script>
 </head>
@@ -2040,26 +2040,111 @@ class Component extends DCLogic {
       <button type="button" class="cj-modal-close" onclick="window.closeModal('privacyModal')" aria-label="Close modal">&times;</button>
     </div>
     <div class="cj-modal-body">
-      <h4>1. Information We Collect</h4>
-      <p>When you register for CJpy, we collect personal information you provide, including your full name, email address, phone/WhatsApp number, educational institution/level, and learning goals.</p>
+      <div style="margin-bottom:14px">
+        <p style="font-size:12px;color:var(--t-55);margin:0 0 10px"><strong>Last updated:</strong> August 15, 2026</p>
+        <p>This Privacy Notice for <strong>CJPY</strong> ('<strong>we</strong>', '<strong>us</strong>', or '<strong>our</strong>') describes how and why we might access, collect, store, use, and/or share ('<strong>process</strong>') your personal information when you use our services ('<strong>Services</strong>'), including when you:</p>
+        <ul>
+          <li>Visit our website at <a href="https://joincjpy.com" target="_blank" rel="noopener">https://joincjpy.com</a> or any website of ours that links to this Privacy Notice.</li>
+          <li>Engage with us in other related ways, including any marketing or events.</li>
+        </ul>
+        <p><strong>Questions or concerns?</strong> Reading this Privacy Notice will help you understand your privacy rights and choices. We are responsible for making decisions about how your personal information is processed. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at <a href="mailto:joincjpy@gmail.com">joincjpy@gmail.com</a>.</p>
+      </div>
 
-      <h4>2. How We Use Your Information</h4>
-      <p>We use your details strictly to:</p>
+      <hr class="hr" style="margin:16px 0">
+
+      <h4 id="pp-summary">Summary of Key Points</h4>
+      <p><em>This summary provides key points from our Privacy Notice, but you can find out more details about any of these topics by using our table of contents below.</em></p>
       <ul>
-        <li>Assign your seat and manage your cohort registration.</li>
-        <li>Send you Zoom meeting links, calendar invites, and class materials.</li>
-        <li>Add you to the official Cohort WhatsApp group for announcements and mentor help.</li>
-        <li>Issue your Certificate of Completion upon finishing the program.</li>
+        <li><strong>What personal information do we process?</strong> When you visit, use, or navigate our Services, we may process personal information depending on how you interact with us, your choices, and the features you use. <a href="#pp-infocollect">Learn more</a>.</li>
+        <li><strong>Do we process any sensitive personal information?</strong> We do not process sensitive personal information.</li>
+        <li><strong>Do we collect any information from third parties?</strong> We may collect limited data from public databases, marketing partners, and other outside sources. <a href="#pp-othersources">Learn more</a>.</li>
+        <li><strong>How do we process your information?</strong> We process your information to provide, improve, and administer our Services, communicate with you, for security and fraud prevention, and to comply with law. <a href="#pp-infouse">Learn more</a>.</li>
+        <li><strong>In what situations and with which parties do we share personal information?</strong> We may share information in specific situations with business partners and service providers. <a href="#pp-whoshare">Learn more</a>.</li>
+        <li><strong>How do we keep your information safe?</strong> We have organizational and technical security measures in place to protect your personal information. <a href="#pp-infosafe">Learn more</a>.</li>
+        <li><strong>What are your rights?</strong> Depending on your location, you may have rights regarding access, correction, deletion, and consent withdrawal for your data. <a href="#pp-privacyrights">Learn more</a>.</li>
+        <li><strong>How do you exercise your rights?</strong> The easiest way to exercise your rights is by submitting a <a href="https://app.termly.io/dsar/c452ca6b-52a6-4d4d-9ab8-4909be507ce4" target="_blank" rel="noopener noreferrer">data subject access request</a> or contacting us at <a href="mailto:joincjpy@gmail.com">joincjpy@gmail.com</a>.</li>
       </ul>
 
-      <h4>3. Payment Information Security</h4>
-      <p>All financial transactions are processed securely by <strong>Paystack</strong> (licensed payment service provider). CJpy does not store, process, or have access to your mobile money PINs, bank accounts, or credit card numbers.</p>
+      <hr class="hr" style="margin:16px 0">
 
-      <h4>4. Data Protection &amp; Third Parties</h4>
-      <p>We do not sell, rent, or trade your personal data to third parties. We take appropriate technical precautions to protect your information against unauthorized access.</p>
+      <h4 id="pp-toc">Table of Contents</h4>
+      <ol style="padding-left:20px;margin-bottom:18px;font-size:13px;line-height:1.7">
+        <li><a href="#pp-infocollect">What Information Do We Collect?</a></li>
+        <li><a href="#pp-infouse">How Do We Process Your Information?</a></li>
+        <li><a href="#pp-whoshare">When and With Whom Do We Share Your Personal Information?</a></li>
+        <li><a href="#pp-3pwebsites">What is Our Stance on Third-Party Websites?</a></li>
+        <li><a href="#pp-inforetain">How Long Do We Keep Your Information?</a></li>
+        <li><a href="#pp-infosafe">How Do We Keep Your Information Safe?</a></li>
+        <li><a href="#pp-privacyrights">What Are Your Privacy Rights?</a></li>
+        <li><a href="#pp-DNT">Controls for Do-Not-Track Features</a></li>
+        <li><a href="#pp-policyupdates">Do We Make Updates to This Notice?</a></li>
+        <li><a href="#pp-contact">How Can You Contact Us About This Notice?</a></li>
+        <li><a href="#pp-request">How Can You Review, Update, or Delete the Data We Collect from You?</a></li>
+      </ol>
 
-      <h4>5. Contact Us</h4>
-      <p>If you have questions about our privacy practices, contact us at <a href="mailto:joincjpy@gmail.com">joincjpy@gmail.com</a>.</p>
+      <hr class="hr" style="margin:16px 0">
+
+      <h4 id="pp-infocollect">1. What Information Do We Collect?</h4>
+      <p><strong>Personal information you disclose to us:</strong> We collect personal information that you voluntarily provide to us when you register for our courses, express an interest in obtaining information about us or our Services, or otherwise contact us.</p>
+      <p>The personal information we collect may include:</p>
+      <ul>
+        <li>Names</li>
+        <li>Phone / WhatsApp numbers</li>
+        <li>Email addresses</li>
+      </ul>
+      <p id="pp-sensitiveinfo"><strong>Sensitive Information:</strong> We do not process sensitive personal information.</p>
+      <p><strong>Payment Data:</strong> We may collect data necessary to process your payment if you choose to make purchases, such as your payment instrument number and security code. All payment data is handled and stored securely by our licensed payment processor, <a href="https://paystack.com/privacy/merchant" target="_blank" rel="noopener">Paystack</a>.</p>
+      <p>All personal information that you provide to us must be true, complete, and accurate, and you must notify us of any changes to such personal information.</p>
+
+      <p id="pp-othersources"><strong>Information collected from other sources:</strong> In order to enhance our ability to provide relevant marketing, offers, and services to you and update our records, we may obtain information about you from other sources, such as public databases, joint marketing partners, data providers, and social media platforms.</p>
+
+      <h4 id="pp-infouse">2. How Do We Process Your Information?</h4>
+      <p>We process your personal information for a variety of reasons, depending on how you interact with our Services, including:</p>
+      <ul>
+        <li><strong>To deliver and facilitate delivery of services to the user:</strong> We process your information to enroll you in the cohort, provide class links, manage schedule communications, and issue course certificates.</li>
+        <li><strong>To fulfil and manage your orders:</strong> We process your information to fulfil payments, registrations, and confirmations made through the Services.</li>
+        <li><strong>To deliver targeted advertising to you:</strong> We may process your information to develop and display personalized content and advertising tailored to your interests and location.</li>
+        <li><strong>To post testimonials:</strong> We post student testimonials on our Services that may contain personal information with prior permission.</li>
+        <li><strong>To evaluate and improve our Services:</strong> We process information to identify learning trends, assess curriculum effectiveness, and improve user experience.</li>
+        <li><strong>To comply with our legal obligations:</strong> We process information to comply with legal requests and defend our legal rights.</li>
+      </ul>
+
+      <h4 id="pp-whoshare">3. When and With Whom Do We Share Your Personal Information?</h4>
+      <p>We may share your personal information in specific situations:</p>
+      <ul>
+        <li><strong>Business Transfers:</strong> We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company.</li>
+        <li><strong>Business Partners:</strong> We may share your information with our educational and technology partners to offer you certain products, services, or certifications.</li>
+      </ul>
+
+      <h4 id="pp-3pwebsites">4. What is Our Stance on Third-Party Websites?</h4>
+      <p>The Services may link to third-party websites, online services, or mobile applications. We cannot guarantee the safety and privacy of data you provide to any third parties. Any data collected by third parties is not covered by this Privacy Notice. We are not responsible for the content or privacy and security practices of any third parties.</p>
+
+      <h4 id="pp-inforetain">5. How Long Do We Keep Your Information?</h4>
+      <p>We will only keep your personal information for as long as it is necessary for the purposes set out in this Privacy Notice, unless a longer retention period is required or permitted by law. When we have no ongoing legitimate business need to process your personal information, we will either delete or anonymize such information.</p>
+
+      <h4 id="pp-infosafe">6. How Do We Keep Your Information Safe?</h4>
+      <p>We have implemented appropriate and reasonable technical and organizational security measures designed to protect the security of any personal information we process. However, despite our safeguards, no electronic transmission over the Internet or storage technology can be guaranteed to be 100% secure. Transmission of personal information to and from our Services is at your own risk.</p>
+
+      <h4 id="pp-privacyrights">7. What Are Your Privacy Rights?</h4>
+      <p id="pp-withdrawconsent"><strong>Withdrawing your consent:</strong> If we are relying on your consent to process your personal information, you have the right to withdraw your consent at any time. You can withdraw your consent by contacting us at <a href="mailto:joincjpy@gmail.com">joincjpy@gmail.com</a>.</p>
+      <p>If you have questions or comments about your privacy rights, you may email us at <a href="mailto:joincjpy@gmail.com">joincjpy@gmail.com</a>.</p>
+
+      <h4 id="pp-DNT">8. Controls for Do-Not-Track Features</h4>
+      <p>Most web browsers and some mobile operating systems include a Do-Not-Track ('DNT') feature or setting you can activate. As no uniform technology standard for recognizing and implementing DNT signals has been finalized, we do not currently respond to DNT browser signals.</p>
+
+      <h4 id="pp-policyupdates">9. Do We Make Updates to This Notice?</h4>
+      <p>Yes, we will update this notice as necessary to stay compliant with relevant laws. The updated version will be indicated by an updated 'Revised' date at the top of this Privacy Notice.</p>
+
+      <h4 id="pp-contact">10. How Can You Contact Us About This Notice?</h4>
+      <p>If you have questions or comments about this notice, you may email us at <a href="mailto:joincjpy@gmail.com">joincjpy@gmail.com</a> or contact us at:</p>
+      <p><strong>CJPY</strong><br>Accra &amp; Kumasi, Ghana (Postal: 00233)</p>
+
+      <h4 id="pp-request">11. How Can You Review, Update, or Delete the Data We Collect from You?</h4>
+      <p>Based on applicable laws, you may have the right to request access to the personal information we collect from you, correct inaccuracies, delete your data, or withdraw consent. To request to review, update, or delete your personal information, please submit a <a href="https://app.termly.io/dsar/c452ca6b-52a6-4d4d-9ab8-4909be507ce4" target="_blank" rel="noopener noreferrer">data subject access request</a> or email us at <a href="mailto:joincjpy@gmail.com">joincjpy@gmail.com</a>.</p>
+
+      <div style="margin-top:20px;padding-top:12px;border-top:1px solid var(--color-divider);font-size:11.5px;color:var(--t-55)">
+        This Privacy Policy was generated using Termly's <a href="https://termly.io/products/privacy-policy-generator/" target="_blank" rel="noopener external" style="color:var(--t-72)">Privacy Policy Generator</a>.
+      </div>
     </div>
   </div>
 </div>
