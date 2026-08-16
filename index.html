@@ -8,7 +8,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
-<meta name="build-version" content="2026.08.16.2">
+<meta name="build-version" content="2026.08.16.3">
 <style>.cj-modal-overlay{display:none}</style>
 <script src="./support.js"></script>
 </head>
@@ -471,6 +471,20 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
 .cj-modal-body p{margin:0 0 12px}
 .cj-modal-body ul{margin:0 0 12px;padding-left:20px}
 .cj-modal-body li{margin-bottom:6px}
+
+/* ── Founder Profile Card ── */
+.founder-card{display:flex;gap:18px;align-items:center;background:linear-gradient(135deg,#f8fafc 0%,#edf2f8 100%);border:1px solid var(--color-divider);border-radius:14px;padding:16px;margin:8px 0 20px}
+.founder-img-wrap{flex:none;width:110px;height:125px;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(13,43,78,.12);border:2px solid #fff}
+.founder-img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.founder-info{flex:1;min-width:0}
+.founder-tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);background:var(--amber-100);padding:2px 8px;border-radius:4px;margin-bottom:6px}
+.founder-name{font-family:var(--font-heading);font-size:16px;font-weight:700;color:var(--navy);margin:0 0 4px !important;line-height:1.2}
+.founder-role{font-size:12.5px;font-weight:600;color:var(--t-85);line-height:1.4;margin-bottom:6px}
+.founder-bio{font-size:12px;color:var(--t-72);line-height:1.5;margin:0 !important}
+@media (max-width:480px){
+  .founder-card{flex-direction:column;align-items:flex-start;gap:14px;padding:14px}
+  .founder-img-wrap{width:90px;height:105px}
+}
 
 /* ── Footer compliance links ── */
 .foot-links{display:flex;flex-wrap:wrap;gap:16px;margin:14px 0 10px;padding:0;list-style:none}
@@ -1901,6 +1915,18 @@ class Component extends DCLogic {
       <button type="button" class="cj-modal-close" onclick="window.closeModal('aboutModal')" aria-label="Close modal">&times;</button>
     </div>
     <div class="cj-modal-body">
+      <div class="founder-card">
+        <div class="founder-img-wrap">
+          <img src="./cj.jpg" alt="Chris Kwaku Ameyaw Junior" class="founder-img" loading="eager">
+        </div>
+        <div class="founder-info">
+          <span class="founder-tag">Founder</span>
+          <h4 class="founder-name">Chris Kwaku Ameyaw Junior</h4>
+          <div class="founder-role">Founder, CJpy &bull; President, ELEESA (KNUST)</div>
+          <p class="founder-bio">Level 200 Electrical Engineering student at KNUST and President of the Electrical and Electronic Engineering Students' Association (ELEESA). Passionate about empowering Ghanaian youth to master real-world software engineering with Python.</p>
+        </div>
+      </div>
+
       <h4>Our Mission</h4>
       <p>CJpy is an intensive, cohort-based Python programming bootcamp designed specifically for Ghanaian high school (SHS) graduates, university students, and young professionals breaking into software engineering and technology.</p>
       
