@@ -1,0 +1,2104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="./favicon.ico">
+<link rel="icon" type="image/x-icon" href="./favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+<meta name="build-version" content="2026.08.16.1">
+<style>.cj-modal-overlay{display:none}</style>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="shortcut icon" href="./favicon.ico">
+<link rel="icon" type="image/x-icon" href="./favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap" rel="stylesheet">
+
+<script src="https://js.paystack.co/v2/inline.js"></script>
+
+<style>
+:root{
+  --navy:#0d2b4e; --navy-700:#163a66; --navy-300:#5b769b; --navy-100:#e6ecf4;
+  --amber:#f2a413; --amber-100:#fdf1da;
+  --color-bg:#ffffff; --color-ground:#f4f6fa;
+  --color-text:#141a24; --t-85:#2b3442; --t-72:#4d586a; --t-62:#65718400;
+  --t-62:#657184; --t-55:#8a94a5;
+  --color-divider:#e3e7ee; --color-divider-strong:#cfd6e2;
+  --color-danger:#c62f1c;
+  --font-heading:'Inter',system-ui,sans-serif; --font-body:'Inter',system-ui,sans-serif;
+  --space-1:3px; --space-2:6px; --space-3:10px; --space-4:14px;
+  --space-6:20px; --space-8:30px; --space-10:40px;
+  --radius-sm:6px; --radius-md:10px; --radius-lg:18px;
+  --shadow-sm:0 1px 2px rgba(13,43,78,.06);
+  --shadow-md:0 6px 20px rgba(13,43,78,.08);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --pad:var(--space-6);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;-webkit-font-smoothing:antialiased;background:var(--color-bg);
+  color:var(--color-text);font-family:var(--font-body);font-size:15px;line-height:1.6}
+.page{background:var(--color-bg);color:var(--color-text);min-height:100vh}
+h1,h2,h3,h4{font-family:var(--font-heading);font-weight:700;line-height:1.1;
+  letter-spacing:-.025em;margin:0;color:var(--navy)}
+p{margin:0}
+a{color:var(--navy);text-underline-offset:3px}
+a:hover{color:var(--navy-700)}
+:focus{outline:none}
+:focus-visible{outline:2px solid var(--amber);outline-offset:2px;border-radius:var(--radius-sm)}
+::selection{background:var(--amber-100)}
+.vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+.shell{width:100%;max-width:480px;margin:0 auto;padding-bottom:var(--space-10)}
+.sec{padding:var(--space-8) var(--pad)}
+.hr{height:1px;border:0;margin:var(--space-4) 0;background:var(--color-divider)}
+.kicker{font-family:'Bricolage Grotesque','Inter',system-ui,sans-serif;font-size:11.5px;
+  font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);
+  margin:0 0 var(--space-4);display:flex;align-items:center;gap:10px}
+.kicker::before{content:'>';font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:13px;font-weight:700;color:var(--navy-300);letter-spacing:0}
+.kicker::after{content:'';width:7px;height:13px;margin-left:-4px;background:var(--navy);
+  animation:caretBlink 1.15s steps(1,end) infinite}
+@keyframes caretBlink{0%,49%{opacity:1}50%,100%{opacity:0}}
+.h-sec{font-size:28px;margin:0 0 var(--space-3)}
+.lede{font-size:14.5px;line-height:1.6;color:var(--t-62);margin:0 0 var(--space-8);max-width:48ch}
+.hero-line{display:block;overflow:hidden;padding-bottom:.06em}
+.hero-line > span{display:inline-block;transform-origin:0% 100%;will-change:transform;
+  animation:heroSpring 1.05s cubic-bezier(.22,.9,.25,1) both}
+.hero-line:nth-child(1) > span{animation-delay:.05s}
+.hero-line:nth-child(2) > span{animation-delay:.19s}
+.hero-line:nth-child(3) > span{animation-delay:.33s}
+@keyframes heroSpring{
+  0%{transform:translateY(85%) scale(.68,1.14);opacity:0}
+  40%{opacity:1}
+  58%{transform:translateY(0) scale(1.07,.94);opacity:1}
+  76%{transform:scale(.975,1.025)}
+  90%{transform:scale(1.012,.99)}
+  100%{transform:none;opacity:1}
+}
+.hero-sub,.hero-panel,.sec .btn-lg{animation:heroRise .8s cubic-bezier(.19,1,.22,1) both}
+.hero-sub{animation-delay:.42s}
+.hero-panel{animation-delay:.5s}
+@keyframes heroRise{from{transform:translateY(14px);opacity:0}to{transform:none;opacity:1}}
+.hero-h1{font-family:'Bricolage Grotesque','Inter',system-ui,sans-serif;font-weight:800;
+  font-size:44px;line-height:.98;letter-spacing:-.035em;margin:0 0 var(--space-4);
+  max-width:13ch;color:var(--navy)}
+.hero-sub{font-size:15px;line-height:1.65;color:var(--t-62);margin:0 0 var(--space-6);max-width:44ch}
+.hero-panel{position:relative;isolation:isolate;margin:6px 0 var(--space-8)}
+.hero-panel::before{content:'';position:absolute;z-index:-2;inset:-16px -14px 34px 26%;
+  border-radius:180px 26px 26px 26px;
+  background:radial-gradient(70% 70% at 72% 26%,var(--amber-100),transparent 72%),var(--color-ground)}
+.hero-panel::after{content:'';position:absolute;z-index:-1;left:-2px;bottom:26px;width:64px;height:64px;
+  border-left:2px solid var(--amber);border-bottom:2px solid var(--amber);
+  border-radius:0 0 0 22px;opacity:.55}
+.hero-panel img{width:100%;height:auto;aspect-ratio:1080/645;object-fit:cover;
+  object-position:50% 42%;display:block;
+  border-radius:18px 110px 18px 18px;
+  -webkit-mask-image:linear-gradient(to bottom,#000 84%,rgba(0,0,0,.45) 95%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 84%,rgba(0,0,0,.45) 95%,transparent 100%)}
+.datepill{position:absolute;left:12px;bottom:-2px;display:inline-flex;align-items:center;gap:0;
+  background:#fff;border-radius:99px;padding:9px 15px;font-size:12.5px;font-weight:700;
+  color:var(--navy);box-shadow:0 8px 24px rgba(13,43,78,.16),0 0 0 1px var(--color-divider)}
+.datepill .dp-k{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--t-55);margin-right:8px}
+.datepill .dp-d{font-weight:700}
+.datepill .bird{width:24px;height:16px;flex:none;display:block;margin-left:11px;color:var(--navy);
+  transform-origin:50% 80%;animation:birdGlide 1.9s ease-in-out infinite}
+.datepill .bird .w{transform-origin:52% 92%;animation:birdFlap 1.9s ease-in-out infinite}
+@keyframes birdGlide{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+@keyframes birdFlap{0%,100%{transform:scaleY(1) scaleX(1)}
+  38%{transform:scaleY(.5) scaleX(1.06)}
+  62%{transform:scaleY(1.12) scaleX(.97)}
+  82%{transform:scaleY(.92) scaleX(1.02)}}
+.stack{display:flex;flex-direction:column;gap:var(--space-3)}
+.stack-2{display:flex;flex-direction:column;gap:var(--space-2)}
+.muted{color:var(--t-62)}
+.fine{font-size:12px;line-height:1.5;color:var(--t-55)}
+
+.nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:var(--space-4);
+  padding:12px var(--pad);background:rgba(255,255,255,.9);backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--color-divider)}
+.brand-mark{height:34px;width:auto;display:block;margin-right:9px;flex:none}
+.nav-brand{font-family:'Bricolage Grotesque','Inter',system-ui,sans-serif;font-weight:800;
+  font-size:23px;letter-spacing:-.035em;display:flex;align-items:center;color:var(--navy)}
+.nav-brand span{display:inline-block;transition:transform .22s cubic-bezier(.34,1.56,.64,1),
+  color .18s ease}
+.nav-brand .b-c{color:#d81b7a}
+.nav-brand .b-j{color:#2b7fc4}
+.nav-brand .b-p{color:#7b2ff2}
+.nav-brand .b-y{color:#f2a413}
+.nav-brand:hover .b-c{transform:translateY(-3px) rotate(-6deg)}
+.nav-brand:hover .b-j{transform:translateY(-3px) rotate(4deg);transition-delay:.04s}
+.nav-brand:hover .b-p{transform:translateY(-3px) rotate(-4deg);transition-delay:.08s}
+.nav-brand:hover .b-y{transform:translateY(-3px) rotate(6deg);transition-delay:.12s}
+/* cohort badge */
+.nav .tag-accent{margin-left:auto;font-family:'Bricolage Grotesque','Inter',system-ui,sans-serif;
+  display:inline-flex;align-items:center;gap:7px;padding:7px 14px;font-size:11px;font-weight:700;
+  letter-spacing:.14em;color:var(--navy);background:#fff;
+  border:1px solid var(--color-divider-strong);box-shadow:var(--shadow-sm)}
+.nav .tag-accent::before{content:'';width:8px;height:8px;border-radius:50%;background:#d81b7a;
+  margin-right:19px;box-shadow:7px 0 0 0 #2b7fc4,14px 0 0 0 #7b2ff2;
+  transition:box-shadow .25s var(--ease)}
+.nav .tag-accent:hover::before{box-shadow:8px 0 0 0 #2b7fc4,16px 0 0 0 #7b2ff2}
+@media (max-width:899px){
+  .nav .btn-sm{display:none}
+}
+
+.tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;letter-spacing:.04em;
+  padding:4px 11px;border-radius:99px;white-space:nowrap;font-weight:600}
+.tag-accent{background:var(--navy-100);color:var(--navy)}
+.tag-outline{border:1px solid var(--color-divider-strong);color:var(--t-62)}
+.tag-up{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;white-space:nowrap;
+  text-decoration:none;font-family:var(--font-heading);font-weight:600;font-size:14px;
+  line-height:1.2;color:var(--navy);background:transparent;border:1px solid transparent;
+  padding:var(--space-3) var(--space-4);border-radius:99px;transition:all .18s var(--ease)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn-primary{color:#fff;background:var(--navy);box-shadow:var(--shadow-sm)}
+.btn-primary:hover:not(:disabled){background:var(--navy-700);box-shadow:var(--shadow-md);
+  transform:translateY(-1px);color:#fff}
+.btn-primary:active:not(:disabled){transform:none;background:#0a2340}
+.btn-secondary{border-color:var(--color-divider-strong);color:var(--navy)}
+.btn-secondary:hover{background:var(--color-ground)}
+.btn-ghost{color:var(--navy);padding:var(--space-2);font-size:13px}
+.btn-ghost:hover{background:var(--color-ground)}
+.btn-block{display:flex;width:100%}
+.btn-lg{font-size:15.5px;padding:15px var(--space-6);letter-spacing:-.01em}
+.btn-sm{font-size:12.5px;padding:9px 18px}
+.btn .ar{transition:transform .2s var(--ease)}
+.btn:hover .ar{transform:translateX(3px)}
+/* pill CTA with a circular badge, like the reference */
+.btn-lg:has(.ar){padding:7px 7px 7px 28px;gap:18px;justify-content:space-between}
+.btn-lg .ar{width:40px;height:40px;flex:none;border-radius:50%;display:flex;
+  align-items:center;justify-content:center;font-size:17px;line-height:1;
+  background:var(--amber);color:var(--navy);
+  transition:transform .2s var(--ease),background .2s var(--ease)}
+.btn-lg:hover .ar{transform:translateX(2px);background:#ffb733}
+.btn-secondary.btn-lg{background:#fff;border-color:var(--color-divider-strong)}
+.btn-secondary.btn-lg .ar{background:var(--navy);color:#fff}
+.btn-sm:has(.ar){padding:5px 5px 5px 17px;gap:11px}
+.btn-sm .ar{width:27px;height:27px;flex:none;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;font-size:13px;line-height:1;background:var(--amber);color:var(--navy);
+  transition:transform .2s var(--ease),background .2s var(--ease)}
+.btn-sm:hover .ar{transform:translateX(2px);background:#ffb733}
+.btn-primary:focus-visible{outline-color:var(--navy);outline-offset:3px}
+.btn-block .spin{margin-right:2px}
+
+.ic{width:18px;height:18px;flex:none;display:block}
+.card{background:#fff;border:1px solid var(--color-divider);border-radius:var(--radius-lg);
+  padding:var(--space-6);transition:all .2s var(--ease)}
+.card:hover{border-color:var(--color-divider-strong);box-shadow:var(--shadow-md)}
+.card-lg{padding:var(--space-8) var(--space-6)}
+.elev-sm{box-shadow:var(--shadow-sm)}
+
+.row{display:flex;gap:var(--space-4);padding:var(--space-4);background:#fff;
+  border:1px solid var(--color-divider);border-radius:var(--radius-lg);
+  transition:all .2s var(--ease)}
+.row:hover{border-color:var(--color-divider-strong);box-shadow:var(--shadow-md)}
+.row-mark{flex:none;min-width:36px;padding:0 7px;height:36px;border-radius:var(--radius-md);
+  background:var(--navy-100);color:var(--navy);display:flex;align-items:center;
+  justify-content:center;font-family:var(--font-heading);font-weight:700;font-size:11px;
+  letter-spacing:.04em;white-space:nowrap}
+.row-title{font-weight:700;font-size:15px;margin-bottom:3px;color:var(--navy);letter-spacing:-.01em}
+.row-desc{font-size:13.5px;line-height:1.55;color:var(--t-62)}
+
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6);
+  background:var(--color-ground);border-radius:var(--radius-lg);padding:var(--space-6)}
+.fact-k{font-size:10.5px;color:var(--t-55);margin-bottom:5px;text-transform:uppercase;
+  letter-spacing:.1em;font-weight:700}
+.fact-v{font-weight:700;font-size:16px;line-height:1.25;color:var(--navy)}
+.fact-n{font-size:11.5px;color:var(--t-55);margin-top:3px}
+
+.who{display:flex;flex-direction:column;gap:var(--space-3)}
+.who-item{display:flex;gap:var(--space-3);padding:var(--space-4) 0}
+.who-item + .who-item{border-top:1px solid var(--color-divider)}
+.who-t{font-weight:700;font-size:14.5px;margin-bottom:3px;color:var(--navy)}
+.who-d{font-size:13px;line-height:1.5;color:var(--t-62)}
+
+.spot{border-radius:var(--radius-lg);padding:var(--space-8) var(--space-6);
+  background:var(--color-ground);position:relative}
+.spot-q{margin:0 0 var(--space-4);font-family:var(--font-heading);font-weight:600;
+  font-size:20px;line-height:1.4;letter-spacing:-.02em;color:var(--navy)}
+.stars{color:var(--amber);font-size:14px;letter-spacing:3px}
+.byline{display:flex;align-items:center;gap:var(--space-3)}
+.avatar{width:40px;height:40px;border-radius:50%;background:var(--navy-100);flex:none;
+  display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;
+  color:var(--navy)}
+.avatar-sm{width:32px;height:32px;font-size:12px}
+.by-n{font-weight:700;font-size:14px;color:var(--navy)}
+.by-r{font-size:12px;color:var(--t-55)}
+
+.price-head{display:flex;align-items:baseline;gap:var(--space-3);margin-bottom:var(--space-2)}
+.price-amt{font-family:var(--font-heading);font-weight:800;font-size:40px;letter-spacing:-.035em;
+  color:var(--navy)}
+.price-per{font-size:13px;color:var(--t-55)}
+.incl{display:flex;flex-direction:column;gap:var(--space-3);margin:var(--space-6) 0 0}
+.incl li{display:flex;gap:var(--space-3);font-size:13.5px;line-height:1.5;color:var(--t-85)}
+.incl .ic{width:16px;height:16px;margin-top:3px;color:var(--amber)}
+ul.incl{list-style:none;padding:0}
+.pay{display:flex;flex-wrap:wrap;gap:var(--space-2);margin-top:var(--space-6)}
+.pay span{font-size:11px;padding:4px 10px;border-radius:99px;border:1px solid var(--color-divider);
+  color:var(--t-62)}
+
+.steps{display:flex;align-items:center;gap:var(--space-2);margin-bottom:var(--space-8)}
+.step{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--t-55);white-space:nowrap}
+.step:not(:last-child){flex:1}
+.step:not(:last-child)::after{content:'';flex:1;min-width:8px;height:1px;margin-left:2px;
+  background:var(--color-divider)}
+.step-n{width:22px;height:22px;border-radius:50%;flex:none;display:flex;align-items:center;
+  justify-content:center;font-size:10px;font-weight:700;border:1.5px solid var(--color-divider);
+  color:var(--t-55);transition:all .2s ease}
+.step[data-state="current"]{color:var(--navy)}
+.step[data-state="current"] .step-n{border-color:var(--navy);color:var(--navy)}
+.step[data-state="done"] .step-n{border-color:var(--navy);background:var(--navy);color:#fff}
+.step[data-state="done"]:not(:last-child)::after{background:var(--navy-300)}
+.step-lbl{display:none}
+@media (min-width:360px){.step-lbl{display:inline}}
+
+.reg-card{background:#fff;border:1px solid var(--color-divider);border-radius:var(--radius-lg);
+  padding:var(--space-8) var(--space-6);box-shadow:var(--shadow-sm)}
+.field{margin:0}
+.field > label{display:block;font-size:12.5px;margin-bottom:6px;color:var(--t-72);font-weight:600}
+.field-hint{font-size:11px;color:var(--t-55);font-weight:400}
+.input{width:100%;min-height:44px;padding:11px 14px;font:inherit;font-size:14px;
+  color:var(--color-text);caret-color:var(--navy);background:#fff;
+  border:1px solid var(--color-divider-strong);border-radius:var(--radius-md);
+  transition:all .18s var(--ease)}
+.input::placeholder{color:#aeb6c4}
+.input:hover{border-color:var(--navy-300)}
+.input:focus-visible{border-color:var(--navy);outline-offset:0;
+  box-shadow:0 0 0 3px rgba(13,43,78,.1)}
+.input[aria-invalid="true"]{border-color:var(--color-danger)}
+textarea.input{min-height:80px;resize:vertical}
+.err{display:flex;align-items:flex-start;gap:6px;margin-top:6px;font-size:12px;line-height:1.4;
+  color:var(--color-danger)}
+.err .ic{width:14px;height:14px;margin-top:2px}
+fieldset{border:0;padding:0;margin:0;min-width:0}
+legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);padding:0;font-weight:600}
+.seg{display:flex;width:100%;overflow:hidden;border:1px solid var(--color-divider-strong);
+  border-radius:var(--radius-md)}
+.seg-opt{flex:1;display:flex;align-items:center;justify-content:center;padding:11px 8px;
+  font-size:13px;cursor:pointer;text-align:center;font-weight:600;color:var(--t-62);
+  transition:all .15s ease}
+.seg-opt + .seg-opt{border-left:1px solid var(--color-divider-strong)}
+.seg-opt:has(input:checked){color:#fff;background:var(--navy)}
+.seg-opt:not(:has(input:checked)):hover{background:var(--color-ground)}
+.seg-opt:has(input:focus-visible){outline:2px solid var(--amber);outline-offset:-2px}
+.radio{display:flex;align-items:center;gap:var(--space-3);font-size:14px;cursor:pointer;padding:6px 0}
+.radio .dot{width:17px;height:17px;flex:none;border-radius:50%;
+  border:1.5px solid var(--color-divider-strong);transition:all .15s ease}
+.radio:hover .dot{border-color:var(--navy)}
+.radio input:checked + .dot{border-color:var(--navy);background:var(--navy);
+  box-shadow:inset 0 0 0 3px #fff}
+.radio input:focus-visible + .dot{outline:2px solid var(--amber);outline-offset:2px}
+.radio input,.seg-opt input,.chip input{position:absolute;opacity:0;width:0;height:0;pointer-events:none}
+.chips{display:flex;flex-wrap:wrap;gap:var(--space-2)}
+.chip{display:inline-flex;align-items:center;padding:8px 14px;font-size:13px;cursor:pointer;
+  border:1px solid var(--color-divider-strong);border-radius:99px;color:var(--t-62);
+  transition:all .15s ease;font-weight:500}
+.chip:hover{border-color:var(--navy-300);color:var(--navy)}
+.chip:has(input:checked){border-color:var(--navy);color:#fff;background:var(--navy)}
+.chip:has(input:focus-visible){outline:2px solid var(--amber);outline-offset:2px}
+.pay-opt{display:flex;align-items:center;gap:var(--space-3);padding:var(--space-4);
+  border:1px solid var(--color-divider-strong);border-radius:var(--radius-md);cursor:pointer;
+  font-size:14px;transition:all .15s ease}
+.pay-opt:hover{background:var(--color-ground)}
+.pay-opt:has(input:checked){border-color:var(--navy);background:var(--navy-100)}
+.pay-opt:has(input:focus-visible){outline:2px solid var(--amber);outline-offset:2px}
+.pay-opt .dot{width:16px;height:16px;flex:none;border-radius:50%;
+  border:1.5px solid var(--color-divider-strong)}
+.pay-opt input:checked + .dot{border-color:var(--navy);background:var(--navy);
+  box-shadow:inset 0 0 0 3px #fff}
+.pay-note{margin-left:auto;font-size:11px;color:var(--t-55)}
+.paystack-box{border:1px solid var(--color-divider);border-radius:var(--radius-md);
+  padding:var(--space-4);background:var(--color-ground)}
+.ps-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+  font-size:13.5px;color:var(--t-62);padding:5px 0}
+.ps-row b{font-weight:700;color:var(--navy)}
+.ps-total{border-top:1px solid var(--color-divider-strong);margin-top:5px;padding-top:10px}
+.ps-total b{font-size:19px;font-family:'Bricolage Grotesque','Inter',system-ui,sans-serif;
+  letter-spacing:-.02em}
+.tick{width:52px;height:52px;border-radius:50%;background:var(--navy);color:#fff;display:flex;
+  align-items:center;justify-content:center;margin:0 auto var(--space-6)}
+.summary{display:flex;flex-direction:column;gap:8px;padding:var(--space-4);
+  background:var(--color-ground);border-radius:var(--radius-md);font-size:13px;text-align:left}
+.summary div{display:flex;gap:var(--space-3)}
+.summary dt{flex:none;width:78px;color:var(--t-55)}
+.summary dd{margin:0;color:var(--t-85);word-break:break-word}
+.spin{width:15px;height:15px;border-radius:50%;border:2px solid rgba(255,255,255,.3);
+  border-top-color:#fff;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.backlink{display:inline-flex;align-items:center;gap:6px;background:none;border:0;
+  padding:var(--space-2) 0;font:inherit;font-size:13px;color:var(--t-62);cursor:pointer}
+.backlink:hover{color:var(--navy)}
+.foot{padding:var(--space-8) var(--pad) 0;font-size:12px;color:var(--t-55);line-height:1.7}
+.foot a{color:var(--t-72);text-decoration:none}
+.foot a:hover{color:var(--navy)}
+/* touch + mobile */
+.btn,.chip,.seg-opt,.radio,.pay-opt,.row,.faq-q{-webkit-tap-highlight-color:transparent}
+.btn:active:not(:disabled){transform:scale(.985)}
+.chip:active,.pay-opt:active,.seg-opt:active{transform:scale(.98)}
+.chip,.seg-opt{min-height:44px}
+.radio{min-height:44px}
+.mobile-cta{position:fixed;left:0;right:0;bottom:0;z-index:120;display:flex;align-items:center;
+  gap:12px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(255,255,255,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-top:1px solid var(--color-divider);box-shadow:0 -6px 24px rgba(13,43,78,.07)}
+.mobile-cta .mc-price{display:flex;flex-direction:column;line-height:1.2;margin-right:auto}
+.mobile-cta .mc-amt{font-family:var(--font-heading);font-weight:800;font-size:17px;color:var(--navy);
+  letter-spacing:-.02em}
+.mobile-cta .mc-note{font-size:11px;color:var(--t-55)}
+@media (min-width:900px){.mobile-cta{display:none}}
+@media (max-width:899px){
+  .shell{padding-bottom:96px}
+  .sec{padding:26px var(--pad)}
+  .reg-card{padding:var(--space-6) var(--space-4)}
+  .facts{grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:var(--space-4)}
+  .input{font-size:16px}
+  .btn-lg{width:100%}
+  /* Bring FAQ after Register section on mobile & tablets */
+  .body{display:flex;flex-direction:column}
+  .flow{display:contents}
+  .sec-hero{order:1}
+  .hr-1{order:2}
+  .sec-who{order:3}
+  .hr-2{order:4}
+  .sec-testimonials{order:5}
+  .hr-3{order:6}
+  .sec-curriculum{order:7}
+  .hr-4{order:8}
+  .sec-outcomes{order:9}
+  .hr-5{order:10}
+  .sec-facts{order:11}
+  .hr-6{order:12}
+  .sec-pricing{order:13}
+  .hr-7{order:14}
+  .reg{order:15}
+  .sec-faq{order:16}
+}
+@media (min-width:600px) and (max-width:899px){
+  .shell{max-width:640px}
+  .hero-h1{font-size:52px;max-width:14ch}
+  .hero-panel img{max-height:none}
+  .cards-2{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3)}
+  .who{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3)}
+  .who-item{padding:var(--space-4);background:#fff;border:1px solid var(--color-divider);
+    border-radius:var(--radius-lg)}
+  .who-item + .who-item{border-top:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;scroll-behavior:auto !important}
+}
+@media (min-width:900px){
+  :root{--pad:0px}
+  .shell{max-width:1280px;padding:0 48px var(--space-10)}
+  .nav{padding:12px 48px;margin:0 -48px var(--space-4)}
+  .body{display:grid;grid-template-columns:minmax(0,1fr) 400px;column-gap:64px;align-items:start}
+  .flow{min-width:0}
+  .flow > .sec:first-child{padding-top:0}
+  .flow > .sec:first-child > .btn-lg,
+  .flow > .sec:first-child > .fine{display:none}
+  .reg{position:sticky;top:68px;padding-top:0;
+    max-height:calc(100vh - 84px);overflow-y:auto;overscroll-behavior:contain;
+    scrollbar-width:thin;scrollbar-color:var(--color-divider-strong) transparent;
+    padding-right:6px;margin-right:-6px}
+  .reg::-webkit-scrollbar{width:6px}
+  .reg::-webkit-scrollbar-thumb{background:var(--color-divider-strong);border-radius:99px}
+  .reg::-webkit-scrollbar-track{background:transparent}
+  .hero-h1{font-size:clamp(32px, 3.2vw, 42px);max-width:16ch;margin-bottom:var(--space-2);line-height:1.02}
+  .hero-sub{font-size:14px;line-height:1.55;margin-bottom:var(--space-4);max-width:48ch}
+  .hero-panel{margin:0 0 var(--space-4);margin-right:-16px}
+  .hero-panel img{max-height:none}
+  .facts{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+}
+@media (min-width:1500px){
+  .shell{max-width:1560px;padding:0 80px var(--space-10)}
+  .nav{padding:14px 80px;margin:0 -80px var(--space-4)}
+  .body{grid-template-columns:minmax(0,1fr) 440px;column-gap:80px}
+  .hero-h1{font-size:46px}
+  .hero-panel img{max-height:none}
+  .facts{padding:var(--space-8)}
+}
+@media (min-width:1180px){
+  .hero-h1{font-size:44px;max-width:14ch}
+  .who{flex-direction:row;gap:var(--space-3)}
+  .who-item{flex:1;flex-direction:column;padding:var(--space-6);background:#fff;
+    border:1px solid var(--color-divider);border-radius:var(--radius-lg)}
+  .who-item + .who-item{border-top:none}
+  .cards-2{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3)}
+}
+
+
+/* ── FAQ Accordion ── */
+.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:var(--space-4)}
+.faq-item{border:1px solid var(--color-divider);border-radius:var(--radius-md);background:var(--color-surface);overflow:hidden;transition:border-color .18s ease,box-shadow .18s ease}
+.faq-item:hover{border-color:rgba(13,43,78,.25)}
+.faq-item.is-open{border-color:var(--navy);box-shadow:0 4px 16px rgba(13,43,78,.06)}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;background:none;border:0;text-align:left;font-family:inherit;font-size:14.5px;font-weight:600;color:var(--navy);cursor:pointer}
+.faq-q:focus-visible{outline:2px solid var(--navy);outline-offset:-2px}
+.faq-icon{width:20px;height:20px;flex:none;transition:transform .24s cubic-bezier(.16,1,.3,1);color:var(--t-62)}
+.faq-item.is-open .faq-icon{transform:rotate(180deg);color:var(--navy)}
+.faq-a{display:none;padding:0 18px 16px;font-size:13.5px;line-height:1.65;color:var(--t-72)}
+.faq-item.is-open .faq-a{display:block}
+
+/* ── Modals & Popups (Paystack Compliance) ── */
+.cj-modal-overlay{position:fixed;inset:0;background:rgba(13,43,78,.58);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);z-index:999;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .2s ease}
+.cj-modal-overlay.is-active{opacity:1;pointer-events:auto}
+.cj-modal{background:#fff;border-radius:18px;max-width:680px;width:100%;max-height:86vh;display:flex;flex-direction:column;box-shadow:0 24px 64px rgba(13,43,78,.24);overflow:hidden;transform:translateY(16px) scale(.98);transition:transform .24s cubic-bezier(.16,1,.3,1)}
+.cj-modal-overlay.is-active .cj-modal{transform:translateY(0) scale(1)}
+.cj-modal-head{padding:18px 22px;border-bottom:1px solid var(--color-divider);display:flex;align-items:center;justify-content:space-between;gap:12px}
+.cj-modal-title{font-family:var(--font-heading);font-size:18px;font-weight:700;color:var(--navy);margin:0}
+.cj-modal-close{width:32px;height:32px;border-radius:50%;background:var(--color-ground);border:0;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;line-height:1;color:var(--t-72);transition:background .15s,color .15s}
+.cj-modal-close:hover{background:var(--color-divider);color:var(--navy)}
+.cj-modal-body{padding:22px;overflow-y:auto;font-size:13.5px;line-height:1.65;color:var(--t-72)}
+.cj-modal-body h4{font-size:15px;color:var(--navy);margin:18px 0 6px}
+.cj-modal-body h4:first-child{margin-top:0}
+.cj-modal-body p{margin:0 0 12px}
+.cj-modal-body ul{margin:0 0 12px;padding-left:20px}
+.cj-modal-body li{margin-bottom:6px}
+
+/* ── Footer compliance links ── */
+.foot-links{display:flex;flex-wrap:wrap;gap:16px;margin:14px 0 10px;padding:0;list-style:none}
+.foot-btn{background:none;border:0;padding:0;font:inherit;font-size:12.5px;color:var(--t-72);text-decoration:underline;text-underline-offset:3px;cursor:pointer;transition:color .15s}
+.foot-btn:hover{color:var(--navy)}
+
+</style>
+
+</helmet>
+
+<div class="page">
+
+<div class="shell">
+
+  <!-- ═══ NAV ═══════════════════════════════════════════════════════ -->
+
+  <header class="nav">
+
+    <div class="nav-brand"><img class="brand-mark" src="./logo-clean.png" alt="CJpy logo"><span class="b-c">C</span><span class="b-j">J</span><span class="b-p">p</span><span class="b-y">y</span></div>
+
+    <div class="tag tag-accent tag-up">Cohort 02</div>
+
+    <a href="#register" class="btn btn-primary btn-sm">Reserve my seat <span class="ar">→</span></a>
+
+  </header>
+
+  <main class="body">
+
+  <div class="flow">
+
+  <!-- ═══ HERO ══════════════════════════════════════════════════════ -->
+
+  <section class="sec sec-hero">
+
+    <h1 class="hero-h1"><span class="hero-line"><span>Learn today.</span></span><span class="hero-line"><span>Build tomorrow.</span></span><span class="hero-line"><span>Lead forever.</span></span></h1>
+
+    <p class="hero-sub">A hands-on Python bootcamp for students, professionals switching careers, and anyone who wants solid basics before going it alone. No prior coding experience needed.</p>
+
+    <div class="hero-panel">
+
+      <img src="./hero.jpg" alt="CJpy Cohort students working together at a laptop">
+
+      <span class="datepill"><span class="dp-k">Starts</span><span class="dp-d">{{ startDate }}</span>
+        <svg class="bird" viewBox="0 0 104 68" fill="currentColor" aria-hidden="true">
+          <g class="w">
+            <path d="M45.2 38.4C32.8 34.6 18.8 24.4 4.4 4.8c2.8 12.4 12.4 26.2 25.2 33.2-5.4-.4-10.4-2-14.8-4.6 7.2 9.2 17.8 14.6 29.6 15.2z"/>
+            <path d="M59.6 36.8c14-4.4 28.8-15.4 40-33.6-1.6 13.2-10.8 28.4-24.4 36.4 6-.2 11.6-2 16.6-5-8 10.2-19.8 16-33 16.4z"/>
+          </g>
+          <path d="M44.8 37.2c4.6-5.2 10.8-7.2 16.8-5.2 6.6 2.2 9.2 8.2 6.8 13.4 4.6-1 8.8-3 12.4-5.8-3.2 6.8-9.2 11.8-16.6 14 3.2 1 6.4 1.2 9.6.6-6.6 4.6-14.8 6-22.6 3.6 2.6-2.2 4.4-4.8 5.4-7.8-6.2-.8-11-4-13.8-9.2z"/>
+          <path fill="#fff" d="M45.6 37.6c2.8-3.6 6.6-5.4 10.8-5.4-2.8 2.2-4.4 4.8-4.6 7.8-2.4-.4-4.6-1.2-6.2-2.4z"/>
+          <circle cx="52.6" cy="35.6" r="1.5"/>
+        </svg>
+      </span>
+
+    </div>
+
+    <a href="#register" class="btn btn-primary btn-block btn-lg">Reserve my seat <span class="ar">&rarr;</span></a>
+
+    <p class="fine" style="text-align:center;margin-top:var(--space-3)">GH₵{{ price }} &middot; starts {{ startDate }}</p>
+
+  </section>
+
+    <hr class="hr hr-1">
+
+<!-- ═══ WHO IT'S FOR ══════════════════════════════════════════════ -->
+
+  <section class="sec sec-who">
+
+    <p class="kicker">Who it's for</p>
+
+    <h2 class="h-sec">Three kinds of people start here</h2>
+
+    <div class="who">
+
+      <sc-for list="{{ personas }}" as="p" hint-placeholder-count="3">
+
+        <div class="who-item">
+
+          <div class="row-mark" style="width:28px;height:28px" aria-hidden="true">
+
+            <svg class="ic" style="width:15px;height:15px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="{{ p.icon }}"/></svg>
+
+          </div>
+
+          <div>
+
+            <div class="who-t">{{ p.title }}</div>
+
+            <div class="who-d">{{ p.desc }}</div>
+
+          </div>
+
+        </div>
+
+      </sc-for>
+
+    </div>
+
+  </section>
+
+  <hr class="hr hr-2">
+
+<!-- ═══ TESTIMONIALS ══════════════════════════════════════════════ -->
+
+  <section class="sec sec-testimonials">
+
+    <p class="kicker">From Cohort 01 &bull; 65+ grads</p>
+
+    <h2 class="h-sec">65+ grads started with zero code</h2>
+
+    <p class="lede">Unedited, in their own words.</p>
+
+    <div class="spot" style="margin-bottom:var(--space-4)">
+
+      <div class="tag tag-accent tag-up" style="margin-bottom:var(--space-4)">Student spotlight</div>
+
+      <p class="spot-q">&ldquo;{{ spotlight.quote }}&rdquo;</p>
+
+      <div class="stars" style="margin-bottom:var(--space-3)" aria-label="{{ spotlight.rating }} out of 5">{{ spotlight.stars }}</div>
+
+      <div class="byline">
+
+        <sc-if value="{{ spotlight.hasImage }}">
+          <img src="{{ spotlight.image }}" alt="{{ spotlight.name }}" class="avatar" style="object-fit:cover">
+        </sc-if>
+        <sc-if value="{{ spotlight.noImage }}">
+          <div class="avatar" aria-hidden="true">{{ spotlight.initials }}</div>
+        </sc-if>
+
+        <div>
+
+          <div class="by-n">{{ spotlight.name }}</div>
+
+          <div class="by-r">{{ spotlight.role }}</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="stack cards-2">
+
+      <sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="2">
+
+        <div class="card">
+
+          <div class="stars" style="font-size:11px;letter-spacing:1.5px;margin-bottom:var(--space-2)" aria-label="{{ t.rating }} out of 5">{{ t.stars }}</div>
+
+          <p style="margin:0 0 var(--space-3);font-size:13px;line-height:1.5;color:var(--t-85)">&ldquo;{{ t.quote }}&rdquo;</p>
+
+          <div class="byline" style="gap:var(--space-2)">
+
+            <sc-if value="{{ t.hasImage }}">
+              <img src="{{ t.image }}" alt="{{ t.name }}" class="avatar avatar-sm" style="object-fit:cover">
+            </sc-if>
+            <sc-if value="{{ t.noImage }}">
+              <div class="avatar avatar-sm" aria-hidden="true">{{ t.initials }}</div>
+            </sc-if>
+
+            <div>
+
+              <div class="by-n" style="font-size:12.5px">{{ t.name }}</div>
+
+              <div class="by-r">{{ t.role }}</div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </sc-for>
+
+    </div>
+
+  </section>
+
+  <hr class="hr hr-3">
+
+<!-- ═══ CURRICULUM ════════════════════════════════════════════════ -->
+
+  <section class="sec sec-curriculum">
+
+    <h2 class="h-sec">Study Roadmap</h2>
+
+    <div class="stack">
+
+      <sc-for list="{{ curriculum }}" as="week" hint-placeholder-count="4">
+
+        <div class="row">
+
+          <div>
+
+            <div class="row-title">{{ week.title }}</div>
+
+            <div class="row-desc">{{ week.desc }}</div>
+
+          </div>
+
+        </div>
+
+      </sc-for>
+
+    </div>
+
+  </section>
+
+  <hr class="hr hr-4">
+
+<!-- ═══ OUTCOMES ══════════════════════════════════════════════════ -->
+
+  <section class="sec sec-outcomes">
+
+    <p class="kicker">Why this cohort</p>
+
+    <h2 class="h-sec">What you leave with</h2>
+
+    <p class="lede">Not a certificate you file away — four things you can point at on the day it ends.</p>
+
+    <div class="stack cards-2">
+
+      <sc-for list="{{ outcomes }}" as="o" hint-placeholder-count="4">
+
+        <div class="row">
+
+          <div class="row-mark" aria-hidden="true">
+
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="{{ o.icon }}"/></svg>
+
+          </div>
+
+          <div>
+
+            <div class="row-title">{{ o.title }}</div>
+
+            <div class="row-desc">{{ o.desc }}</div>
+
+          </div>
+
+        </div>
+
+      </sc-for>
+
+    </div>
+
+  </section>
+
+  <hr class="hr hr-5">
+
+<!-- ═══ COHORT FACTS ══════════════════════════════════════════════ -->
+
+  <section class="sec sec-facts">
+
+    <p class="kicker">Cohort details</p>
+
+    <h2 class="h-sec">Dates &amp; schedule</h2>
+
+    <div class="facts">
+
+      <div>
+
+        <div class="fact-k">Starts</div>
+
+        <div class="fact-v">{{ startDate }}</div>
+
+        <div class="fact-n">Registration closes {{ deadline }}</div>
+
+      </div>
+
+      <div>
+
+        <div class="fact-k">Duration</div>
+
+        <div class="fact-v">30 days</div>
+
+        <div class="fact-n">4 weeks, 3 live sessions a week</div>
+
+      </div>
+
+      <div>
+
+        <div class="fact-k">Format</div>
+
+        <div class="fact-v">Live online</div>
+
+        <div class="fact-n">Every session recorded</div>
+
+      </div>
+
+      <div>
+
+        <div class="fact-k">What you need</div>
+
+        <div class="fact-v" style="display:inline-flex;align-items:center;gap:6px"><span>Just a laptop</span><svg class="ic" style="width:16px;height:16px;flex:none;color:var(--navy);margin-top:1px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><line x1="2" y1="20" x2="22" y2="20"/></svg></div>
+
+        <div class="fact-n">~6 hrs a week — 3 live, 3 practice</div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <hr class="hr hr-6">
+
+<!-- ═══ PRICING ═══════════════════════════════════════════════════ -->
+
+  <section class="sec sec-pricing">
+
+    <p class="kicker">What it costs</p>
+
+    <h2 class="h-sec">One price, everything in</h2>
+
+    <div class="card card-lg elev-sm">
+
+      <div class="price-head">
+
+        <div class="price-amt">GH₵{{ price }}</div>
+
+        <div class="price-per">for the full 30 days</div>
+
+      </div>
+
+      <ul class="incl">
+
+        <sc-for list="{{ included }}" as="inc" hint-placeholder-count="6">
+
+          <li>
+
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+
+            <span>{{ inc }}</span>
+
+          </li>
+
+        </sc-for>
+
+      </ul>
+
+      <div class="pay" aria-label="Accepted payment methods">
+
+        <sc-for list="{{ payMethods }}" as="m" hint-placeholder-count="4">
+
+          <span>{{ m.label }}</span>
+
+        </sc-for>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+
+  <hr class="hr hr-7">
+
+  <!-- ═ ═ ═  FAQ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═  -->
+
+  <section class="sec sec-faq" id="faq" style="scroll-margin-top:64px">
+
+    <p class="kicker">Got questions?</p>
+
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:var(--space-4)">
+      <div>
+        <h2 class="h-sec" style="margin:0 0 4px">Frequently Asked Questions</h2>
+        <p class="lede" style="margin:0">Key answers below — or open the full 15-question guide.</p>
+      </div>
+      <button type="button" class="btn btn-secondary btn-sm" onClick="{{ openFaqModal }}">Open Full FAQ (15 Q&amp;As) <span class="ar">↗</span></button>
+    </div>
+
+    <div class="faq-list">
+
+      <sc-for list="{{ faqs }}" as="f">
+
+        <div class="faq-item {{ f.openClass }}">
+
+          <button type="button" class="faq-q" onClick="{{ f.onToggle }}" aria-expanded="{{ f.expanded }}">
+
+            <span>{{ f.q }}</span>
+
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+
+          </button>
+
+          <sc-if value="{{ f.open }}">
+            <div class="faq-a" style="display:block">
+              <p style="margin:0">{{ f.a }}</p>
+            </div>
+          </sc-if>
+
+        </div>
+
+      </sc-for>
+
+    </div>
+
+    <div style="margin-top:var(--space-4)">
+      <button type="button" class="btn btn-secondary btn-block btn-lg" onClick="{{ openFaqModal }}">View All 15 Questions &amp; Answers <span class="ar">↗</span></button>
+    </div>
+
+  </section>
+
+  
+    </div><!-- /.flow -->
+
+  <!-- ═══ REGISTER ══════════════════════════════════════════════════ -->
+
+  <section class="sec reg" id="register" style="scroll-margin-top:64px">
+
+    <p class="kicker">Register</p>
+
+    <h2 class="h-sec">Save your seat</h2>
+
+    <p class="lede" style="margin-bottom:var(--space-6)">Takes under a minute. We ask everything else after your spot is secured.</p>
+
+    <!-- stepper -->
+
+    <div class="steps" aria-label="Registration progress">
+
+      <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
+
+        <div class="step" data-state="{{ s.state }}" aria-current="{{ s.current }}">
+
+          <span class="step-n">{{ s.n }}</span>
+
+          <span class="step-lbl">{{ s.label }}</span>
+
+        </div>
+
+      </sc-for>
+
+    </div>
+
+    <!-- ── step 1: details ── -->
+
+    <sc-if value="{{ showDetails }}" hint-placeholder-val="{{ true }}">
+
+      <form onSubmit="{{ handleSubmit }}" class="stack" novalidate="true">
+
+        <div class="field">
+
+          <label for="f-name">Full name</label>
+
+          <input class="input" id="f-name" type="text" name="name" autocomplete="name"
+
+            placeholder="Ama Boateng" value="{{ fields.name.value }}"
+
+            onChange="{{ fields.name.onChange }}" onBlur="{{ fields.name.onBlur }}"
+
+            aria-invalid="{{ fields.name.invalid }}" aria-describedby="{{ fields.name.describedBy }}">
+
+          <sc-if value="{{ fields.name.hasError }}" hint-placeholder-val="{{ false }}">
+
+            <div class="err" id="err-name" role="alert">
+
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+
+              <span>{{ fields.name.error }}</span>
+
+            </div>
+
+          </sc-if>
+
+        </div>
+
+        <div class="field">
+
+          <label for="f-email">Email <span class="field-hint">&mdash; your class link goes here</span></label>
+
+          <input class="input" id="f-email" type="email" name="email" autocomplete="email"
+
+            inputmode="email" placeholder="ama@example.com" value="{{ fields.email.value }}"
+
+            onChange="{{ fields.email.onChange }}" onBlur="{{ fields.email.onBlur }}"
+
+            aria-invalid="{{ fields.email.invalid }}" aria-describedby="{{ fields.email.describedBy }}">
+
+          <sc-if value="{{ fields.email.hasError }}" hint-placeholder-val="{{ false }}">
+
+            <div class="err" id="err-email" role="alert">
+
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+
+              <span>{{ fields.email.error }}</span>
+
+            </div>
+
+          </sc-if>
+
+        </div>
+
+        <div class="field">
+
+          <label for="f-phone">Phone / WhatsApp</label>
+
+          <input class="input" id="f-phone" type="tel" name="phone" autocomplete="tel"
+
+            inputmode="tel" placeholder="024 000 0000" value="{{ fields.phone.value }}"
+
+            onChange="{{ fields.phone.onChange }}" onBlur="{{ fields.phone.onBlur }}"
+
+            aria-invalid="{{ fields.phone.invalid }}" aria-describedby="{{ fields.phone.describedBy }}">
+
+          <sc-if value="{{ fields.phone.hasError }}" hint-placeholder-val="{{ false }}">
+
+            <div class="err" id="err-phone" role="alert">
+
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+
+              <span>{{ fields.phone.error }}</span>
+
+            </div>
+
+          </sc-if>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top:var(--space-2)" disabled="{{ pending }}">
+
+          <sc-if value="{{ pending }}" hint-placeholder-val="{{ false }}"><span class="spin" aria-hidden="true"></span></sc-if>
+
+          <span>{{ submitLabel }}</span>
+
+          <span class="ar">→</span>
+
+        </button>
+
+        <p class="fine" style="text-align:center;margin:0">No charge yet. You pay on the next step &mdash; and only then is the seat yours.</p>
+
+      </form>
+
+    </sc-if>
+
+    <!-- ── step 2: payment ── -->
+
+    <sc-if value="{{ showPayment }}" hint-placeholder-val="{{ false }}">
+
+      <div class="reg-card">
+
+        <h3 style="font-size:19px;margin:0 0 var(--space-2)">Almost there, {{ firstName }}</h3>
+
+        <p style="font-size:13px;line-height:1.5;color:var(--t-62);margin:0 0 var(--space-4)">Pay GH₵{{ price }} to secure your seat. Secure checkout — one tap away.</p>
+
+        <div class="paystack-box">
+
+  <div class="ps-row"><span>Cohort 02 seat</span><b>GH₵{{ price }}</b></div>
+
+  <div class="ps-row ps-total"><span>Total due today</span><b>GH₵{{ price }}</b></div>
+
+  <p class="fine" style="margin:var(--space-3) 0 0">Secured by Paystack — MTN MoMo, Telecel Cash, card or bank transfer.</p>
+
+</div>
+
+        <button type="button" class="btn btn-primary btn-block btn-lg" style="margin-top:var(--space-6)" onClick="{{ handlePay }}" disabled="{{ pending }}">
+
+          <sc-if value="{{ pending }}" hint-placeholder-val="{{ false }}"><span class="spin" aria-hidden="true"></span></sc-if>
+
+          <span>{{ payLabel }}</span>
+
+          <span class="ar">→</span>
+
+        </button>
+
+        <p class="fine" style="text-align:center;margin:var(--space-3) 0 0"><a href="{{ payHelpLink }}" target="_blank" rel="noopener noreferrer">Payment not going through? Message us on WhatsApp</a></p>
+
+        <button type="button" class="backlink" onClick="{{ goBack }}">&larr; Change my details</button>
+
+      </div>
+
+    </sc-if>
+
+
+
+    <!-- ── step 4: done ── -->
+
+    <sc-if value="{{ showDone }}" hint-placeholder-val="{{ false }}">
+
+      <div class="reg-card" style="text-align:center">
+
+        <div class="tick" aria-hidden="true">
+
+          <svg viewBox="0 0 24 24" style="width:22px;height:22px" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+
+        </div>
+
+        <h3 style="font-size:19px;margin:0 0 var(--space-2)">You're in, {{ firstName }}</h3>
+
+        <p style="font-size:13.5px;line-height:1.5;color:var(--t-62);margin:0 0 var(--space-4)">Welcome to Cohort 02! Your welcome pack and first-session link are on the way.</p>
+
+        <dl class="summary">
+
+          <div><dt>Email</dt><dd>{{ form.email }}</dd></div>
+
+          <div><dt>WhatsApp</dt><dd>{{ form.phone }}</dd></div>
+
+          <div><dt>Starts</dt><dd>{{ startDate }}</dd></div>
+
+        </dl>
+
+        <a class="btn btn-primary btn-block" style="margin-top:var(--space-4)" href="{{ cohortWhatsappLink }}" target="_blank" rel="noopener noreferrer">Join the cohort WhatsApp group <span class="ar">&rarr;</span></a>
+
+        <p class="fine" style="margin:var(--space-3) 0 0">Nothing in your inbox within an hour? Check spam, then message us &mdash; we'll fix it.</p>
+
+      </div>
+
+    </sc-if>
+
+  </section>
+
+</main>
+
+  <!-- ═══ FOOTER ════════════════════════════════════════════════════ -->
+
+    <footer class="foot">
+
+    <hr class="hr">
+
+    <div style="margin-bottom:6px"><b>CJpy Python Bootcamp</b> &middot; Cohort 02 &middot; 30 days &middot; Live online</div>
+    <div style="margin-bottom:8px">Empowering Ghanaian students and young professionals to write clean code, build real software, and lead in tech.</div>
+
+    <ul class="foot-links">
+      <li><button type="button" class="foot-btn" onClick="{{ openAboutModal }}">About CJpy</button></li>
+      <li><button type="button" class="foot-btn" onClick="{{ openFaqModal }}">FAQ</button></li>
+      <li><button type="button" class="foot-btn" onClick="{{ openTermsModal }}">Terms of Service</button></li>
+      <li><button type="button" class="foot-btn" onClick="{{ openPrivacyModal }}">Privacy Policy</button></li>
+      <li><button type="button" class="foot-btn" onClick="{{ openRefundModal }}">Refund &amp; Cancellation Policy</button></li>
+    </ul>
+
+    <div style="margin-top:10px;font-size:11.5px;color:var(--t-55)">
+      Questions? WhatsApp <a href="{{ whatsappLink }}" target="_blank" rel="noopener noreferrer">{{ whatsapp }}</a> &middot; Email: <a href="mailto:joincjpy@gmail.com">joincjpy@gmail.com</a> &middot; Accra &amp; Kumasi, Ghana &mdash; we reply the same day.
+    </div>
+
+    <div style="margin-top:8px;font-size:11px;color:var(--t-40)">
+      &copy; 2026 CJpy. All rights reserved. Payments securely processed by Paystack.
+    </div>
+
+  </footer>
+
+<canvas id="cjpy-confetti" style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:200;display:none"></canvas>
+
+<div class="mobile-cta">
+
+  <span class="mc-price"><span class="mc-amt">GH₵{{ price }}</span><span class="mc-note">Cohort 02 · starts {{ startDate }}</span></span>
+
+  <a href="#register" class="btn btn-primary btn-sm">Reserve <span class="ar">→</span></a>
+
+</div>
+
+</div>
+
+</div>
+
+</x-dc>
+
+<script type="text/x-dc" data-dc-script data-props="{&quot;accentColor&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#9184d9&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#9184d9&quot;]}, &quot;price&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;300&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;seatsTotal&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;60&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;seatsTaken&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;28&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;startDate&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;Sept 10, 2026&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;deadline&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;Sept 5&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;whatsapp&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;050 932 9059&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;paystackKey&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;pk_test_e895d17c1b6dd2e991f018757e5f0cd5a745cc58&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;cohortWhatsappLink&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;https://chat.whatsapp.com/HUHzlyLvimREGt1S0GkTnm&quot;, &quot;tsType&quot;: &quot;string&quot;}}">
+
+class Component extends DCLogic {
+
+  /* ══════════════════════════════════════════════════════════════════
+
+     EDIT ME — all page copy lives in this one block. Change it here and
+
+     the whole page follows. Anything marked TODO is a placeholder we
+
+     guessed: replace it with what CJpy actually offers before shipping.
+
+     ══════════════════════════════════════════════════════════════════ */
+
+  static COPY = {
+
+    outcomes: [
+
+      { title: 'A project that is yours',
+
+        desc: 'A working app on GitHub with a demo you can send to anyone who asks what you can do.',
+
+        icon: 'M4 17V7a2 2 0 0 1 2-2h5l2 2h5a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z' },
+
+      { title: 'Foundations that transfer',
+
+        desc: 'Data, automation, web, AI — they all start from the same 30 days you spend here.',
+
+        icon: 'M12 3 3 8l9 5 9-5-9-5ZM3 14l9 5 9-5' },
+
+      { title: 'Recordings you keep',           /* TODO: confirm */
+
+        desc: 'Miss a session and catch up the same week. The library stays yours after the cohort ends.',
+
+        icon: 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18ZM10 9l5 3-5 3V9Z' },
+
+      { title: 'People who keep going',
+
+        desc: 'The cohort WhatsApp group stays open. Cohort 01 still ships things in theirs.',
+
+        icon: 'M17 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9.5 6.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM22 20v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75' }
+
+    ],
+
+    curriculum: [
+
+      { title: 'Week 1 — "Coding stops feeling scary"',
+
+        desc: 'Line by line, it starts making sense.' },
+
+      { title: 'Week 2 — "You think like a programmer"',
+
+        desc: 'Learning to break problems down, one step at a time.' },
+
+      { title: 'Week 3 —  Make a computer work for you',
+
+        desc: 'Automate daily tasks with your scripts.' },
+
+      { title: 'Week 4 - Closer to a developer',
+
+        desc: 'Bragging rights to your own working project!' }
+
+    ],
+
+    personas: [
+
+      { title: 'Students',
+
+        desc: 'You want a skill your programme does not teach. Sessions sit outside lecture hours.',
+
+        icon: 'M12 3 2 8l10 5 10-5-10-5ZM6 11v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5' },
+
+      { title: 'Career switchers',
+
+        desc: 'You have decided on tech and want an honest, structured first 30 days.',
+
+        icon: 'M16 3h5v5M21 3l-8 8M8 21H3v-5M3 21l8-8' },
+
+      { title: 'Curious professionals',
+
+        desc: 'You keep hearing "just automate it". In four weeks, you can.',
+
+        icon: 'M9 18h6M10 21h4M12 3a6 6 0 0 1 3.5 10.9c-.3.3-.5.7-.5 1.1H9c0-.4-.2-.8-.5-1.1A6 6 0 0 1 12 3Z' }
+
+    ],
+
+    /* Real Cohort 01 feedback — do not edit the words. */
+
+    spotlight: {
+
+      quote: "I took this bold step with no interest in coding even though I wanted to learn it for a reason. But now I want to know more about programming — I've grown to love it because of CJpy.",
+
+      name: 'Anokye Theopneustos Nkum', role: 'Doctor of Optometry', initials: 'AN',
+
+      image: './testimonial-adjoa.jpg',
+
+      stars: '★★★★★', rating: '5'
+
+    },
+
+    testimonials: [
+
+      { quote: 'For someone who had no python experience, this course has been very helpful. The teaching and activities given made the learning experience very effective.',
+
+        name: 'Adjoa Kwansema Eshun', role: 'Biomedical Engineering, Year 1', initials: 'AE',
+
+        image: './testimonial-adjoa1.JPG',
+
+        stars: '★★★★★', rating: '5' }
+
+    ],
+
+    included: [                                    /* TODO: confirm every line */
+
+      '8 live sessions with an instructor in the room — not pre-recorded video',
+
+      'Every session recorded and posted within 24 hours',
+
+      'Weekly exercises with written feedback on your code',
+
+      'A 1:1 check-in in week two, so nobody quietly falls behind',
+
+      'Capstone review and a demo day in front of the cohort',
+
+      'Certificate of completion, and the cohort WhatsApp group for good'
+
+    ],
+
+    payMethods: [                                  /* TODO: confirm which you accept */
+
+      { id: 'momo',    label: 'MTN Mobile Money', note: 'Most popular' },
+
+      { id: 'telecel', label: 'Telecel Cash',     note: '' },
+
+      { id: 'bank',    label: 'Bank transfer',    note: '' },
+
+      { id: 'card',    label: 'Card',             note: 'Visa / Mastercard' }
+
+    ],
+
+    sources: ['A friend', 'WhatsApp', 'Instagram', 'X / Twitter', 'My school', 'Somewhere else'],
+
+        faqs: [
+      { q: 'What is CJpy?',
+        a: 'A cohort-based Python programming bootcamp for Ghanaian SHS students, uni students, and young professionals trying to break into tech. Python only — no C, no distractions. Learn. Build. Lead.' },
+      { q: 'When does it run?',
+        a: 'Monday, Wednesday, Friday. 3 sessions a week for 30 days. Each session is 120–150 minutes. This is not a weekend crash course — it is a commitment, and that is the point.' },
+      { q: 'Where do sessions happen?',
+        a: 'Live on Zoom. All the info sharing, resources, and mentor conversations happen in our dedicated WhatsApp community — so even outside class, you are never stuck.' },
+      { q: 'What do I need to join?',
+        a: 'Just a laptop and internet. If you do not already have a code editor, install VS Code beforehand — it is free and it is what we will be using.' },
+      { q: 'How big are the classes?',
+        a: 'Small class sizes split into breakout rooms, so tutors actually know your name.' },
+      { q: 'How much does it cost?',
+        a: 'GH₵ 300 for the full 30 days.' },
+      { q: 'Do I need any coding experience?',
+        a: 'No. If you can use WhatsApp, you can start this.' },
+      { q: "Who's teaching?",
+        a: "EE students who have actually built and debugged real things — not just people reading slides at you." },
+      { q: 'What if I fall behind or miss a session?',
+        a: 'Every session is recorded, so you do not lose the day. And your mentor is one WhatsApp message away — they will actually talk you through what you missed, not just point you to a link.' },
+      { q: 'Is there a refund policy?',
+        a: 'No refunds. Not because we do not care — because we do. The moment there is an exit door, people take it the first time it gets hard, and that is exactly the week they needed to push through. We built this program for people who are in. If you are not ready to show up 3 times a week for a month, wait for a cohort when you are — we would rather have you fully committed later than half-in now.' },
+      { q: 'Do people actually recommend this after finishing?',
+        a: 'Yes. The large majority of Cohort 1 students said they had already recommended CJpy to someone else, or would. Nobody told us to say that — that is what they told us when we asked.' },
+      { q: 'Will I get a certificate?',
+        a: 'Yes, on completion.' },
+      { q: 'Is this just theory or do I actually build things?',
+        a: 'You build. That is the "Build" in Learn. Build. Lead. Lectures without shipped code do not get anyone hired.' },
+      { q: 'I am not a "tech person," is this still for me?',
+        a: 'Most of Cohort 1 was not either. That is the whole reason CJpy exists.' },
+      { q: 'How do I sign up?',
+        a: 'WhatsApp us or head to joincjpy.com. Cohort 2 starts September 10.' }
+    ]
+
+  };
+
+  /* ═══════════════════════ end of editable copy ═══════════════════ */
+
+  state = {
+
+    step: 1,                       // 1 details Â· 2 payment Â· 3 profile Â· 4 done
+
+    form: { name: '', email: '', phone: '', school: '', goal: '' },
+
+    errors: {},
+
+    touched: {},
+
+    level: 'beginner',
+
+    availability: 'flexible',
+
+    payMethod: 'momo',
+
+    source: '',
+
+    pending: false,
+
+    openFaq: 0
+
+  };
+
+  // ── validation ───────────────────────────────────────────────────
+
+  fieldError(key, raw) {
+
+    const v = (raw || '').trim();
+
+    if (key === 'name') {
+
+      if (!v) return 'We need a name to put on your seat.';
+
+      if (v.length < 2) return 'That looks too short — your full name, please.';
+
+      return '';
+
+    }
+
+    if (key === 'email') {
+
+      if (!v) return 'We send your class link here, so we need an email.';
+
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(v)) return 'That email does not look right — check for a typo.';
+
+      return '';
+
+    }
+
+    if (key === 'phone') {
+
+      const digits = v.replace(/\D/g, '');
+
+      if (!digits) return 'A number we can reach you on, please.';
+
+      if (digits.length < 9) return 'That is too short for a phone number.';
+
+      return '';
+
+    }
+
+    return '';
+
+  }
+
+  setField(key) {
+
+    return (e) => {
+
+      const value = e.target.value;
+
+      this.setState(s => {
+
+        const errors = { ...s.errors };
+
+        // only re-check live once the field has already been flagged
+
+        if (errors[key]) errors[key] = this.fieldError(key, value);
+
+        return { form: { ...s.form, [key]: value }, errors };
+
+      });
+
+    };
+
+  }
+
+  blurField(key) {
+
+    return (e) => {
+
+      const err = this.fieldError(key, e.target.value);
+
+      this.setState(s => ({
+
+        touched: { ...s.touched, [key]: true },
+
+        errors: { ...s.errors, [key]: err }
+
+      }));
+
+    };
+
+  }
+
+  // ── step transitions ─────────────────────────────────────────────
+
+  advance(to) {
+
+    this.setState({ pending: true });
+
+    setTimeout(() => this.setState({ step: to, pending: false }), 600);
+
+  }
+
+  componentDidMount() {
+
+    try {
+
+      const saved = JSON.parse(localStorage.getItem('cjpy02-draft') || 'null');
+
+      if (saved && typeof saved === 'object') this.setState(s => ({ form: { ...s.form, ...saved } }));
+
+    } catch (err) {}
+
+  }
+
+  saveDraft() {
+
+    try { localStorage.setItem('cjpy02-draft', JSON.stringify(this.state.form)); } catch (err) {}
+
+  }
+
+  handleSubmit(e) {
+
+    e.preventDefault();
+
+    if (this.state.pending) return;
+
+    const keys = ['name', 'email', 'phone'];
+
+    const errors = {};
+
+    const touched = {};
+
+    keys.forEach(k => {
+
+      errors[k] = this.fieldError(k, this.state.form[k]);
+
+      touched[k] = true;
+
+    });
+
+    if (keys.some(k => errors[k])) {
+
+      this.setState({ errors, touched });
+
+      return;
+
+    }
+
+    this.setState({ errors, touched });
+
+    this.saveDraft();
+
+    this.advance(2);
+
+  }
+
+  handlePay() {
+
+    if (this.state.pending) return;
+
+    const key = (this.props.paystackKey || 'pk_test_e895d17c1b6dd2e991f018757e5f0cd5a745cc58').trim();
+
+    const price = parseInt(String(this.props.price ?? '300').replace(/\D/g, ''), 10) || 300;
+
+    const finish = () => { this.setState({ pending: false, step: 3 }); this.celebrate(); };
+
+    if (key && window.PaystackPop) {
+
+      this.setState({ pending: true });
+
+      try {
+
+        const pop = new window.PaystackPop();
+
+        pop.newTransaction({
+
+          key,
+
+          email: this.state.form.email,
+
+          amount: price * 100,
+
+          currency: 'GHS',
+
+          reference: 'CJPY02-' + Date.now() + '-' + Math.floor(Math.random() * 1e4),
+
+          firstName: (this.state.form.name.trim().split(/\s+/)[0] || ''),
+
+          lastName: this.state.form.name.trim().split(/\s+/).slice(1).join(' '),
+
+          phone: this.state.form.phone,
+
+          label: 'CJpy Cohort 02 — ' + this.state.form.name,
+
+          metadata: {
+
+            cohort: 'CJpy Cohort 02',
+
+            full_name: this.state.form.name,
+
+            phone: this.state.form.phone,
+
+            seat: this.props.seatsTaken ? Number(this.props.seatsTaken) + 1 : null,
+
+            custom_fields: [
+
+              { display_name: 'Full name', variable_name: 'full_name', value: this.state.form.name },
+
+              { display_name: 'Phone / WhatsApp', variable_name: 'phone', value: this.state.form.phone },
+
+              { display_name: 'Cohort', variable_name: 'cohort', value: 'CJpy Cohort 02' },
+
+              { display_name: 'Starts', variable_name: 'starts', value: String(this.props.startDate ?? 'Sept 10, 2026') }
+
+            ]
+
+          },
+
+          onSuccess: () => finish(),
+
+          onCancel: () => this.setState({ pending: false }),
+
+          onError: () => this.setState({ pending: false })
+
+        });
+
+      } catch (err) { this.setState({ pending: false }); }
+
+      return;
+
+    }
+
+    this.setState({ pending: true });
+
+    setTimeout(finish, 700);
+
+  }
+
+  celebrate() {
+
+    const cv = document.getElementById('cjpy-confetti');
+
+    if (!cv || window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+
+    cv.style.display = 'block';
+
+    const dpr = window.devicePixelRatio || 1;
+
+    const W = cv.clientWidth || window.innerWidth, H = cv.clientHeight || window.innerHeight;
+
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+
+    const g = cv.getContext('2d');
+
+    g.scale(dpr, dpr);
+
+    const colors = ['#d81b7a', '#2b7fc4', '#7b2ff2', '#f2a413', '#0d2b4e'];
+
+    const bits = [];
+
+    for (let i = 0; i < 140; i++) {
+
+      bits.push({ x: W / 2 + (Math.random() - .5) * W * .5, y: H * .34 + (Math.random() - .5) * 60,
+
+        vx: (Math.random() - .5) * 9, vy: -6 - Math.random() * 9,
+
+        w: 5 + Math.random() * 7, h: 8 + Math.random() * 8,
+
+        rot: Math.random() * Math.PI, vr: (Math.random() - .5) * .3, c: colors[i % colors.length] });
+
+    }
+
+    let frames = 0;
+
+    const tick = () => {
+
+      frames++;
+
+      g.clearRect(0, 0, W, H);
+
+      bits.forEach(b => {
+
+        b.vy += .28; b.vx *= .995; b.x += b.vx; b.y += b.vy; b.rot += b.vr;
+
+        g.save(); g.translate(b.x, b.y); g.rotate(b.rot);
+
+        g.globalAlpha = Math.max(0, 1 - frames / 190);
+
+        g.fillStyle = b.c; g.fillRect(-b.w / 2, -b.h / 2, b.w, b.h);
+
+        g.restore();
+
+      });
+
+      if (frames < 190) requestAnimationFrame(tick);
+
+      else { g.clearRect(0, 0, W, H); cv.style.display = 'none'; }
+
+    };
+
+    requestAnimationFrame(tick);
+
+  }
+
+
+  handleProfile(e) {
+
+    e.preventDefault();
+
+    if (this.state.pending) return;
+
+    this.advance(4);
+
+  }
+
+  goBack() { this.setState({ step: Math.max(1, this.state.step - 1) }); }
+
+  toggleFaq(i) { this.setState(s => ({ openFaq: s.openFaq === i ? -1 : i })); }
+
+  // ── render ───────────────────────────────────────────────────────
+
+  renderVals() {
+
+    const C = Component.COPY;
+
+    const s = this.state;
+
+    const step = s.step;
+
+    const seatsTotal = parseInt(this.props.seatsTotal ?? '60', 10) || 60;
+
+    const seatsTaken = Math.min(parseInt(this.props.seatsTaken ?? '28', 10) || 0, seatsTotal);
+
+    const seatsLeft = Math.max(seatsTotal - seatsTaken, 0);
+
+    const price = this.props.price ?? '300';
+
+    const priceNum = parseInt(String(price).replace(/\D/g, ''), 10);
+
+    const whatsapp = this.props.whatsapp ?? '050 932 9059';
+
+    const fieldKeys = ['name', 'email', 'phone', 'school', 'goal'];
+
+    const fields = fieldKeys.reduce((acc, k) => {
+
+      const error = s.errors[k] || '';
+
+      acc[k] = {
+
+        value: s.form[k],
+
+        onChange: this.setField(k),
+
+        onBlur: this.blurField(k),
+
+        error,
+
+        hasError: !!error,
+
+        invalid: error ? 'true' : 'false',
+
+        describedBy: error ? 'err-' + k : ''
+
+      };
+
+      return acc;
+
+    }, {});
+
+    const levelDefs = [
+
+      { id: 'beginner', label: 'None yet' },
+
+      { id: 'intermediate', label: 'A little' },
+
+      { id: 'advanced', label: 'A fair bit' }
+
+    ];
+
+    const levels = levelDefs.map(l => ({
+
+      ...l,
+
+      checked: s.level === l.id,
+
+      onChange: () => this.setState({ level: l.id })
+
+    }));
+
+    const availDefs = [
+
+      { id: 'evenings', label: 'Weekday evenings' },
+
+      { id: 'weekends', label: 'Weekends' },
+
+      { id: 'flexible', label: 'Either works for me' }
+
+    ];
+
+    const availabilities = availDefs.map(a => ({
+
+      ...a,
+
+      checked: s.availability === a.id,
+
+      onChange: () => this.setState({ availability: a.id })
+
+    }));
+
+    const payMethods = C.payMethods.map(m => ({
+
+      ...m,
+
+      checked: s.payMethod === m.id,
+
+      onChange: () => this.setState({ payMethod: m.id })
+
+    }));
+
+    const sources = C.sources.map(label => ({
+
+      label,
+
+      checked: s.source === label,
+
+      onChange: () => this.setState({ source: label })
+
+    }));
+
+    const faqs = C.faqs.slice(0, 6).map((f, i) => ({
+
+      ...f,
+
+      open: s.openFaq === i,
+
+      openClass: s.openFaq === i ? 'is-open' : '',
+
+      expanded: s.openFaq === i ? 'true' : 'false',
+
+      onToggle: () => this.toggleFaq(i)
+
+    }));
+
+    const stepDefs = [
+
+      { n: '1', label: 'Details' },
+
+      { n: '2', label: 'Payment' },
+
+      { n: '3', label: 'Done' }
+
+    ];
+
+    const steps = stepDefs.map((d, i) => {
+
+      const idx = i + 1;
+
+      return {
+
+        ...d,
+
+        state: idx < step ? 'done' : idx === step ? 'current' : 'todo',
+
+        current: idx === step ? 'step' : 'false'
+
+      };
+
+    });
+
+    const firstName = (s.form.name.trim().split(/\s+/)[0]) || 'friend';
+
+    const levelLabel = (levelDefs.find(l => l.id === s.level) || {}).label || '';
+
+    return {
+
+      // copy
+
+      outcomes: C.outcomes,
+
+      curriculum: C.curriculum,
+
+      personas: C.personas,
+
+      spotlight: { ...C.spotlight, hasImage: !!C.spotlight.image, noImage: !C.spotlight.image },
+
+      testimonials: C.testimonials.map(t => ({ ...t, hasImage: !!t.image, noImage: !t.image })),
+
+      included: C.included,
+
+      faqs,
+
+      // cohort facts
+
+      price,
+
+      seatsTotal, seatsTaken, seatsLeft,
+
+      seatsPct: Math.round((seatsTaken / seatsTotal) * 100),
+
+      nextSeat: seatsTaken + 1,
+
+      startDate: this.props.startDate ?? 'Sept 10, 2026',
+
+      deadline: this.props.deadline ?? 'Sept 5',
+
+      whatsapp,
+
+      payHelpLink: 'https://wa.me/233' + whatsapp.replace(/\D/g, '').replace(/^0/, '') +
+
+        '?text=' + encodeURIComponent('Hi CJpy — I am registering for Cohort 02. Name: ' +
+
+        s.form.name + ', email: ' + s.form.email + ', phone: ' + s.form.phone +
+
+        '. I had trouble paying on the site.'),
+
+      whatsappLink: 'https://wa.me/233' + whatsapp.replace(/\D/g, '').replace(/^0/, ''),
+
+      cohortWhatsappLink: this.props.cohortWhatsappLink ?? 'https://chat.whatsapp.com/HUHzlyLvimREGt1S0GkTnm',
+
+      // form
+
+      fields, levels, availabilities, payMethods, sources, steps,
+
+      form: s.form,
+
+      firstName,
+
+      levelLabel,
+
+      pending: s.pending,
+
+      submitLabel: s.pending ? 'Reserving…' : 'Reserve my seat — GH₵' + price,
+
+      payLabel: s.pending ? 'Opening Paystack…' : 'Pay GH₵' + price + ' with Paystack',
+
+      profileLabel: s.pending ? 'Saving…' : 'Finish setup',
+
+      showDetails: step === 1,
+
+      showPayment: step === 2,
+
+      showDone: step === 3,
+
+      handleSubmit: (e) => this.handleSubmit(e),
+
+      handlePay: () => this.handlePay(),
+
+      handleProfile: (e) => this.handleProfile(e),
+
+      goBack: () => this.goBack(),
+
+      openFaqModal: () => window.openModal('faqModal'),
+
+      openAboutModal: () => window.openModal('aboutModal'),
+
+      openTermsModal: () => window.openModal('termsModal'),
+
+      openPrivacyModal: () => window.openModal('privacyModal'),
+
+      openRefundModal: () => window.openModal('refundModal')
+
+    };
+
+  }
+
+}
+
+</script>
+
+
+<!-- ══════════════════ COMPLIANCE & INFO MODALS (PAYSTACK COMPLIANT) ══════════════════ -->
+
+<!-- About Modal -->
+<div id="aboutModal" class="cj-modal-overlay" style="display:none" onclick="if(event.target===this)window.closeModal('aboutModal')">
+  <div class="cj-modal">
+    <div class="cj-modal-head">
+      <h3 class="cj-modal-title">About CJpy</h3>
+      <button type="button" class="cj-modal-close" onclick="window.closeModal('aboutModal')" aria-label="Close modal">&times;</button>
+    </div>
+    <div class="cj-modal-body">
+      <h4>Our Mission</h4>
+      <p>CJpy is an intensive, cohort-based Python programming bootcamp designed specifically for Ghanaian high school (SHS) graduates, university students, and young professionals breaking into software engineering and technology.</p>
+      
+      <h4>How We Teach</h4>
+      <p>We focus 100% on Python with a project-driven curriculum. No outdated languages or passive lectures — from day one, students install VS Code, write code live, build working automation scripts and software tools, and graduate with projects they can showcase on GitHub.</p>
+
+      <h4>Who Leads the Sessions</h4>
+      <p>All sessions are taught and mentored by Electrical Engineering and Computer Science students and practitioners who actively build, ship, and debug software in Ghana. Sessions are split into small breakout rooms to ensure personalized attention.</p>
+
+      <h4>Contact &amp; Operations</h4>
+      <ul>
+        <li><strong>Location:</strong> Accra &amp; Kumasi, Ghana</li>
+        <li><strong>Email:</strong> <a href="mailto:joincjpy@gmail.com">joincjpy@gmail.com</a></li>
+        <li><strong>WhatsApp / Phone:</strong> +233 50 932 9059</li>
+        <li><strong>Website:</strong> <a href="https://joincjpy.com">joincjpy.com</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ Modal -->
+<div id="faqModal" class="cj-modal-overlay" style="display:none" onclick="if(event.target===this)window.closeModal('faqModal')">
+  <div class="cj-modal">
+    <div class="cj-modal-head">
+      <h3 class="cj-modal-title">Frequently Asked Questions</h3>
+      <button type="button" class="cj-modal-close" onclick="window.closeModal('faqModal')" aria-label="Close modal">&times;</button>
+    </div>
+    <div class="cj-modal-body">
+      <h4>1. What is CJpy?</h4>
+      <p>A cohort-based Python programming bootcamp for Ghanaian SHS students, uni students, and young professionals trying to break into tech. Python only — no C, no distractions. Learn. Build. Lead.</p>
+
+      <h4>2. When does it run?</h4>
+      <p>Monday, Wednesday, Friday. 3 sessions a week for 30 days. Each session is 120–150 minutes. This isn't a weekend crash course — it's a commitment, and that's the point.</p>
+
+      <h4>3. Where do sessions happen?</h4>
+      <p>Live on Zoom. All the info sharing, resources, and mentor conversations happen in our dedicated WhatsApp community — so even outside class, you're never stuck.</p>
+
+      <h4>4. What do I need to join?</h4>
+      <p>Just a laptop and internet. If you don't already have a code editor, install VS Code beforehand — it's free and it's what we'll be using.</p>
+
+      <h4>5. How big are the classes?</h4>
+      <p>Small class sizes split into breakout rooms, so tutors actually know your name.</p>
+
+      <h4>6. How much does it cost?</h4>
+      <p>GH₵ 300 for the full 30 days.</p>
+
+      <h4>7. Do I need any coding experience?</h4>
+      <p>No. If you can use WhatsApp, you can start this.</p>
+
+      <h4>8. Who's teaching?</h4>
+      <p>EE students who've actually built and debugged real things — not just people reading slides at you.</p>
+
+      <h4>9. What if I fall behind or miss a session?</h4>
+      <p>Every session is recorded, so you don't lose the day. And your mentor is one WhatsApp message away — they'll actually talk you through what you missed, not just point you to a link.</p>
+
+      <h4>10. Is there a refund policy?</h4>
+      <p>No refunds. Not because we don't care — because we do. The moment there's an exit door, people take it the first time it gets hard, and that's exactly the week they needed to push through. We built this program for people who are in. If you're not ready to show up 3 times a week for a month, wait for a cohort when you are — we'd rather have you fully committed later than half-in now.</p>
+
+      <h4>11. Do people actually recommend this after finishing?</h4>
+      <p>Yes. The large majority of Cohort 1 students said they'd already recommended CJpy to someone else, or would. Nobody told us to say that — that's what they told us when we asked.</p>
+
+      <h4>12. Will I get a certificate?</h4>
+      <p>Yes, on completion.</p>
+
+      <h4>13. Is this just theory or do I actually build things?</h4>
+      <p>You build. That's the "Build" in Learn. Build. Lead. Lectures without shipped code don't get anyone hired.</p>
+
+      <h4>14. I'm not a "tech person," is this still for me?</h4>
+      <p>Most of Cohort 1 wasn't either. That's the whole reason CJpy exists.</p>
+
+      <h4>15. How do I sign up?</h4>
+      <p>WhatsApp us or head to <a href="https://joincjpy.com">joincjpy.com</a>. Cohort 2 starts September 10.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Terms of Service Modal -->
+<div id="termsModal" class="cj-modal-overlay" style="display:none" onclick="if(event.target===this)window.closeModal('termsModal')">
+  <div class="cj-modal">
+    <div class="cj-modal-head">
+      <h3 class="cj-modal-title">Terms of Service</h3>
+      <button type="button" class="cj-modal-close" onclick="window.closeModal('termsModal')" aria-label="Close modal">&times;</button>
+    </div>
+    <div class="cj-modal-body">
+      <h4>1. Agreement to Terms</h4>
+      <p>By accessing or registering for any program on joincjpy.com, you agree to be bound by these Terms of Service and all applicable laws and regulations in Ghana.</p>
+
+      <h4>2. Program Description &amp; Access</h4>
+      <p>CJpy provides a 30-day live online Python bootcamp comprising 3 live sessions per week (120–150 minutes each), access to session recordings, downloadable starter code, and access to a dedicated WhatsApp cohort community and mentorship support.</p>
+
+      <h4>3. Tuition &amp; Payment</h4>
+      <p>Registration requires a one-time tuition payment of GH₵ 300 processed securely through Paystack. Payment confirms and locks your seat in the specified cohort.</p>
+
+      <h4>4. Student Conduct &amp; Community Rules</h4>
+      <p>Students agree to maintain respectful, collaborative behavior in live Zoom sessions and WhatsApp groups. CJpy reserves the right to remove any participant who engages in harassment, unauthorized commercial promotion, or copyright violation of cohort materials without refund.</p>
+
+      <h4>5. Intellectual Property</h4>
+      <p>All course curricula, lesson guides, and recorded video sessions remain the exclusive intellectual property of CJpy. All software code and projects independently written by students remain the property of the students.</p>
+
+      <h4>6. Governing Law</h4>
+      <p>These Terms shall be governed and construed in accordance with the laws of the Republic of Ghana.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Privacy Policy Modal -->
+<div id="privacyModal" class="cj-modal-overlay" style="display:none" onclick="if(event.target===this)window.closeModal('privacyModal')">
+  <div class="cj-modal">
+    <div class="cj-modal-head">
+      <h3 class="cj-modal-title">Privacy Policy</h3>
+      <button type="button" class="cj-modal-close" onclick="window.closeModal('privacyModal')" aria-label="Close modal">&times;</button>
+    </div>
+    <div class="cj-modal-body">
+      <h4>1. Information We Collect</h4>
+      <p>When you register for CJpy, we collect personal information you provide, including your full name, email address, phone/WhatsApp number, educational institution/level, and learning goals.</p>
+
+      <h4>2. How We Use Your Information</h4>
+      <p>We use your details strictly to:</p>
+      <ul>
+        <li>Assign your seat and manage your cohort registration.</li>
+        <li>Send you Zoom meeting links, calendar invites, and class materials.</li>
+        <li>Add you to the official Cohort WhatsApp group for announcements and mentor help.</li>
+        <li>Issue your Certificate of Completion upon finishing the program.</li>
+      </ul>
+
+      <h4>3. Payment Information Security</h4>
+      <p>All financial transactions are processed securely by <strong>Paystack</strong> (licensed payment service provider). CJpy does not store, process, or have access to your mobile money PINs, bank accounts, or credit card numbers.</p>
+
+      <h4>4. Data Protection &amp; Third Parties</h4>
+      <p>We do not sell, rent, or trade your personal data to third parties. We take appropriate technical precautions to protect your information against unauthorized access.</p>
+
+      <h4>5. Contact Us</h4>
+      <p>If you have questions about our privacy practices, contact us at <a href="mailto:joincjpy@gmail.com">joincjpy@gmail.com</a>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Refund Policy Modal -->
+<div id="refundModal" class="cj-modal-overlay" style="display:none" onclick="if(event.target===this)window.closeModal('refundModal')">
+  <div class="cj-modal">
+    <div class="cj-modal-head">
+      <h3 class="cj-modal-title">Refund &amp; Cancellation Policy</h3>
+      <button type="button" class="cj-modal-close" onclick="window.closeModal('refundModal')" aria-label="Close modal">&times;</button>
+    </div>
+    <div class="cj-modal-body">
+      <h4>1. Commitment-First Policy (No Refunds)</h4>
+      <p>CJpy operates on a strict <strong>No Refunds</strong> policy once enrolled. Because our cohorts have limited capacity and our curriculum is built around deep mutual commitment, reserving a seat blocks that place from another applicant.</p>
+
+      <h4>2. Why We Have This Policy</h4>
+      <p>The moment an exit door exists, learners are tempted to withdraw at the first challenging coding concept — which is precisely the week where breakthroughs happen. We built CJpy for students who are ready to commit.</p>
+
+      <h4>3. Missing a Session</h4>
+      <p>If you cannot attend a live session, you will not fall behind. Every session is recorded and made available within 24 hours, and our mentors provide direct 1-on-1 assistance via WhatsApp.</p>
+
+      <h4>4. Emergency Cohort Transfers</h4>
+      <p>If documented medical or unavoidable circumstances prevent you from participating before Cohort 02 commences, you may request a one-time transfer to the next scheduled cohort by emailing <a href="mailto:joincjpy@gmail.com">joincjpy@gmail.com</a> at least 48 hours prior to start date.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.openModal = function(id) {
+    var el = document.getElementById(id);
+    if (el) {
+      el.style.display = 'flex';
+      void el.offsetHeight;
+      el.classList.add('is-active');
+      document.body.style.overflow = 'hidden';
+    }
+  };
+  window.closeModal = function(id) {
+    var el = document.getElementById(id);
+    if (el) {
+      el.classList.remove('is-active');
+      setTimeout(function() {
+        if (!el.classList.contains('is-active')) {
+          el.style.display = 'none';
+        }
+      }, 240);
+      document.body.style.overflow = '';
+    }
+  };
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      var openModals = document.querySelectorAll('.cj-modal-overlay.is-active');
+      openModals.forEach(function(m) {
+        m.classList.remove('is-active');
+        setTimeout(function() {
+          if (!m.classList.contains('is-active')) {
+            m.style.display = 'none';
+          }
+        }, 240);
+      });
+      document.body.style.overflow = '';
+    }
+  });
+</script>
+
+</body>
+
+</html>
