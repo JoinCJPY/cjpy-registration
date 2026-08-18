@@ -5,9 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" href="./favicon.ico">
 <link rel="icon" type="image/x-icon" href="./favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="./android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="./android-chrome-512x512.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+<link rel="manifest" href="./site.webmanifest">
 <meta name="build-version" content="2026.08.16.5">
 <style>.cj-modal-overlay{display:none}</style>
 <script src="./support.js"></script>
@@ -17,9 +20,12 @@
 <helmet>
 <link rel="shortcut icon" href="./favicon.ico">
 <link rel="icon" type="image/x-icon" href="./favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="./android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="./android-chrome-512x512.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+<link rel="manifest" href="./site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
@@ -1142,7 +1148,7 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
 
 </x-dc>
 
-<script type="text/x-dc" data-dc-script data-props="{&quot;accentColor&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#9184d9&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#9184d9&quot;]}, &quot;price&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;300&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;seatsTotal&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;60&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;seatsTaken&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;28&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;startDate&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;Sept 10, 2026&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;deadline&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;Sept 5&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;whatsapp&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;050 932 9059&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;paystackKey&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;pk_test_e895d17c1b6dd2e991f018757e5f0cd5a745cc58&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;cohortWhatsappLink&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;https://chat.whatsapp.com/HUHzlyLvimREGt1S0GkTnm&quot;, &quot;tsType&quot;: &quot;string&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;accentColor&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#9184d9&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#9184d9&quot;]}, &quot;price&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;300&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;seatsTotal&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;60&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;seatsTaken&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;28&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;startDate&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;Sept 10, 2026&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;deadline&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;Sept 5&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;whatsapp&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;050 932 9059&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;paystackKey&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;pk_live_364467384da5f04c7c1f18096fd9686c000a64f4&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;cohortWhatsappLink&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;https://chat.whatsapp.com/HUHzlyLvimREGt1S0GkTnm&quot;, &quot;tsType&quot;: &quot;string&quot;}}">
 
 class Component extends DCLogic {
 
@@ -1495,7 +1501,7 @@ class Component extends DCLogic {
 
     if (this.state.pending) return;
 
-    const key = (this.props.paystackKey || 'pk_test_e895d17c1b6dd2e991f018757e5f0cd5a745cc58').trim();
+    const key = (this.props.paystackKey || 'pk_live_364467384da5f04c7c1f18096fd9686c000a64f4').trim();
 
     const price = parseInt(String(this.props.price ?? '300').replace(/\D/g, ''), 10) || 300;
 
@@ -1922,8 +1928,8 @@ class Component extends DCLogic {
         <div class="founder-info">
           <span class="founder-tag">Founder</span>
           <h4 class="founder-name">Chris Kwaku Ameyaw Junior</h4>
-          <div class="founder-role">Founder, CJpy &bull; President, ELEESA (KNUST)</div>
-          <p class="founder-bio">Level 200 Electrical Engineering student at KNUST and President of the Electrical and Electronic Engineering Students' Association (ELEESA). Passionate about empowering Ghanaian youth to master real-world software engineering with Python.</p>
+          <div class="founder-role">Founder, CJpy &bull; President 26', ELEESA (KNUST)</div>
+          <p class="founder-bio">Electrical Engineering student at KNUST and President 26' of the Electrical and Electronic Engineering Students' Association (ELEESA). Passionate about empowering Ghanaian youth to master real-world software engineering with Python.</p>
         </div>
       </div>
 
