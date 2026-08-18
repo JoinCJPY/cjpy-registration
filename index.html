@@ -853,9 +853,9 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
     <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:var(--space-4)">
       <div>
         <h2 class="h-sec" style="margin:0 0 4px">Frequently Asked Questions</h2>
-        <p class="lede" style="margin:0">Key answers below — or open the full 14-question guide.</p>
+        <p class="lede" style="margin:0">Key answers below — or open the full 15-question guide.</p>
       </div>
-      <button type="button" class="btn btn-secondary btn-sm" onClick="{{ openFaqModal }}">Open Full FAQ (14 Q&amp;As) <span class="ar">↗</span></button>
+      <button type="button" class="btn btn-secondary btn-sm" onClick="{{ openFaqModal }}">Open Full FAQ (15 Q&amp;As) <span class="ar">↗</span></button>
     </div>
 
     <div class="faq-list">
@@ -885,7 +885,7 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
     </div>
 
     <div style="margin-top:var(--space-4)">
-      <button type="button" class="btn btn-secondary btn-block btn-lg" onClick="{{ openFaqModal }}">View All 14 Questions &amp; Answers <span class="ar">↗</span></button>
+      <button type="button" class="btn btn-secondary btn-block btn-lg" onClick="{{ openFaqModal }}">View All 15 Questions &amp; Answers <span class="ar">↗</span></button>
     </div>
 
   </section>
@@ -1293,8 +1293,8 @@ class Component extends DCLogic {
         a: 'Live on Zoom. All the info sharing, resources, and mentor conversations happen in our dedicated WhatsApp community — so even outside class, you are never stuck.' },
       { q: 'What do I need to join?',
         a: 'Just a laptop and internet. If you do not already have a code editor, install VS Code beforehand — it is free and it is what we will be using.' },
-      { q: 'Do people actually recommend this after finishing?',
-        a: "Yes. The large majority of Cohort 1 students said they'd already recommended CJpy to someone, or would if asked." },
+      { q: 'How big are the classes?',
+        a: 'Small class sizes split into breakout rooms of 20 students max, so tutors actually know your name.' },
       { q: 'How much does it cost?',
         a: 'GH₵ 300 for the full 30 days.' },
       { q: 'Do I need any coding experience?',
@@ -1305,6 +1305,8 @@ class Component extends DCLogic {
         a: 'Every session is recorded, so you do not lose the day. And your mentor is one WhatsApp message away — they will actually talk you through what you missed, not just point you to a link.' },
       { q: 'Is there a refund policy?',
         a: 'No refunds. Not because we do not care — because we do. The moment there is an exit door, people take it the first time it gets hard, and that is exactly the week they needed to push through. We built this program for people who are in. If you are not ready to show up 3 times a week for a month, wait for a cohort when you are — we would rather have you fully committed later than half-in now.' },
+      { q: 'Do people actually recommend this after finishing?',
+        a: "Yes. The large majority of Cohort 1 students said they'd already recommended CJpy to someone, or would if asked." },
       { q: 'Will I get a certificate?',
         a: 'Yes, on completion.' },
       { q: 'Is this just theory or do I actually build things?',
@@ -1932,7 +1934,7 @@ class Component extends DCLogic {
       <p>We focus 100% on Python with a project-driven curriculum. No outdated languages or passive lectures — from day one, students install VS Code, write code live, build working automation scripts and software tools, and graduate with projects they can showcase on GitHub.</p>
 
       <h4>Who Leads the Sessions</h4>
-      <p>All sessions are taught and mentored by experienced Electrical Engineering students and practitioners who actively build, ship, and debug software in Ghana, ensuring dedicated, personalized attention for every student.</p>
+      <p>All sessions are taught and mentored by experienced Electrical Engineering students and practitioners who actively build, ship, and debug software in Ghana. Sessions are split into small breakout rooms of 20 students max to ensure personalized attention.</p>
 
       <h4>Contact &amp; Operations</h4>
       <ul>
@@ -1965,8 +1967,8 @@ class Component extends DCLogic {
       <h4>4. What do I need to join?</h4>
       <p>Just a laptop and internet. If you don't already have a code editor, install VS Code beforehand — it's free and it's what we'll be using.</p>
 
-      <h4>5. Do people actually recommend this after finishing?</h4>
-      <p>Yes. The large majority of Cohort 1 students said they'd already recommended CJpy to someone, or would if asked.</p>
+      <h4>5. How big are the classes?</h4>
+      <p>Small class sizes split into breakout rooms of 20 students max, so tutors actually know your name.</p>
 
       <h4>6. How much does it cost?</h4>
       <p>GH₵ 300 for the full 30 days.</p>
@@ -1983,16 +1985,19 @@ class Component extends DCLogic {
       <h4>10. Is there a refund policy?</h4>
       <p>No refunds. Not because we don't care — because we do. The moment there's an exit door, people take it the first time it gets hard, and that's exactly the week they needed to push through. We built this program for people who are in. If you're not ready to show up 3 times a week for a month, wait for a cohort when you are — we'd rather have you fully committed later than half-in now.</p>
 
-      <h4>11. Will I get a certificate?</h4>
+      <h4>11. Do people actually recommend this after finishing?</h4>
+      <p>Yes. The large majority of Cohort 1 students said they'd already recommended CJpy to someone, or would if asked.</p>
+
+      <h4>12. Will I get a certificate?</h4>
       <p>Yes, on completion.</p>
 
-      <h4>12. Is this just theory or do I actually build things?</h4>
+      <h4>13. Is this just theory or do I actually build things?</h4>
       <p>You build. That's the "Build" in Learn. Build. Lead. Lectures without shipped code don't get anyone hired.</p>
 
-      <h4>13. I'm not a "tech person," is this still for me?</h4>
+      <h4>14. I'm not a "tech person," is this still for me?</h4>
       <p>Most of Cohort 1 wasn't either. That's the whole reason CJpy exists.</p>
 
-      <h4>14. How do I sign up?</h4>
+      <h4>15. How do I sign up?</h4>
       <p>WhatsApp us or head to <a href="https://joincjpy.com">joincjpy.com</a>. Cohort 2 starts September 10.</p>
     </div>
   </div>
