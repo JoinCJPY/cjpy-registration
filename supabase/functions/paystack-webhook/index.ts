@@ -58,6 +58,9 @@ function generateWelcomeEmailHtml(name: string, reference: string, amount: numbe
           <!-- Header Banner -->
           <tr>
             <td style="background:linear-gradient(135deg, #0d2b4e 0%, #163a66 100%);padding:36px 32px;text-align:center;">
+              <a href="https://joincjpy.com" target="_blank" style="display:inline-block;text-decoration:none;">
+                <img src="https://raw.githubusercontent.com/JoinCJPY/cjpy-registration/main/logo-clean.png" alt="CJpy Logo" width="75" height="75" style="display:block;margin:0 auto 16px;border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,0.25);border:2px solid rgba(255,255,255,0.15);" />
+              </a>
               <h1 style="margin:0 0 8px;color:#ffffff;font-size:26px;font-weight:800;letter-spacing:-0.5px;">Welcome to CJpy! 🚀</h1>
               <p style="margin:0;color:#fdf1da;font-size:15px;font-weight:500;">Your Seat in Cohort 02 is Confirmed</p>
             </td>
