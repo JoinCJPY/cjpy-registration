@@ -1093,9 +1093,17 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
 
         </dl>
 
-        <a class="btn btn-primary btn-block" style="margin-top:var(--space-4)" href="{{ cohortWhatsappLink }}" target="_blank" rel="noopener noreferrer">Join the cohort WhatsApp group <span class="ar">&rarr;</span></a>
+        <div style="margin-top:var(--space-4);padding:14px 16px;background:rgba(145,132,217,0.08);border:1px solid rgba(145,132,217,0.22);border-radius:var(--radius-md);text-align:left">
+          <div style="font-weight:600;font-size:13.5px;color:var(--t-92);margin-bottom:4px;display:flex;align-items:center;gap:6px">
+            <svg viewBox="0 0 24 24" style="width:16px;height:16px;color:var(--accent)" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            Check your email for your WhatsApp invite
+          </div>
+          <p style="font-size:12px;line-height:1.45;color:var(--t-62);margin:0">
+            We've sent your exclusive Cohort 02 WhatsApp community link and receipt to <strong style="color:var(--t-88)">{{ form.email }}</strong>.
+          </p>
+        </div>
 
-        <p class="fine" style="margin:var(--space-3) 0 0">Nothing in your inbox within an hour? Check spam, then message us &mdash; we'll fix it.</p>
+        <p class="fine" style="margin:var(--space-3) 0 0">Nothing in your inbox within a few minutes? Check spam, then message us &mdash; we'll fix it.</p>
 
       </div>
 
@@ -1148,7 +1156,7 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
 
 </x-dc>
 
-<script type="text/x-dc" data-dc-script data-props="{&quot;accentColor&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#9184d9&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#9184d9&quot;]}, &quot;price&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;300&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;seatsTotal&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;60&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;seatsTaken&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;28&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;startDate&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;Sept 10, 2026&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;deadline&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;Sept 5&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;whatsapp&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;050 932 9059&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;paystackKey&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;pk_live_364467384da5f04c7c1f18096fd9686c000a64f4&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;cohortWhatsappLink&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;https://chat.whatsapp.com/HUHzlyLvimREGt1S0GkTnm&quot;, &quot;tsType&quot;: &quot;string&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;accentColor&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#9184d9&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#9184d9&quot;]}, &quot;price&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;300&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;seatsTotal&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;60&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;seatsTaken&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;28&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;startDate&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;Sept 10, 2026&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;deadline&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;Sept 5&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;whatsapp&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;050 932 9059&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;paystackKey&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;pk_test_e895d17c1b6dd2e991f018757e5f0cd5a745cc58&quot;, &quot;tsType&quot;: &quot;string&quot;}}">
 
 class Component extends DCLogic {
 
@@ -1857,8 +1865,6 @@ class Component extends DCLogic {
         '. I had trouble paying on the site.'),
 
       whatsappLink: 'https://wa.me/233' + whatsapp.replace(/\D/g, '').replace(/^0/, ''),
-
-      cohortWhatsappLink: this.props.cohortWhatsappLink ?? 'https://chat.whatsapp.com/HUHzlyLvimREGt1S0GkTnm',
 
       // form
 

@@ -1,3 +1,4 @@
+
 # 🚀 CJpy Supabase Backend Setup Guide
 
 This backend automatically receives Paystack payment events, cryptographically verifies them with HMAC-SHA512, and stores registered students directly into your Supabase PostgreSQL database.
