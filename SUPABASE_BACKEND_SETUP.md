@@ -33,19 +33,34 @@ npx supabase functions deploy paystack-webhook --no-verify-jwt
 
 ---
 
-## 3. Set Environment Secrets in Supabase
+## 3. Set Environment Secrets in Supabase (CRITICAL FOR EMAILS)
 
-The function requires your Paystack Live Secret Key (`sk_live_...`).
+The Edge Function requires your Paystack Live Secret Key and your Resend API Key to send the automated status update emails.
 
-1. In Supabase Dashboard, go to **Project Settings** -> **Edge Functions** (or **Vault / Secrets**).
-2. Add a new secret:
-   - **Name**: `PAYSTACK_SECRET_KEY`
-   - **Value**: `sk_live_your_actual_paystack_secret_key`
-3. Save.
+1. In your **Supabase Dashboard**, go to **Project Settings** (gear icon) ➔ **Edge Functions** (or **Vault / Secrets**).
+2. Add the following secrets:
+
+| Secret Name | Value | Purpose |
+|---|---|---|
+| `PAYSTACK_SECRET_KEY` | `sk_live_...` | Verifies payments directly from Paystack |
+| `RESEND_API_KEY` | `re_...` | **Required to send emails via Resend** |
+| `FROM_EMAIL` | `CJpy Admissions <admissions@joincjpy.com>` | Sender address (must match a verified domain in Resend) |
+
+> ⚠️ **Important**: If `RESEND_API_KEY` is not set, the Edge Function silently skips sending the email!
 
 ---
 
-## 4. Add the Webhook URL in Paystack
+## 4. Verify Your Domain in Resend (resend.com)
+
+1. Sign in to your [Resend Dashboard](https://resend.com/domains).
+2. Click **Add Domain** and enter `joincjpy.com`.
+3. Add the DNS records (DKIM, SPF) provided by Resend to your domain DNS provider (Namecheap, Cloudflare, etc.).
+4. Once verified, Resend will successfully deliver emails to all student addresses without being rejected or marked as spam.
+5. *(Optional testing)*: If your domain is not verified yet, Resend restricts `onboarding@resend.dev` to only sending to the account owner's email address.
+
+---
+
+## 5. Add the Webhook URL in Paystack
 
 1. Go to your [Paystack Dashboard](https://dashboard.paystack.com/#/settings/developers).
 2. Go to **Settings** ➔ **API Keys & Webhooks**.
@@ -57,10 +72,23 @@ The function requires your Paystack Live Secret Key (`sk_live_...`).
 
 ---
 
-## 5. What Happens Automatically on Payment?
+## 6. How to Diagnose & Verify Why Emails Aren't Arriving
 
-When a student pays GH₵ 300 on `joincjpy.com`:
-1. Paystack securely fires a `charge.success` webhook to your Supabase function.
-2. The Edge function checks the HMAC-SHA512 cryptographic signature to confirm it genuinely came from Paystack.
-3. The student's **Full Name**, **Email**, **WhatsApp/Phone**, **Amount Paid**, **Payment Reference**, and **Payment Timestamp** are saved directly to your Supabase `registrations` table.
-4. You can export the list to CSV anytime from the Supabase Table Editor or view real-time metrics with the `cohort_stats` view!
+If a user paid and didn't receive an email, check these two places in 30 seconds:
+
+### A. Check Supabase Edge Function Logs:
+1. Open Supabase Dashboard ➔ **Edge Functions** ➔ click **`paystack-webhook`**.
+2. Click the **Invocations / Logs** tab.
+3. If you see:
+   - `"RESEND_API_KEY not configured. Skipping welcome email."` ➔ You need to add the `RESEND_API_KEY` secret in Supabase!
+   - `"Resend API error: domain not verified"` ➔ Your domain `joincjpy.com` is not verified in Resend.
+   - `"Invalid signature"` ➔ `PAYSTACK_SECRET_KEY` is incorrect or missing.
+   - No logs at all ➔ Paystack hasn't sent the webhook yet (check Paystack Webhook URL).
+
+### B. Check Paystack Webhook Logs:
+1. Open Paystack Dashboard ➔ **Settings** ➔ **Webhooks**.
+2. Scroll to **Recent Webhooks / Webhook Logs**.
+3. Check the HTTP response status code for the transaction:
+   - `200 OK`: Paystack successfully reached Supabase.
+   - `401 Unauthorized`: Paystack secret key mismatch.
+   - `Failed / Timeout`: Webhook URL is invalid or unreachable.
