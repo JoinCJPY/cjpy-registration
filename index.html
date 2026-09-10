@@ -685,7 +685,7 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
 @media (min-width:900px){.mobile-cta{display:none}}
 @media (max-width:899px){
   .shell{padding-bottom:96px}
-  .sec{padding:26px var(--pad)}
+  .sec{padding:24px var(--pad)}
   .reg-card{padding:var(--space-6) var(--space-4)}
   .facts{grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:var(--space-4)}
   .input{font-size:16px}
@@ -710,6 +710,117 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
   .reg{order:15}
   .sec-faq{order:16}
 }
+
+/* ── Mobile Phones & Small Tablets (<=600px) ── */
+@media (max-width:600px){
+  .tracks-grid{gap:16px;margin-top:var(--space-4)}
+  .card-sprint, .card-cohort{padding:20px 16px;border-radius:16px}
+  .track-h3{font-size:19px;line-height:1.25;margin-bottom:6px}
+  .track-sub{font-size:13.5px;line-height:1.5;margin-bottom:var(--space-4)}
+  .price-amt{font-size:32px}
+  .price-per{font-size:12px}
+  .price-head{margin-bottom:12px !important;padding-bottom:12px !important}
+  .track-spec-box{padding:12px 14px;gap:10px;margin-bottom:16px;border-radius:10px}
+  .spec-line{grid-template-columns:1fr;gap:2px;font-size:13px}
+  .spec-lbl{font-size:10px;letter-spacing:.06em}
+  .spec-val{font-size:13px}
+  .spec-val .spec-hint{font-size:11.5px;margin-top:1px}
+  .track-inclusions{gap:8px;margin-bottom:16px}
+  .track-inclusions li{font-size:13px;gap:8px;line-height:1.45}
+  .track-inclusions .track-check{width:15px;height:15px;margin-top:2px}
+  .pay{gap:6px;margin-bottom:16px !important}
+  .pay span{font-size:10.5px;padding:3px 8px}
+  .faq-q{padding:14px 14px;font-size:14px}
+  .faq-a{padding:0 14px 14px;font-size:13px}
+}
+
+/* ── Standard Mobile Screen Optimization (<=480px) ── */
+@media (max-width:480px){
+  :root{--pad:16px;--space-8:22px;--space-6:16px}
+  .sec{padding:20px var(--pad)}
+  .h-sec{font-size:23px;line-height:1.16}
+  .kicker{font-size:10px;letter-spacing:.14em;margin-bottom:10px}
+  .lede{font-size:13.5px;line-height:1.55;margin-bottom:var(--space-6)}
+  
+  /* Top Nav */
+  .nav{padding:10px var(--pad);gap:8px}
+  .brand-mark{height:28px;margin-right:6px}
+  .nav-brand{font-size:20px}
+  .nav .tag-accent{display:none} /* Clean, uncluttered single-row header */
+  .tag-sprint{font-size:9.5px;padding:4px 9px;letter-spacing:.08em}
+
+  /* Hero */
+  .hero-h1{font-size:36px;line-height:1.02;letter-spacing:-.03em;max-width:100%;margin-bottom:12px}
+  .hero-sub{font-size:14px;line-height:1.55;margin-bottom:var(--space-4)}
+  .hero-sprint-pill{max-width:100%;font-size:11.5px;padding:4px 10px 4px 6px;gap:6px;line-height:1.35;border-radius:99px;margin-bottom:12px}
+  .hero-sprint-pill .hsp-tag{font-size:9px;padding:2px 6px}
+  .hero-panel{margin:4px 0 var(--space-6)}
+  .datepill{padding:6px 12px;font-size:11px;left:8px;bottom:-4px}
+  .datepill .dp-k{font-size:9.5px;margin-right:4px}
+  .datepill .bird{width:18px;height:13px;margin-left:6px}
+
+  /* CTA Button with Arrow */
+  .btn-lg:has(.ar){padding:6px 6px 6px 18px;gap:10px;font-size:14px}
+  .btn-lg .ar{width:36px;height:36px;font-size:15px}
+
+  /* Track Picker (Clean vertical stacked cards on mobile) */
+  .track-picker{display:flex;flex-direction:column;gap:6px;padding:5px;margin-bottom:var(--space-4)}
+  .track-picker-btn{width:100%;flex-direction:row;align-items:center;justify-content:space-between;padding:10px 12px}
+  .track-picker-btn .tp-badge{font-size:9.5px;margin-bottom:0}
+  .track-picker-btn .tp-title{font-size:13px}
+  .track-picker-btn .tp-price{margin-top:0;font-size:13.5px;font-weight:700}
+
+  /* Stepper */
+  .steps{gap:4px;margin-bottom:18px}
+  .step-lbl{display:none !important}
+  .step-n{width:22px;height:22px;font-size:9.5px}
+
+  /* Registration Form */
+  .reg-card{padding:18px 14px;border-radius:14px}
+  .reg-card h3{font-size:17px !important}
+  .field > label{font-size:12px;margin-bottom:5px}
+  .input{min-height:44px;padding:10px 12px;font-size:16px !important} /* Eliminates Safari auto-zoom */
+  .paystack-box{padding:12px 14px;border-radius:10px;margin-bottom:14px}
+  .ps-row{font-size:13px}
+  .ps-total{font-size:14.5px}
+
+  /* Quick Facts */
+  .facts{grid-template-columns:repeat(2,1fr);gap:10px}
+  .fact-v{font-size:15.5px}
+  .fact-k{font-size:9.5px}
+  .fact-n{font-size:11px}
+
+  /* Founder Card */
+  .founder-card{flex-direction:column;align-items:flex-start;gap:12px;padding:14px}
+  .founder-img-wrap{width:84px;height:98px}
+  .founder-name{font-size:16px !important}
+  .founder-role{font-size:12px}
+  .founder-bio{font-size:12px}
+
+  /* Modals */
+  .cj-modal{border-radius:14px;max-height:88vh}
+  .cj-modal-head{padding:14px 16px}
+  .cj-modal-body{padding:16px;font-size:13px}
+
+  /* Sticky Mobile Bottom CTA */
+  .mobile-cta{padding:9px var(--pad) calc(9px + env(safe-area-inset-bottom, 0px));gap:10px}
+  .mobile-cta .mc-amt{font-size:16px}
+  .mobile-cta .mc-note{font-size:10.5px}
+  .mobile-cta .btn-sm{padding:7px 14px;font-size:12px}
+}
+
+/* ── Compact Screen Optimization (<=360px) ── */
+@media (max-width:360px){
+  .hero-h1{font-size:32px}
+  .h-sec{font-size:21px}
+  .hero-sprint-pill{font-size:10.5px;padding:3px 8px 3px 5px}
+  .price-amt{font-size:28px}
+  .btn-lg:has(.ar){font-size:13px;padding:5px 5px 5px 14px}
+  .btn-lg .ar{width:32px;height:32px;font-size:13px}
+  .track-picker-btn{padding:8px 10px}
+  .track-picker-btn .tp-title{font-size:12.5px}
+}
+
 @media (min-width:600px) and (max-width:899px){
   .shell{max-width:640px}
   .hero-h1{font-size:52px;max-width:14ch}
@@ -1589,9 +1700,9 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
 
 <div class="mobile-cta">
 
-  <span class="mc-price"><span class="mc-amt">GH₵{{ price }}</span><span class="mc-note">Cohort 02 · starts {{ startDate }}</span></span>
+  <span class="mc-price"><span class="mc-amt">GH₵{{ currentTrackPrice }}</span><span class="mc-note">{{ currentTrackName }} &middot; Save seat</span></span>
 
-  <a href="#register" class="btn btn-primary btn-sm">Reserve <span class="ar">→</span></a>
+  <a href="#register" class="btn btn-primary btn-sm">Reserve <span class="ar">&rarr;</span></a>
 
 </div>
 
