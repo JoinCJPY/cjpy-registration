@@ -299,6 +299,281 @@ ul.incl{list-style:none;padding:0}
 .pay span{font-size:11px;padding:4px 10px;border-radius:99px;border:1px solid var(--color-divider);
   color:var(--t-62)}
 
+/* ── Learning Tracks & CJpy Sprint (Clean, Professional Design) ── */
+.tag-sprint {
+  background: var(--navy);
+  color: #fff !important;
+  font-family: 'Bricolage Grotesque', 'Inter', system-ui, sans-serif;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 99px;
+  text-decoration: none;
+  transition: background .18s var(--ease);
+}
+.tag-sprint:hover {
+  background: var(--navy-700);
+  color: #fff !important;
+}
+
+/* Subtle, institutional hero announcement pill */
+.hero-sprint-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: #ffffff;
+  border: 1px solid var(--color-divider-strong);
+  border-radius: 99px;
+  padding: 5px 14px 5px 6px;
+  margin-bottom: var(--space-4);
+  text-decoration: none;
+  font-size: 12.5px;
+  color: var(--navy);
+  transition: border-color .18s ease, box-shadow .18s ease;
+  width: fit-content;
+}
+.hero-sprint-pill:hover {
+  border-color: var(--navy);
+  box-shadow: var(--shadow-sm);
+  color: var(--navy-700);
+}
+.hsp-tag {
+  background: var(--navy);
+  color: #ffffff;
+  font-family: 'Bricolage Grotesque', 'Inter', system-ui, sans-serif;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  padding: 3px 8px;
+  border-radius: 99px;
+  text-transform: uppercase;
+}
+.hsp-arrow {
+  color: var(--navy-300);
+  font-weight: 700;
+  transition: transform .18s ease;
+}
+.hero-sprint-pill:hover .hsp-arrow {
+  transform: translateX(2px);
+  color: var(--navy);
+}
+
+/* Sibling tracks layout */
+.tracks-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+}
+
+/* CJpy Sprint Spotlight Card — Professional, Clean, Architectural */
+.card-sprint {
+  position: relative;
+  background: #ffffff;
+  border: 1.5px solid var(--navy);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8) var(--space-6);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow .2s var(--ease);
+}
+.card-sprint:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.track-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: var(--space-4);
+}
+.badge-sprint-pro {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--navy);
+  color: #ffffff;
+  font-family: 'Bricolage Grotesque', 'Inter', system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 99px;
+}
+.badge-sprint-pro::before {
+  content: '•';
+  color: var(--amber);
+  font-size: 14px;
+  line-height: 1;
+}
+
+.track-h3 {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -.025em;
+  color: var(--navy);
+  line-height: 1.25;
+  margin: 0 0 var(--space-2);
+}
+.track-sub {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--t-72);
+  margin-bottom: var(--space-6);
+}
+
+/* Professional Spec Table/Grid matching sec-facts */
+.track-spec-box {
+  background: var(--color-ground);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: var(--space-6);
+}
+.spec-line {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 12px;
+  font-size: 13.5px;
+  line-height: 1.45;
+}
+.spec-line:not(:last-child) {
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--color-divider);
+}
+.spec-lbl {
+  font-family: 'Bricolage Grotesque', 'Inter', system-ui, sans-serif;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--t-55);
+}
+.spec-val {
+  font-weight: 600;
+  color: var(--navy);
+}
+.spec-val .spec-hint {
+  display: block;
+  font-weight: 400;
+  color: var(--t-62);
+  font-size: 12px;
+  margin-top: 2px;
+}
+@media (max-width: 480px) {
+  .spec-line {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+}
+
+/* Feature checklist */
+.track-inclusions {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.track-inclusions li {
+  display: flex;
+  gap: 10px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--t-85);
+}
+.track-inclusions .track-check {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  margin-top: 3px;
+  color: var(--navy);
+}
+
+/* Cohort 02 Sibling Card */
+.card-cohort {
+  background: #ffffff;
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8) var(--space-6);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow .2s var(--ease);
+}
+.card-cohort:hover {
+  border-color: var(--color-divider-strong);
+  box-shadow: var(--shadow-md);
+}
+
+/* Track Picker / Selector in Registration Section */
+.track-picker {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  background: var(--color-ground);
+  padding: 6px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-divider);
+  margin-bottom: var(--space-6);
+}
+.track-picker-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: all .16s var(--ease);
+}
+.track-picker-btn:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+.track-picker-btn.is-selected {
+  background: #ffffff;
+  border-color: var(--navy);
+  box-shadow: var(--shadow-sm);
+}
+.tp-badge {
+  font-family: 'Bricolage Grotesque', 'Inter', system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--t-55);
+  margin-bottom: 2px;
+}
+.track-picker-btn.is-selected .tp-badge {
+  color: var(--navy-700);
+}
+.tp-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+}
+.tp-price {
+  font-size: 12px;
+  color: var(--t-62);
+  margin-top: 2px;
+  font-weight: 600;
+}
+.track-picker-btn.is-selected .tp-price {
+  color: var(--navy);
+}
+
 .steps{display:flex;align-items:center;gap:var(--space-2);margin-bottom:var(--space-8)}
 .step{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--t-55);white-space:nowrap}
 .step:not(:last-child){flex:1}
@@ -518,7 +793,7 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
 .cj-modal-body li{margin-bottom:6px}
 
 /* ── Founder Profile Card ── */
-.founder-card{display:flex;gap:18px;align-items:center;background:linear-gradient(135deg,#f8fafc 0%,#edf2f8 100%);border:1px solid var(--color-divider);border-radius:14px;padding:16px;margin:8px 0 20px}
+.founder-card{display:flex;gap:18px;align-items:center;background:var(--color-ground);border:1px solid var(--color-divider);border-radius:14px;padding:16px;margin:8px 0 20px}
 .founder-img-wrap{flex:none;width:110px;height:125px;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(13,43,78,.12);border:2px solid #fff}
 .founder-img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
 .founder-info{flex:1;min-width:0}
@@ -551,6 +826,7 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
     <div class="nav-brand"><img class="brand-mark" src="./logo-clean.png" alt="CJpy logo"><span class="b-c">C</span><span class="b-j">J</span><span class="b-p">p</span><span class="b-y">y</span></div>
 
     <div class="tag tag-accent tag-up">Cohort 02</div>
+    <a href="#sprint" class="tag tag-sprint tag-up">CJpy Sprint &middot; 21 Days</a>
 
     <a href="#register" class="btn btn-primary btn-sm">Reserve my seat <span class="ar">→</span></a>
 
@@ -563,6 +839,12 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
   <!-- ═══ HERO ══════════════════════════════════════════════════════ -->
 
   <section class="sec sec-hero">
+
+    <a href="#sprint" class="hero-sprint-pill">
+      <span class="hsp-tag">NEW TRACK</span>
+      <span><strong>CJpy Sprint:</strong> 21-Day Python Fast Track &middot; <strong>GH₵ 150</strong></span>
+      <span class="hsp-arrow">→</span>
+    </a>
 
     <h1 class="hero-h1"><span class="hero-line"><span>Learn today.</span></span><span class="hero-line"><span>Build tomorrow.</span></span><span class="hero-line"><span>Lead forever.</span></span></h1>
 
@@ -836,47 +1118,155 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
 
   <hr class="hr hr-6">
 
-<!-- ═══ PRICING ═══════════════════════════════════════════════════ -->
+<!-- ═ ═ ═  LEARNING TRACKS & PRICING ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═ ═  -->
 
-  <section class="sec sec-pricing">
+  <section class="sec sec-pricing" id="pricing">
 
-    <p class="kicker">What it costs</p>
+    <p class="kicker">Learning Tracks</p>
 
-    <h2 class="h-sec">One price, everything in</h2>
+    <h2 class="h-sec">Two ways to start. One standard of excellence.</h2>
 
-    <div class="card card-lg elev-sm">
+    <p class="lede" style="margin-bottom:var(--space-6)">Choose the pace and depth that fit your schedule — whether you want a focused 21-day foundation or full 30-day builder immersion.</p>
 
-      <div class="price-head">
+    <div class="tracks-grid">
 
-        <div class="price-amt">GH₵{{ price }}</div>
+      <!-- ── TRACK 1: CJpy Sprint (Spotlighted Sibling Track) ── -->
+      <div class="card-sprint" id="sprint" style="scroll-margin-top:72px">
 
-        <div class="price-per">for the full 30 days</div>
+        <div class="track-badge-row">
+          <span class="badge-sprint-pro">NEW &middot; CJpy Sprint</span>
+          <span class="tag tag-outline tag-up">21-Day Focused Track</span>
+        </div>
+
+        <h3 class="track-h3">CJpy Sprint &mdash; Learn the Basics of Programming, Fast.</h3>
+
+        <p class="track-sub">A focused 21-day track for anyone who wants to start coding &mdash; accessible, hands-on, and beginner-friendly.</p>
+
+        <div class="price-head" style="margin-bottom:var(--space-4);padding-bottom:var(--space-4);border-bottom:1px solid var(--color-divider)">
+          <div class="price-amt">GH₵ 150.00</div>
+          <div class="price-per">for the complete 21-day track</div>
+        </div>
+
+        <!-- Spec Box (Clean, Structured Specification) -->
+        <div class="track-spec-box">
+
+          <div class="spec-line">
+            <div class="spec-lbl">Duration</div>
+            <div class="spec-val">21 days <span class="spec-hint">3 weeks of structured, focused learning</span></div>
+          </div>
+
+          <div class="spec-line">
+            <div class="spec-lbl">Format</div>
+            <div class="spec-val">Live sessions on Zoom, recorded <span class="spec-hint">Same quality, only shorter</span></div>
+          </div>
+
+          <div class="spec-line">
+            <div class="spec-lbl">Amount</div>
+            <div class="spec-val">Ghc 150.00 <span class="spec-hint">Accessible, one-time tuition</span></div>
+          </div>
+
+          <div class="spec-line">
+            <div class="spec-lbl">Curriculum base</div>
+            <div class="spec-val">Python fundamentals <span class="spec-hint">Syntax, Structures, Algorithms</span></div>
+          </div>
+
+          <div class="spec-line">
+            <div class="spec-lbl">Who it's for</div>
+            <div class="spec-val">SHS graduates, beginners, anyone wanting a fast, affordable intro to programming</div>
+          </div>
+
+        </div>
+
+        <ul class="track-inclusions">
+          <li>
+            <svg class="track-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            <span>Live Zoom interactive workshops with full session recordings within 24 hours</span>
+          </li>
+          <li>
+            <svg class="track-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            <span>Hands-on practice: Core syntax, data structures &amp; algorithmic thinking</span>
+          </li>
+          <li>
+            <svg class="track-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            <span>Dedicated Sprint WhatsApp group for mentor Q&amp;A and daily support</span>
+          </li>
+          <li>
+            <svg class="track-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            <span>Official CJpy Certificate of Completion upon finishing</span>
+          </li>
+        </ul>
+
+        <div class="pay" aria-label="Accepted payment methods" style="margin-top:0;margin-bottom:var(--space-6)">
+          <span>MTN Mobile Money</span>
+          <span>Telecel Cash</span>
+          <span>Bank transfer</span>
+          <span>Card</span>
+        </div>
+
+        <button type="button" class="btn btn-primary btn-block btn-lg" onClick="{{ selectSprintTrack }}">
+          <span>Register for Sprint &mdash; GH₵ 150</span>
+          <span class="ar">&rarr;</span>
+        </button>
+        <p class="fine" style="text-align:center;margin-top:var(--space-3)">Pay securely via Paystack &middot; Instant email confirmation</p>
 
       </div>
 
-      <ul class="incl">
+      <!-- ── TRACK 2: Cohort 02 (Comprehensive Bootcamp) ── -->
+      <div class="card-cohort">
 
-        <sc-for list="{{ included }}" as="inc" hint-placeholder-count="6">
+        <div class="track-badge-row">
+          <span class="tag tag-accent tag-up">30-Day Intensive</span>
+          <span class="tag-up" style="font-size:11px;color:var(--t-55);font-weight:700">Cohort 02</span>
+        </div>
 
-          <li>
+        <h3 class="track-h3">Cohort 02 &mdash; Comprehensive 30-Day Bootcamp</h3>
 
-            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+        <p class="track-sub">The complete full-immersion program for aspiring developers ready to build real portfolio applications, automate tasks, and lead in tech.</p>
 
-            <span>{{ inc }}</span>
+        <div class="price-head" style="margin-bottom:var(--space-4);padding-bottom:var(--space-4);border-bottom:1px solid var(--color-divider)">
+          <div class="price-amt">GH₵{{ price }}</div>
+          <div class="price-per">for the full 30 days</div>
+        </div>
 
-          </li>
+        <div class="track-spec-box">
+          <div class="spec-line">
+            <div class="spec-lbl">Duration</div>
+            <div class="spec-val">30 days <span class="spec-hint">4 weeks, 3 live sessions a week</span></div>
+          </div>
+          <div class="spec-line">
+            <div class="spec-lbl">Format</div>
+            <div class="spec-val">Live Zoom + Breakouts <span class="spec-hint">Small breakout rooms of max 20</span></div>
+          </div>
+          <div class="spec-line">
+            <div class="spec-lbl">Curriculum base</div>
+            <div class="spec-val">Python to Capstone App <span class="spec-hint">Syntax, OOP, Automation, GitHub Project</span></div>
+          </div>
+          <div class="spec-line">
+            <div class="spec-lbl">Mentorship</div>
+            <div class="spec-val">1-on-1 WhatsApp check-ins <span class="spec-hint">Tutors know your name &amp; review your code</span></div>
+          </div>
+        </div>
 
-        </sc-for>
+        <ul class="incl" style="margin-top:0">
+          <sc-for list="{{ included }}" as="inc" hint-placeholder-count="6">
+            <li>
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              <span>{{ inc }}</span>
+            </li>
+          </sc-for>
+        </ul>
 
-      </ul>
+        <div class="pay" aria-label="Accepted payment methods" style="margin-top:var(--space-4);margin-bottom:var(--space-6)">
+          <sc-for list="{{ payMethods }}" as="m" hint-placeholder-count="4">
+            <span>{{ m.label }}</span>
+          </sc-for>
+        </div>
 
-      <div class="pay" aria-label="Accepted payment methods">
-
-        <sc-for list="{{ payMethods }}" as="m" hint-placeholder-count="4">
-
-          <span>{{ m.label }}</span>
-
-        </sc-for>
+        <button type="button" class="btn btn-secondary btn-block btn-lg" onClick="{{ selectCohort02Track }}">
+          <span>Reserve for Cohort 02 &mdash; GH₵{{ price }}</span>
+          <span class="ar">&rarr;</span>
+        </button>
+        <p class="fine" style="text-align:center;margin-top:var(--space-3)">Pay securely via Paystack &middot; Instant email confirmation</p>
 
       </div>
 
@@ -946,7 +1336,21 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
 
     <h2 class="h-sec">Save your seat</h2>
 
-    <p class="lede" style="margin-bottom:var(--space-6)">Takes under a minute. We ask everything else after your spot is secured.</p>
+    <p class="lede" style="margin-bottom:var(--space-4)">Takes under a minute. We ask everything else after your spot is secured.</p>
+
+    <!-- track selector -->
+    <div class="track-picker" aria-label="Selected program track">
+      <button type="button" class="track-picker-btn {{ isSprint ? 'is-selected' : '' }}" onClick="{{ selectSprintTrack }}">
+        <span class="tp-badge">21-Day Track</span>
+        <span class="tp-title">CJpy Sprint</span>
+        <span class="tp-price">GH₵ 150</span>
+      </button>
+      <button type="button" class="track-picker-btn {{ isCohort02 ? 'is-selected' : '' }}" onClick="{{ selectCohort02Track }}">
+        <span class="tp-badge">30-Day Bootcamp</span>
+        <span class="tp-title">Cohort 02</span>
+        <span class="tp-price">GH₵ {{ price }}</span>
+      </button>
+    </div>
 
     <!-- stepper -->
 
@@ -1074,13 +1478,13 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
 
         <h3 style="font-size:19px;margin:0 0 var(--space-2)">Almost there, {{ firstName }}</h3>
 
-        <p style="font-size:13px;line-height:1.5;color:var(--t-62);margin:0 0 var(--space-4)">Pay GH₵{{ price }} to secure your seat. Secure checkout — one tap away.</p>
+        <p style="font-size:13px;line-height:1.5;color:var(--t-62);margin:0 0 var(--space-4)">Pay GH₵{{ currentTrackPrice }} to secure your seat in {{ currentTrackName }}. Secure checkout — one tap away.</p>
 
         <div class="paystack-box">
 
-  <div class="ps-row"><span>Cohort 02 seat</span><b>GH₵{{ price }}</b></div>
+  <div class="ps-row"><span>{{ currentTrackName }} seat</span><b>GH₵{{ currentTrackPrice }}</b></div>
 
-  <div class="ps-row ps-total"><span>Total due today</span><b>GH₵{{ price }}</b></div>
+  <div class="ps-row ps-total"><span>Total due today</span><b>GH₵{{ currentTrackPrice }}</b></div>
 
   <p class="fine" style="margin:var(--space-3) 0 0">Secured by Paystack — MTN MoMo, Telecel Cash, card or bank transfer.</p>
 
@@ -1120,9 +1524,11 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
 
         <h3 style="font-size:19px;margin:0 0 var(--space-2)">You're in, {{ firstName }}</h3>
 
-        <p style="font-size:13.5px;line-height:1.5;color:var(--t-62);margin:0 0 var(--space-4)">Welcome to Cohort 02! Your welcome pack and first-session link are on the way.</p>
+        <p style="font-size:13.5px;line-height:1.5;color:var(--t-62);margin:0 0 var(--space-4)">Welcome to {{ currentTrackName }}! Your welcome pack and first-session link are on the way.</p>
 
         <dl class="summary">
+
+          <div><dt>Program</dt><dd>{{ currentTrackName }}</dd></div>
 
           <div><dt>Email</dt><dd>{{ form.email }}</dd></div>
 
@@ -1135,10 +1541,10 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
         <div style="margin-top:var(--space-4);padding:14px 16px;background:rgba(145,132,217,0.08);border:1px solid rgba(145,132,217,0.22);border-radius:var(--radius-md);text-align:left">
           <div style="font-weight:600;font-size:13.5px;color:var(--t-92);margin-bottom:4px;display:flex;align-items:center;gap:6px">
             <svg viewBox="0 0 24 24" style="width:16px;height:16px;color:var(--accent)" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            Check your email for your WhatsApp invite
+            Confirmation email sent to your inbox
           </div>
           <p style="font-size:12px;line-height:1.45;color:var(--t-62);margin:0">
-            We've sent your exclusive Cohort 02 WhatsApp community link and receipt to <strong style="color:var(--t-88)">{{ form.email }}</strong>.
+            We've sent your official registration receipt and WhatsApp community link to <strong style="color:var(--t-88)">{{ form.email }}</strong>.
           </p>
         </div>
 
@@ -1210,6 +1616,17 @@ class Component extends DCLogic {
      ══════════════════════════════════════════════════════════════════ */
 
   static COPY = {
+
+    sprint: {
+      headline: 'CJpy Sprint — Learn the Basics of Programming, Fast.',
+      tagline: 'A focused 21-day track for anyone who wants to start coding — accessible, hands-on, and beginner-friendly.',
+      duration: '21 days',
+      format: 'Live sessions on Zoom, recorded - same quality, only shorter',
+      amount: 'Ghc 150.00',
+      curriculum: 'Python fundamentals - Syntax, Structures, Algorithms',
+      who: "SHS graduates, beginners, anyone wanting a fast, affordable intro to programming",
+      formUrl: 'https://forms.gle/cjpySprintRegistration'
+    },
 
     outcomes: [
 
@@ -1376,7 +1793,9 @@ class Component extends DCLogic {
 
   state = {
 
-    step: 1,                       // 1 details Â· 2 payment Â· 3 profile Â· 4 done
+    step: 1,                       // 1 details · 2 payment · 3 profile · 4 done
+
+    selectedTrack: 'sprint',       // 'sprint' (GH₵ 150) · 'cohort02' (GH₵ 300)
 
     form: { name: '', email: '', phone: '', school: '', goal: '' },
 
@@ -1396,6 +1815,18 @@ class Component extends DCLogic {
 
     openFaq: 0
 
+  };
+
+  selectSprintTrack = () => {
+    this.setState({ selectedTrack: 'sprint' });
+    const el = document.getElementById('register');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  selectCohort02Track = () => {
+    this.setState({ selectedTrack: 'cohort02' });
+    const el = document.getElementById('register');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
   // ── validation ───────────────────────────────────────────────────
@@ -1550,7 +1981,13 @@ class Component extends DCLogic {
 
     const key = (this.props.paystackKey || 'pk_live_364467384da5f04c7c1f18096fd9686c000a64f4').trim();
 
-    const price = parseInt(String(this.props.price ?? '300').replace(/\D/g, ''), 10) || 300;
+    const isSprint = this.state.selectedTrack === 'sprint';
+
+    const trackPrice = isSprint ? 150 : (parseInt(String(this.props.price ?? '300').replace(/\D/g, ''), 10) || 300);
+
+    const trackName = isSprint ? 'CJpy Sprint' : 'CJpy Cohort 02';
+
+    const trackRefPrefix = isSprint ? 'CJPY-SPRINT-' : 'CJPY02-';
 
     const finish = () => { this.setState({ pending: false, step: 3 }); this.celebrate(); };
 
@@ -1568,11 +2005,11 @@ class Component extends DCLogic {
 
           email: this.state.form.email,
 
-          amount: price * 100,
+          amount: trackPrice * 100,
 
           currency: 'GHS',
 
-          reference: 'CJPY02-' + Date.now() + '-' + Math.floor(Math.random() * 1e4),
+          reference: trackRefPrefix + Date.now() + '-' + Math.floor(Math.random() * 1e4),
 
           firstName: (this.state.form.name.trim().split(/\s+/)[0] || ''),
 
@@ -1580,11 +2017,13 @@ class Component extends DCLogic {
 
           phone: this.state.form.phone,
 
-          label: 'CJpy Cohort 02 — ' + this.state.form.name,
+          label: trackName + ' — ' + this.state.form.name,
 
           metadata: {
 
-            cohort: 'CJpy Cohort 02',
+            cohort: trackName,
+
+            track: isSprint ? 'sprint' : 'cohort02',
 
             full_name: this.state.form.name,
 
@@ -1598,7 +2037,7 @@ class Component extends DCLogic {
 
               { display_name: 'Phone / WhatsApp', variable_name: 'phone', value: this.state.form.phone },
 
-              { display_name: 'Cohort', variable_name: 'cohort', value: 'CJpy Cohort 02' },
+              { display_name: 'Cohort', variable_name: 'cohort', value: trackName },
 
               { display_name: 'Starts', variable_name: 'starts', value: String(this.props.startDate ?? 'Sept 10, 2026') }
 
@@ -1861,9 +2300,19 @@ class Component extends DCLogic {
 
     const levelLabel = (levelDefs.find(l => l.id === s.level) || {}).label || '';
 
+    const isSprint = (s.selectedTrack || 'sprint') === 'sprint';
+
+    const currentTrackName = isSprint ? 'CJpy Sprint' : 'CJpy Cohort 02';
+
+    const currentTrackPrice = isSprint ? '150' : price;
+
+    const currentTrackDuration = isSprint ? '21 days' : '30 days';
+
     return {
 
       // copy
+
+      sprint: C.sprint,
 
       outcomes: C.outcomes,
 
@@ -1897,7 +2346,7 @@ class Component extends DCLogic {
 
       payHelpLink: 'https://wa.me/233' + whatsapp.replace(/\D/g, '').replace(/^0/, '') +
 
-        '?text=' + encodeURIComponent('Hi CJpy — I am registering for Cohort 02. Name: ' +
+        '?text=' + encodeURIComponent('Hi CJpy — I am registering for ' + currentTrackName + '. Name: ' +
 
         s.form.name + ', email: ' + s.form.email + ', phone: ' + s.form.phone +
 
@@ -1915,11 +2364,27 @@ class Component extends DCLogic {
 
       levelLabel,
 
+      selectedTrack: s.selectedTrack || 'sprint',
+
+      isSprint,
+
+      isCohort02: !isSprint,
+
+      currentTrackName,
+
+      currentTrackPrice,
+
+      currentTrackDuration,
+
+      selectSprintTrack: () => this.selectSprintTrack(),
+
+      selectCohort02Track: () => this.selectCohort02Track(),
+
       pending: s.pending,
 
-      submitLabel: s.pending ? 'Reserving…' : 'Reserve my seat — GH₵' + price,
+      submitLabel: s.pending ? 'Reserving…' : 'Reserve my seat — GH₵' + currentTrackPrice,
 
-      payLabel: s.pending ? 'Opening Paystack…' : 'Pay GH₵' + price + ' with Paystack',
+      payLabel: s.pending ? 'Opening Paystack…' : 'Pay GH₵' + currentTrackPrice + ' with Paystack',
 
       profileLabel: s.pending ? 'Saving…' : 'Finish setup',
 

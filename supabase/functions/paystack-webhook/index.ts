@@ -11,6 +11,8 @@ const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY") || "";
 const FROM_EMAIL = Deno.env.get("FROM_EMAIL") || "CJpy Admissions <admissions@joincjpy.com>";
 const WHATSAPP_LINK = "https://chat.whatsapp.com/HUHzlyLvimREGt1S0GkTnm";
 const INTAKE_FORM_LINK = "https://forms.gle/UG8qKUNKtBBvu9j78";
+const SPRINT_WHATSAPP_LINK = Deno.env.get("SPRINT_WHATSAPP_LINK") || WHATSAPP_LINK;
+const SPRINT_INTAKE_FORM_LINK = Deno.env.get("SPRINT_INTAKE_FORM_LINK") || INTAKE_FORM_LINK;
 
 // Convert byte array to hex string
 function bufferToHex(buffer: ArrayBuffer): string {
@@ -42,13 +44,36 @@ async function verifyPaystackSignature(body: string, signature: string | null): 
 }
 
 // Generate branded HTML welcome & status update email (IPhR-inspired authentic dark card)
-function generateWelcomeEmailHtml(name: string, reference: string, amount: number): string {
+function generateWelcomeEmailHtml(name: string, reference: string, amount: number, cohortName: string = "CJpy Cohort 02"): string {
+  const isSprint = cohortName.toLowerCase().includes("sprint") || amount === 150;
+  const programTitle = isSprint ? "CJpy Sprint (21-Day Python Fundamentals Track)" : "CJpy Cohort 02 (Python Bootcamp)";
+  const pageTitle = isSprint ? "CJpy Sprint - Registration Confirmed" : "CJpy Cohort 02 - Enrollment Status Update";
+  const headerStatus = isSprint ? "CJpy Sprint Status Update" : "2026 Cohort 02 Status Update";
+  const programSubline = isSprint ? "Python Fundamentals Track" : "Python Bootcamp";
+  const cohortNotice = isSprint
+    ? `This is an official status update regarding your registration for <strong>CJpy Sprint</strong> (21-Day Python Fundamentals Track).`
+    : `This is an official status update regarding your registration for the <strong>CJpy 2026 Cohort 02</strong> (30-Day Python Bootcamp).`;
+  const durationLabel = isSprint ? "Duration & Format" : "Cohort Start Date";
+  const durationVal = isSprint ? "21 Days &middot; Live on Zoom (Recorded)" : "Thursday, Sept 10, 2026";
+  const curriculumRow = isSprint ? `
+                <tr>
+                  <td style="color:#8b93a5;font-size:13px;border-bottom:1px solid #2a2e3b;">Curriculum</td>
+                  <td style="color:#ffffff;font-size:13px;font-weight:500;text-align:right;border-bottom:1px solid #2a2e3b;">Python Fundamentals (Syntax, Structures, Algorithms)</td>
+                </tr>` : ``;
+  const whatsappUrl = isSprint ? SPRINT_WHATSAPP_LINK : WHATSAPP_LINK;
+  const whatsappChannelName = isSprint ? "Join CJpy Sprint WhatsApp Group" : "Join Cohort 02 WhatsApp Community";
+  const whatsappBtnText = isSprint ? "Join Sprint WhatsApp Group &rarr;" : "Join Cohort 02 WhatsApp Group &rarr;";
+  const whatsappDesc = isSprint
+    ? "Once you have submitted your form, join the private CJpy Sprint WhatsApp channel. All live Zoom session links, recorded replays, coding exercises, and mentor support will be coordinated exclusively in this group."
+    : "Once you have submitted your form, join the private Cohort 02 WhatsApp channel. All live Zoom session links, recorded replays, mentorship hours, and code reviews will be coordinated exclusively in this group.";
+  const intakeUrl = isSprint ? SPRINT_INTAKE_FORM_LINK : INTAKE_FORM_LINK;
+
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CJpy Cohort 02 - Enrollment Status Update</title>
+  <title>${pageTitle}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -119,7 +144,7 @@ function generateWelcomeEmailHtml(name: string, reference: string, amount: numbe
               <div class="cjpy-brand" style="font-size:20px;line-height:1.1;margin-bottom:2px;">
                 <span class="b-c" style="color:#d81b7a;">C</span><span class="b-j" style="color:#2b7fc4;">J</span><span class="b-p" style="color:#7b2ff2;">p</span><span class="b-y" style="color:#f2a413;">y</span>
               </div>
-              <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.88);letter-spacing:1.6px;text-transform:uppercase;">Python Bootcamp</div>
+              <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.88);letter-spacing:1.6px;text-transform:uppercase;">${programSubline}</div>
             </td>
           </tr>
         </table>
@@ -138,7 +163,7 @@ function generateWelcomeEmailHtml(name: string, reference: string, amount: numbe
                     </a>
                   </td>
                   <td style="vertical-align:middle;">
-                    <h1 class="email-h1" style="margin:0;color:#ffffff;font-size:22px;font-weight:700;letter-spacing:-0.4px;line-height:1.25;">2026 Cohort 02 Status Update</h1>
+                    <h1 class="email-h1" style="margin:0;color:#ffffff;font-size:22px;font-weight:700;letter-spacing:-0.4px;line-height:1.25;">${headerStatus}</h1>
                   </td>
                 </tr>
               </table>
@@ -148,7 +173,7 @@ function generateWelcomeEmailHtml(name: string, reference: string, amount: numbe
 
               <!-- Body Paragraphs -->
               <p style="margin:0 0 16px;color:#cbd2df;font-size:14.5px;line-height:1.65;">
-                This is an official status update regarding your registration for the <strong>CJpy 2026 Cohort 02</strong> (30-Day Python Bootcamp).
+                ${cohortNotice}
               </p>
               <p style="margin:0 0 24px;color:#cbd2df;font-size:14.5px;line-height:1.65;">
                 Your tuition payment of <strong>GH₵ ${amount}</strong> has been verified, and your seat is currently <strong style="color:#ffffff;">live, confirmed, and functioning normally</strong>.
@@ -162,12 +187,12 @@ function generateWelcomeEmailHtml(name: string, reference: string, amount: numbe
                 </tr>
                 <tr>
                   <td style="color:#8b93a5;font-size:13px;border-bottom:1px solid #2a2e3b;">Program</td>
-                  <td style="color:#ffffff;font-size:13.5px;font-weight:600;text-align:right;border-bottom:1px solid #2a2e3b;">CJpy Cohort 02 (Python Bootcamp)</td>
+                  <td style="color:#ffffff;font-size:13.5px;font-weight:600;text-align:right;border-bottom:1px solid #2a2e3b;">${programTitle}</td>
                 </tr>
                 <tr>
-                  <td style="color:#8b93a5;font-size:13px;border-bottom:1px solid #2a2e3b;">Cohort Start Date</td>
-                  <td style="color:#deb05e;font-size:13.5px;font-weight:600;text-align:right;border-bottom:1px solid #2a2e3b;">Thursday, Sept 10, 2026</td>
-                </tr>
+                  <td style="color:#8b93a5;font-size:13px;border-bottom:1px solid #2a2e3b;">${durationLabel}</td>
+                  <td style="color:#deb05e;font-size:13.5px;font-weight:600;text-align:right;border-bottom:1px solid #2a2e3b;">${durationVal}</td>
+                </tr>${curriculumRow}
                 <tr>
                   <td style="color:#8b93a5;font-size:13px;border-bottom:1px solid #2a2e3b;">Payment Ref</td>
                   <td style="color:#8b93a5;font-family:monospace;font-size:12.5px;text-align:right;border-bottom:1px solid #2a2e3b;">${reference}</td>
@@ -191,7 +216,7 @@ function generateWelcomeEmailHtml(name: string, reference: string, amount: numbe
                 <p style="color:#a4adbe;font-size:13.5px;line-height:1.55;margin:0 0 16px;">
                   Please complete this official intake form before class starts. It records your current programming experience, laptop specifications, and learning goals so our teaching assistants can assign your breakout rooms and mentor pairings.
                 </p>
-                <a href="${INTAKE_FORM_LINK}" target="_blank" class="email-btn" style="display:inline-block;background-color:#ffffff;color:#14151a;text-decoration:none;font-weight:600;font-size:13.5px;padding:11px 22px;border-radius:8px;letter-spacing:0.2px;">
+                <a href="${intakeUrl}" target="_blank" class="email-btn" style="display:inline-block;background-color:#ffffff;color:#14151a;text-decoration:none;font-weight:600;font-size:13.5px;padding:11px 22px;border-radius:8px;letter-spacing:0.2px;">
                   Fill Student Onboarding Form &rarr;
                 </a>
               </div>
@@ -202,15 +227,15 @@ function generateWelcomeEmailHtml(name: string, reference: string, amount: numbe
                   <tr>
                     <td>
                       <span style="display:inline-block;background-color:#193425;color:#4ade80;font-size:11px;font-weight:700;padding:3px 8px;border-radius:4px;letter-spacing:0.6px;text-transform:uppercase;margin-bottom:8px;">Step 2 of 2 &middot; Community</span>
-                      <h3 style="margin:0;color:#ffffff;font-size:16px;font-weight:600;letter-spacing:-0.2px;">Join Cohort 02 WhatsApp Community</h3>
+                      <h3 style="margin:0;color:#ffffff;font-size:16px;font-weight:600;letter-spacing:-0.2px;">${whatsappChannelName}</h3>
                     </td>
                   </tr>
                 </table>
                 <p style="color:#a4adbe;font-size:13.5px;line-height:1.55;margin:0 0 16px;">
-                  Once you have submitted your form, join the private Cohort 02 WhatsApp channel. All live Zoom session links, recorded replays, mentorship hours, and code reviews will be coordinated exclusively in this group.
+                  ${whatsappDesc}
                 </p>
-                <a href="${WHATSAPP_LINK}" target="_blank" class="email-btn" style="display:inline-block;background-color:#25D366;color:#ffffff;text-decoration:none;font-weight:600;font-size:13.5px;padding:11px 22px;border-radius:8px;box-shadow:0 2px 10px rgba(37,211,102,0.2);">
-                  Join Cohort 02 WhatsApp Group &rarr;
+                <a href="${whatsappUrl}" target="_blank" class="email-btn" style="display:inline-block;background-color:#25D366;color:#ffffff;text-decoration:none;font-weight:600;font-size:13.5px;padding:11px 22px;border-radius:8px;box-shadow:0 2px 10px rgba(37,211,102,0.2);">
+                  ${whatsappBtnText}
                 </a>
               </div>
 
@@ -257,14 +282,19 @@ function generateWelcomeEmailHtml(name: string, reference: string, amount: numbe
 }
 
 // Send automated welcome email via Resend
-async function sendWelcomeEmail(toEmail: string, name: string, reference: string, amount: number) {
+async function sendWelcomeEmail(toEmail: string, name: string, reference: string, amount: number, cohortName: string = "CJpy Cohort 02") {
   if (!RESEND_API_KEY) {
     console.log("RESEND_API_KEY not configured. Skipping welcome email.");
     return;
   }
 
+  const isSprint = cohortName.toLowerCase().includes("sprint") || amount === 150;
+  const subject = isSprint
+    ? `CJpy Sprint Status Update: Registration Confirmed (${name || "Participant"})`
+    : `CJpy 2026 Cohort 02 Status Update: Registration Confirmed (${name || "Participant"})`;
+
   try {
-    const html = generateWelcomeEmailHtml(name, reference, amount);
+    const html = generateWelcomeEmailHtml(name, reference, amount, cohortName);
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -274,14 +304,14 @@ async function sendWelcomeEmail(toEmail: string, name: string, reference: string
       body: JSON.stringify({
         from: FROM_EMAIL,
         to: [toEmail],
-        subject: `CJpy 2026 Cohort 02 Status Update: Registration Confirmed (${name || "Participant"})`,
+        subject: subject,
         html: html,
       }),
     });
 
     const data = await res.json();
     if (res.ok) {
-      console.log(`Welcome email sent to ${toEmail}. Resend ID: ${data.id}`);
+      console.log(`Welcome email sent to ${toEmail} for ${cohortName}. Resend ID: ${data.id}`);
     } else {
       console.error("Resend API error:", data);
     }
@@ -379,7 +409,7 @@ Deno.serve(async (req: Request) => {
 
       // 5. Send automated branded welcome email with WhatsApp group link
       if (email) {
-        await sendWelcomeEmail(email, fullName, reference, amountPaid);
+        await sendWelcomeEmail(email, fullName, reference, amountPaid, cohort);
       }
     }
 

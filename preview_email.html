@@ -59,9 +59,73 @@
       .email-action-box { padding: 18px 15px !important; }
       .email-btn { width: 100% !important; box-sizing: border-box !important; text-align: center !important; }
     }
+
+    /* Top Preview Control Bar (For testing & verification) */
+    .preview-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #0d2b4e;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .preview-info {
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .preview-tabs {
+      display: inline-flex;
+      background: rgba(255,255,255,0.1);
+      padding: 3px;
+      border-radius: 8px;
+      gap: 4px;
+    }
+    .preview-tab-btn {
+      background: transparent;
+      border: 0;
+      color: rgba(255,255,255,0.8);
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .preview-tab-btn:hover {
+      color: #ffffff;
+    }
+    .preview-tab-btn.active {
+      background: #ffffff;
+      color: #0d2b4e;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+    }
   </style>
 </head>
 <body style="margin:0;padding:0;background-color:#b4bce9;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;">
+
+  <!-- Preview Toolbar -->
+  <div class="preview-bar">
+    <div class="preview-info">
+      <span>CJpy Confirmation Email Preview:</span>
+      <span id="preview-active-title" style="color:#f2a413;">CJpy Sprint (21-Day Track · GH₵ 150)</span>
+    </div>
+    <div class="preview-tabs">
+      <button type="button" class="preview-tab-btn active" id="tab-sprint" onclick="switchEmailTrack('sprint')">CJpy Sprint (GH₵ 150)</button>
+      <button type="button" class="preview-tab-btn" id="tab-cohort02" onclick="switchEmailTrack('cohort02')">Cohort 02 (GH₵ 300)</button>
+    </div>
+  </div>
+
   <!-- Outer Lavender / Periwinkle Canvas -->
   <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#b4bce9;">
     <tr>
@@ -76,7 +140,7 @@
               <div class="cjpy-brand" style="font-size:20px;line-height:1.1;margin-bottom:2px;">
                 <span class="b-c" style="color:#d81b7a;">C</span><span class="b-j" style="color:#2b7fc4;">J</span><span class="b-p" style="color:#7b2ff2;">p</span><span class="b-y" style="color:#f2a413;">y</span>
               </div>
-              <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.88);letter-spacing:1.6px;text-transform:uppercase;">Python Bootcamp</div>
+              <div id="email-subline" style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.88);letter-spacing:1.6px;text-transform:uppercase;">Python Fundamentals Track</div>
             </td>
           </tr>
         </table>
@@ -95,39 +159,43 @@
                     </a>
                   </td>
                   <td style="vertical-align:middle;">
-                    <h1 class="email-h1" style="margin:0;color:#ffffff;font-size:22px;font-weight:700;letter-spacing:-0.4px;line-height:1.25;">2026 Cohort 02 Status Update</h1>
+                    <h1 class="email-h1" id="email-header-title" style="margin:0;color:#ffffff;font-size:22px;font-weight:700;letter-spacing:-0.4px;line-height:1.25;">CJpy Sprint Status Update</h1>
                   </td>
                 </tr>
               </table>
 
               <!-- Salutation -->
-              <p style="margin:0 0 16px;color:#d5d9e2;font-size:15px;font-weight:500;">Dear Participant,</p>
+              <p style="margin:0 0 16px;color:#d5d9e2;font-size:15px;font-weight:500;" id="email-salutation">Dear Participant,</p>
 
               <!-- Body Paragraphs -->
-              <p style="margin:0 0 16px;color:#cbd2df;font-size:14.5px;line-height:1.65;">
-                This is an official status update regarding your registration for the <strong>CJpy 2026 Cohort 02</strong> (30-Day Python Bootcamp).
+              <p style="margin:0 0 16px;color:#cbd2df;font-size:14.5px;line-height:1.65;" id="email-intro">
+                This is an official status update regarding your registration for <strong>CJpy Sprint</strong> (21-Day Python Fundamentals Track).
               </p>
-              <p style="margin:0 0 24px;color:#cbd2df;font-size:14.5px;line-height:1.65;">
-                Your tuition payment of <strong>GH₵ 300</strong> has been verified, and your seat is currently <strong style="color:#ffffff;">live, confirmed, and functioning normally</strong>.
+              <p style="margin:0 0 24px;color:#cbd2df;font-size:14.5px;line-height:1.65;" id="email-payment-note">
+                Your tuition payment of <strong>GH₵ 150</strong> has been verified, and your seat is currently <strong style="color:#ffffff;">live, confirmed, and functioning normally</strong>.
               </p>
 
               <!-- Enrollment Specification Table -->
               <table width="100%" cellpadding="11" cellspacing="0" class="email-spec-table" style="background-color:#1e2028;border:1px solid #2a2e3b;border-radius:12px;margin:0 0 28px;">
                 <tr>
                   <td style="color:#8b93a5;font-size:13px;border-bottom:1px solid #2a2e3b;">Participant</td>
-                  <td style="color:#ffffff;font-size:13.5px;font-weight:600;text-align:right;border-bottom:1px solid #2a2e3b;">Kwame Mensah</td>
+                  <td style="color:#ffffff;font-size:13.5px;font-weight:600;text-align:right;border-bottom:1px solid #2a2e3b;">Ama Boateng</td>
                 </tr>
                 <tr>
                   <td style="color:#8b93a5;font-size:13px;border-bottom:1px solid #2a2e3b;">Program</td>
-                  <td style="color:#ffffff;font-size:13.5px;font-weight:600;text-align:right;border-bottom:1px solid #2a2e3b;">CJpy Cohort 02 (Python Bootcamp)</td>
+                  <td id="email-spec-program" style="color:#ffffff;font-size:13.5px;font-weight:600;text-align:right;border-bottom:1px solid #2a2e3b;">CJpy Sprint (21-Day Python Fundamentals Track)</td>
                 </tr>
                 <tr>
-                  <td style="color:#8b93a5;font-size:13px;border-bottom:1px solid #2a2e3b;">Cohort Start Date</td>
-                  <td style="color:#deb05e;font-size:13.5px;font-weight:600;text-align:right;border-bottom:1px solid #2a2e3b;">Thursday, Sept 10, 2026</td>
+                  <td id="email-spec-dur-label" style="color:#8b93a5;font-size:13px;border-bottom:1px solid #2a2e3b;">Duration &amp; Format</td>
+                  <td id="email-spec-dur-val" style="color:#deb05e;font-size:13.5px;font-weight:600;text-align:right;border-bottom:1px solid #2a2e3b;">21 Days &middot; Live on Zoom (Recorded)</td>
+                </tr>
+                <tr id="email-spec-curriculum-row">
+                  <td style="color:#8b93a5;font-size:13px;border-bottom:1px solid #2a2e3b;">Curriculum</td>
+                  <td style="color:#ffffff;font-size:13px;font-weight:500;text-align:right;border-bottom:1px solid #2a2e3b;">Python Fundamentals (Syntax, Structures, Algorithms)</td>
                 </tr>
                 <tr>
                   <td style="color:#8b93a5;font-size:13px;border-bottom:1px solid #2a2e3b;">Payment Ref</td>
-                  <td style="color:#8b93a5;font-family:monospace;font-size:12.5px;text-align:right;border-bottom:1px solid #2a2e3b;">cjp_98721034</td>
+                  <td id="email-spec-ref" style="color:#8b93a5;font-family:monospace;font-size:12.5px;text-align:right;border-bottom:1px solid #2a2e3b;">CJPY-SPRINT-1725992000</td>
                 </tr>
                 <tr>
                   <td style="color:#8b93a5;font-size:13px;">Enrollment Status</td>
@@ -159,15 +227,15 @@
                   <tr>
                     <td>
                       <span style="display:inline-block;background-color:#193425;color:#4ade80;font-size:11px;font-weight:700;padding:3px 8px;border-radius:4px;letter-spacing:0.6px;text-transform:uppercase;margin-bottom:8px;">Step 2 of 2 &middot; Community</span>
-                      <h3 style="margin:0;color:#ffffff;font-size:16px;font-weight:600;letter-spacing:-0.2px;">Join Cohort 02 WhatsApp Community</h3>
+                      <h3 id="email-action2-title" style="margin:0;color:#ffffff;font-size:16px;font-weight:600;letter-spacing:-0.2px;">Join CJpy Sprint WhatsApp Group</h3>
                     </td>
                   </tr>
                 </table>
-                <p style="color:#a4adbe;font-size:13.5px;line-height:1.55;margin:0 0 16px;">
-                  Once you have submitted your form, join the private Cohort 02 WhatsApp channel. All live Zoom session links, recorded replays, mentorship hours, and code reviews will be coordinated exclusively in this group.
+                <p id="email-action2-desc" style="color:#a4adbe;font-size:13.5px;line-height:1.55;margin:0 0 16px;">
+                  Once you have submitted your form, join the private CJpy Sprint WhatsApp channel. All live Zoom session links, recorded replays, coding exercises, and mentor support will be coordinated exclusively in this group.
                 </p>
-                <a href="https://chat.whatsapp.com/HUHzlyLvimREGt1S0GkTnm" target="_blank" class="email-btn" style="display:inline-block;background-color:#25D366;color:#ffffff;text-decoration:none;font-weight:600;font-size:13.5px;padding:11px 22px;border-radius:8px;box-shadow:0 2px 10px rgba(37,211,102,0.2);">
-                  Join Cohort 02 WhatsApp Group &rarr;
+                <a id="email-action2-btn" href="https://chat.whatsapp.com/HUHzlyLvimREGt1S0GkTnm" target="_blank" class="email-btn" style="display:inline-block;background-color:#25D366;color:#ffffff;text-decoration:none;font-weight:600;font-size:13.5px;padding:11px 22px;border-radius:8px;box-shadow:0 2px 10px rgba(37,211,102,0.2);">
+                  Join Sprint WhatsApp Group &rarr;
                 </a>
               </div>
 
@@ -209,5 +277,63 @@
       </td>
     </tr>
   </table>
+
+  <script>
+    function switchEmailTrack(track) {
+      const isSprint = track === 'sprint';
+      
+      // Update toggle buttons
+      document.getElementById('tab-sprint').className = 'preview-tab-btn ' + (isSprint ? 'active' : '');
+      document.getElementById('tab-cohort02').className = 'preview-tab-btn ' + (!isSprint ? 'active' : '');
+      
+      // Update header banner title
+      document.getElementById('preview-active-title').textContent = isSprint 
+        ? 'CJpy Sprint (21-Day Track · GH₵ 150)' 
+        : 'Cohort 02 (30-Day Bootcamp · GH₵ 300)';
+      document.getElementById('preview-active-title').style.color = isSprint ? '#f2a413' : '#deb05e';
+
+      // Update email card elements
+      document.getElementById('email-subline').textContent = isSprint 
+        ? 'Python Fundamentals Track' 
+        : 'Python Bootcamp';
+      document.getElementById('email-header-title').textContent = isSprint 
+        ? 'CJpy Sprint Status Update' 
+        : '2026 Cohort 02 Status Update';
+      document.getElementById('email-intro').innerHTML = isSprint
+        ? 'This is an official status update regarding your registration for <strong>CJpy Sprint</strong> (21-Day Python Fundamentals Track).'
+        : 'This is an official status update regarding your registration for the <strong>CJpy 2026 Cohort 02</strong> (30-Day Python Bootcamp).';
+      document.getElementById('email-payment-note').innerHTML = isSprint
+        ? 'Your tuition payment of <strong>GH₵ 150</strong> has been verified, and your seat is currently <strong style="color:#ffffff;">live, confirmed, and functioning normally</strong>.'
+        : 'Your tuition payment of <strong>GH₵ 300</strong> has been verified, and your seat is currently <strong style="color:#ffffff;">live, confirmed, and functioning normally</strong>.';
+      document.getElementById('email-spec-program').textContent = isSprint
+        ? 'CJpy Sprint (21-Day Python Fundamentals Track)'
+        : 'CJpy Cohort 02 (Python Bootcamp)';
+      document.getElementById('email-spec-dur-label').textContent = isSprint
+        ? 'Duration & Format'
+        : 'Cohort Start Date';
+      document.getElementById('email-spec-dur-val').innerHTML = isSprint
+        ? '21 Days &middot; Live on Zoom (Recorded)'
+        : 'Thursday, Sept 10, 2026';
+      
+      const curriculumRow = document.getElementById('email-spec-curriculum-row');
+      if (curriculumRow) {
+        curriculumRow.style.display = isSprint ? 'table-row' : 'none';
+      }
+
+      document.getElementById('email-spec-ref').textContent = isSprint
+        ? 'CJPY-SPRINT-1725992000'
+        : 'CJPY02-1725992000';
+      
+      document.getElementById('email-action2-title').textContent = isSprint
+        ? 'Join CJpy Sprint WhatsApp Group'
+        : 'Join Cohort 02 WhatsApp Community';
+      document.getElementById('email-action2-desc').textContent = isSprint
+        ? 'Once you have submitted your form, join the private CJpy Sprint WhatsApp channel. All live Zoom session links, recorded replays, coding exercises, and mentor support will be coordinated exclusively in this group.'
+        : 'Once you have submitted your form, join the private Cohort 02 WhatsApp channel. All live Zoom session links, recorded replays, mentorship hours, and code reviews will be coordinated exclusively in this group.';
+      document.getElementById('email-action2-btn').innerHTML = isSprint
+        ? 'Join Sprint WhatsApp Group &rarr;'
+        : 'Join Cohort 02 WhatsApp Group &rarr;';
+    }
+  </script>
 </body>
 </html>

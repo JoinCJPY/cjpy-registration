@@ -45,6 +45,8 @@ The Edge Function requires your Paystack Live Secret Key and your Resend API Key
 | `PAYSTACK_SECRET_KEY` | `sk_live_...` | Verifies payments directly from Paystack |
 | `RESEND_API_KEY` | `re_...` | **Required to send emails via Resend** |
 | `FROM_EMAIL` | `CJpy Admissions <admissions@joincjpy.com>` | Sender address (must match a verified domain in Resend) |
+| `SPRINT_WHATSAPP_LINK` | *(Optional)* `https://chat.whatsapp.com/...` | Custom WhatsApp group link for CJpy Sprint students (defaults to main group) |
+| `SPRINT_INTAKE_FORM_LINK` | *(Optional)* `https://forms.gle/...` | Custom onboarding intake form for CJpy Sprint students (defaults to main form) |
 
 > ⚠️ **Important**: If `RESEND_API_KEY` is not set, the Edge Function silently skips sending the email!
 
