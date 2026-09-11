@@ -54,7 +54,7 @@ function generateWelcomeEmailHtml(name: string, reference: string, amount: numbe
     ? `This is an official status update regarding your registration for <strong>CJpy Sprint</strong> (21-Day Python Fundamentals Track).`
     : `This is an official status update regarding your registration for the <strong>CJpy 2026 Cohort 02</strong> (30-Day Python Bootcamp).`;
   const durationLabel = isSprint ? "Schedule & Format" : "Cohort Start Date";
-  const durationVal = isSprint ? "21 Days &middot; Starts Wed, Sept 16, 2026 (Live on Zoom)" : "Thursday, Sept 10, 2026";
+  const durationVal = isSprint ? "21 Days &middot; Starts Wed, Sept 16, 2026 (Live on Zoom)" : "Wednesday, Sept 16, 2026";
   const curriculumRow = isSprint ? `
                 <tr>
                   <td style="color:#8b93a5;font-size:13px;border-bottom:1px solid #2a2e3b;">Schedule</td>

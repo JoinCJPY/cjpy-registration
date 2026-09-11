@@ -1718,7 +1718,7 @@ legend{display:block;font-size:12.5px;margin-bottom:8px;color:var(--t-72);paddin
 
 </x-dc>
 
-<script type="text/x-dc" data-dc-script data-props="{&quot;accentColor&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#9184d9&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#9184d9&quot;]}, &quot;price&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;300&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;seatsTotal&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;60&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;seatsTaken&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;28&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;startDate&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;Sept 10, 2026&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;deadline&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;Ongoing&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;whatsapp&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;050 932 9059&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;paystackKey&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;pk_live_364467384da5f04c7c1f18096fd9686c000a64f4&quot;, &quot;tsType&quot;: &quot;string&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;accentColor&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#9184d9&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#9184d9&quot;]}, &quot;price&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;300&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;seatsTotal&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;60&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;seatsTaken&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;28&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;startDate&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;Sept 16, 2026&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;deadline&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;Ongoing&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;whatsapp&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;050 932 9059&quot;, &quot;tsType&quot;: &quot;string&quot;}, &quot;paystackKey&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;pk_live_364467384da5f04c7c1f18096fd9686c000a64f4&quot;, &quot;tsType&quot;: &quot;string&quot;}}">
 
 class Component extends DCLogic {
 
@@ -2156,7 +2156,7 @@ class Component extends DCLogic {
 
               { display_name: 'Cohort', variable_name: 'cohort', value: trackName },
 
-              { display_name: 'Starts', variable_name: 'starts', value: String(this.props.startDate ?? 'Sept 10, 2026') }
+              { display_name: 'Starts', variable_name: 'starts', value: String(this.props.startDate ?? 'Sept 16, 2026') }
 
             ]
 
@@ -2455,7 +2455,7 @@ class Component extends DCLogic {
 
       nextSeat: seatsTaken + 1,
 
-      startDate: this.props.startDate ?? 'Sept 10, 2026',
+      startDate: this.props.startDate ?? 'Sept 16, 2026',
 
       deadline: this.props.deadline ?? 'Ongoing',
 
@@ -2631,7 +2631,7 @@ class Component extends DCLogic {
       <p>Most of Cohort 1 wasn't either. That's the whole reason CJpy exists.</p>
 
       <h4>15. How do I sign up?</h4>
-      <p>WhatsApp us or head to <a href="https://joincjpy.com">joincjpy.com</a>. Cohort 2 starts September 10.</p>
+      <p>WhatsApp us or head to <a href="https://joincjpy.com">joincjpy.com</a>. Registration is ongoing.</p>
     </div>
   </div>
 </div>
