@@ -238,7 +238,7 @@
                 <p id="email-action2-desc" style="color:#a4adbe;font-size:13.5px;line-height:1.55;margin:0 0 16px;">
                   Once you have submitted your form, join the private CJpy Sprint WhatsApp channel. All live Zoom session links, recorded replays, coding exercises, and mentor support will be coordinated exclusively in this group.
                 </p>
-                <a id="email-action2-btn" href="https://chat.whatsapp.com/HUHzlyLvimREGt1S0GkTnm" target="_blank" class="email-btn" style="display:inline-block;background-color:#25D366;color:#ffffff;text-decoration:none;font-weight:600;font-size:13.5px;padding:11px 22px;border-radius:8px;box-shadow:0 2px 10px rgba(37,211,102,0.2);">
+                <a id="email-action2-btn" href="https://chat.whatsapp.com/IGDn2yKUFVAGwlcd0fJySw" target="_blank" class="email-btn" style="display:inline-block;background-color:#25D366;color:#ffffff;text-decoration:none;font-weight:600;font-size:13.5px;padding:11px 22px;border-radius:8px;box-shadow:0 2px 10px rgba(37,211,102,0.2);">
                   Join Sprint WhatsApp Group &rarr;
                 </a>
               </div>
@@ -313,10 +313,10 @@
         ? 'CJpy Sprint (21-Day Python Fundamentals Track)'
         : 'CJpy Cohort 02 (Python Bootcamp)';
       document.getElementById('email-spec-dur-label').textContent = isSprint
-        ? 'Duration & Format'
+        ? 'Schedule & Format'
         : 'Cohort Start Date';
       document.getElementById('email-spec-dur-val').innerHTML = isSprint
-        ? '21 Days &middot; Live on Zoom (Recorded)'
+        ? '21 Days &middot; Starts Wed, Sept 16, 2026 (Live on Zoom)'
         : 'Thursday, Sept 10, 2026';
       
       const curriculumRow = document.getElementById('email-spec-curriculum-row');
@@ -337,6 +337,9 @@
       document.getElementById('email-action2-btn').innerHTML = isSprint
         ? 'Join Sprint WhatsApp Group &rarr;'
         : 'Join Cohort 02 WhatsApp Group &rarr;';
+      document.getElementById('email-action2-btn').href = isSprint
+        ? 'https://chat.whatsapp.com/IGDn2yKUFVAGwlcd0fJySw'
+        : 'https://chat.whatsapp.com/HUHzlyLvimREGt1S0GkTnm';
     }
   </script>
 </body>

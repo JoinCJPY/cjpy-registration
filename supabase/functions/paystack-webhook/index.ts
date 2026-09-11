@@ -11,7 +11,7 @@ const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY") || "";
 const FROM_EMAIL = Deno.env.get("FROM_EMAIL") || "CJpy Admissions <admissions@joincjpy.com>";
 const WHATSAPP_LINK = "https://chat.whatsapp.com/HUHzlyLvimREGt1S0GkTnm";
 const INTAKE_FORM_LINK = "https://forms.gle/UG8qKUNKtBBvu9j78";
-const SPRINT_WHATSAPP_LINK = Deno.env.get("SPRINT_WHATSAPP_LINK") || WHATSAPP_LINK;
+const SPRINT_WHATSAPP_LINK = Deno.env.get("SPRINT_WHATSAPP_LINK") || "https://chat.whatsapp.com/IGDn2yKUFVAGwlcd0fJySw";
 const SPRINT_INTAKE_FORM_LINK = Deno.env.get("SPRINT_INTAKE_FORM_LINK") || INTAKE_FORM_LINK;
 
 // Convert byte array to hex string
@@ -53,9 +53,13 @@ function generateWelcomeEmailHtml(name: string, reference: string, amount: numbe
   const cohortNotice = isSprint
     ? `This is an official status update regarding your registration for <strong>CJpy Sprint</strong> (21-Day Python Fundamentals Track).`
     : `This is an official status update regarding your registration for the <strong>CJpy 2026 Cohort 02</strong> (30-Day Python Bootcamp).`;
-  const durationLabel = isSprint ? "Duration & Format" : "Cohort Start Date";
-  const durationVal = isSprint ? "21 Days &middot; Live on Zoom (Recorded)" : "Thursday, Sept 10, 2026";
+  const durationLabel = isSprint ? "Schedule & Format" : "Cohort Start Date";
+  const durationVal = isSprint ? "21 Days &middot; Starts Wed, Sept 16, 2026 (Live on Zoom)" : "Thursday, Sept 10, 2026";
   const curriculumRow = isSprint ? `
+                <tr>
+                  <td style="color:#8b93a5;font-size:13px;border-bottom:1px solid #2a2e3b;">Schedule</td>
+                  <td style="color:#ffffff;font-size:13px;font-weight:500;text-align:right;border-bottom:1px solid #2a2e3b;">Mondays, Wednesdays &amp; Fridays (Recorded)</td>
+                </tr>
                 <tr>
                   <td style="color:#8b93a5;font-size:13px;border-bottom:1px solid #2a2e3b;">Curriculum</td>
                   <td style="color:#ffffff;font-size:13px;font-weight:500;text-align:right;border-bottom:1px solid #2a2e3b;">Python Fundamentals (Syntax, Structures, Algorithms)</td>
